@@ -9,9 +9,9 @@
 <body>
 <nav>
   <span class="logo">🧠 Memory Wiki</span>
-  <a href="../">Home</a>
-  <a href="../subjects/">Subjects</a>
-  <a href="../daily/">Daily Logs</a>
+  <a href="./">Home</a>
+  <a href="subjects/">Subjects</a>
+  <a href="daily/">Daily Logs</a>
   <div class="search-wrap">
     <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
     <div class="search-results" id="search-results"></div>
@@ -19,74 +19,91 @@
 </nav>
 <div class="container">
 
-<a href="../" class="back-link">← Home</a>
-<div class="content-page">
-<h1>All Subjects</h1>
+<div class="hero">
+  <h1>All Subjects</h1>
+  <p>9 topics — every conversation and note, organized by subject.</p>
+</div>
+
+<div class="section-title">📚 Browse by Topic</div>
 <div class="subject-grid">
-<a href="../subjects/farmdirect.html" style="text-decoration:none">
+<a href="farmdirect.html" style="text-decoration:none">
   <div class="subject-card">
     <h3>FarmDirect — Farmer-to-Consumer Marketplace</h3>
-    <p>A marketplace connecting local farmers directly with consumers. Architecture, backend logic, GCP design, Stripe payments...</p>
+    <p>A marketplace connecting local farmers directly with consumers. Architecture, backend logic, GCP design, Stripe payments, delivery orchestration.</p>
     <div class="tags"><span class="tag">project</span> <span class="tag">marketplace</span> <span class="tag">agriculture</span></div>
+    <div class="meta"><span>📄 3 notes</span> <span>💬 1 sessions</span></div>
   </div>
-</a><a href="../subjects/ai-mini-pcs-review.html" style="text-decoration:none">
+</a><a href="ai-mini-pcs-review.html" style="text-decoration:none">
   <div class="subject-card">
     <h3>Best AI Mini PCs 2026 — Hardware Reviews</h3>
-    <p>Research, review, and publication of best affordable AI Mini PCs with NPUs. Covers ASUS NUC, Geekom, Minisforum, GMKtec,...</p>
+    <p>Research, review, and publication of best affordable AI Mini PCs with NPUs. Covers ASUS NUC, Geekom, Minisforum, GMKtec, MSI.</p>
     <div class="tags"><span class="tag">hardware</span> <span class="tag">review</span> <span class="tag">AI</span></div>
+    <div class="meta"><span>📄 1 notes</span> <span>💬 1 sessions</span></div>
   </div>
-</a><a href="../subjects/wordpress-blog-setup.html" style="text-decoration:none">
+</a><a href="wordpress-blog-setup.html" style="text-decoration:none">
   <div class="subject-card">
     <h3>WordPress Blog Integration with Hermes</h3>
-    <p>Connecting freshco.tech WordPress to Hermes Agent for automated research→draft→publish pipeline. REST API, Application P...</p>
+    <p>Connecting freshco.tech WordPress to Hermes Agent for automated research→draft→publish pipeline. REST API, Application Passwords, SEO/GEO.</p>
     <div class="tags"><span class="tag">wordpress</span> <span class="tag">blog</span> <span class="tag">content</span></div>
+    <div class="meta"><span>📄 1 notes</span> <span>💬 2 sessions</span></div>
   </div>
-</a><a href="../subjects/gpu-vram-supply-chain.html" style="text-decoration:none">
+</a><a href="gpu-vram-supply-chain.html" style="text-decoration:none">
   <div class="subject-card">
     <h3>GPU, VRAM & Raw Materials Research</h3>
-    <p>Deep dive into raw materials for GPU/VRAM manufacturing and publicly traded companies on US exchanges....</p>
+    <p>Deep dive into raw materials for GPU/VRAM manufacturing and publicly traded companies on US exchanges.</p>
     <div class="tags"><span class="tag">hardware</span> <span class="tag">GPU</span> <span class="tag">supply-chain</span></div>
+    <div class="meta"><span>💬 1 sessions</span></div>
   </div>
-</a><a href="../subjects/hermes-agent-setup.html" style="text-decoration:none">
+</a><a href="hermes-agent-setup.html" style="text-decoration:none">
   <div class="subject-card">
     <h3>Hermes Agent Setup & Integrations</h3>
-    <p>Telegram integration, GitHub auth, skill installation, Obsidian sync, Hostinger email, systemd services, gateway configu...</p>
+    <p>Telegram integration, GitHub auth, skill installation, Obsidian sync, Hostinger email, systemd services, gateway configuration.</p>
     <div class="tags"><span class="tag">hermes</span> <span class="tag">setup</span> <span class="tag">telegram</span></div>
+    <div class="meta"><span>💬 4 sessions</span></div>
   </div>
-</a><a href="../subjects/context-engineering.html" style="text-decoration:none">
+</a><a href="context-engineering.html" style="text-decoration:none">
   <div class="subject-card">
     <h3>Context Engineering for LLMs</h3>
-    <p>Blog post on optimizing LLM prompts through context engineering — giving AI the right info while wasting fewer tokens....</p>
+    <p>Blog post on optimizing LLM prompts through context engineering — giving AI the right info while wasting fewer tokens.</p>
     <div class="tags"><span class="tag">AI</span> <span class="tag">LLM</span> <span class="tag">prompt-engineering</span></div>
+    <div class="meta"><span>📄 1 notes</span> <span>💬 1 sessions</span></div>
   </div>
-</a><a href="../subjects/digital-products-marketing.html" style="text-decoration:none">
+</a><a href="digital-products-marketing.html" style="text-decoration:none">
   <div class="subject-card">
     <h3>Digital Products & Marketing Strategy</h3>
-    <p>Research on top-selling digital products in 2026, digital marketing strategy, and content monetization....</p>
+    <p>Research on top-selling digital products in 2026, digital marketing strategy, and content monetization.</p>
     <div class="tags"><span class="tag">digital-products</span> <span class="tag">marketing</span> <span class="tag">business</span></div>
+    <div class="meta"><span>📄 2 notes</span> <span>💬 1 sessions</span></div>
   </div>
-</a><a href="../subjects/obsidian-vault-sync.html" style="text-decoration:none">
+</a><a href="obsidian-vault-sync.html" style="text-decoration:none">
   <div class="subject-card">
     <h3>Obsidian Vault Synchronization</h3>
-    <p>Syncing the Obsidian vault across Linux (Hermes), Windows (mastermind via Syncthing), and NAS (cloudnamedfresh via tar-o...</p>
+    <p>Syncing the Obsidian vault across Linux (Hermes), Windows (mastermind via Syncthing), and NAS (cloudnamedfresh via tar-over-SSH).</p>
     <div class="tags"><span class="tag">obsidian</span> <span class="tag">sync</span> <span class="tag">infrastructure</span></div>
+    <div class="meta"><span>💬 2 sessions</span></div>
   </div>
-</a><a href="../subjects/hostinger-email-setup.html" style="text-decoration:none">
+</a><a href="hostinger-email-setup.html" style="text-decoration:none">
   <div class="subject-card">
     <h3>Hostinger Email with Himalaya CLI</h3>
-    <p>Configuring skipclaw317@freshcoai.tech via Himalaya CLI for IMAP/SMTP email access from the terminal....</p>
+    <p>Configuring skipclaw317@freshcoai.tech via Himalaya CLI for IMAP/SMTP email access from the terminal.</p>
     <div class="tags"><span class="tag">email</span> <span class="tag">hostinger</span> <span class="tag">infrastructure</span></div>
+    <div class="meta"><span>💬 1 sessions</span></div>
   </div>
-</a></div></div></div>
+</a>
+</div>
+
+<a href="./" class="back-link" style="display:inline-block;margin-top:2rem;">← Home</a>
+
+</div>
 <footer>
   <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
-  Last updated: May 23, 2026 at 04:58 AM</p>
+  Last updated: May 23, 2026 at 07:52 AM</p>
 </footer>
 <script>
 function doSearch(q) {
   const res = document.getElementById('search-results');
   if (!q || q.length < 2) { res.classList.remove('active'); return; }
-  fetch('../search-index.json').then(r => r.json()).then(idx => {
+  fetch('search-index.json').then(r => r.json()).then(idx => {
     const ql = q.toLowerCase();
     const matches = idx.filter(item =>
       item.title.toLowerCase().includes(ql) ||
