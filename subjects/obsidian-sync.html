@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Log — 2026-05-22 — Memory Wiki</title>
+<title>Obsidian Vault Sync — Memory Wiki</title>
 <link rel="stylesheet" href="..//style.css">
 </head>
 <body>
@@ -19,8 +19,10 @@
 </nav>
 <div class="container">
 
-<a href="../daily/" class="back-link">← All Daily Logs</a>
-<div class="content-page"><h1>2026-05-22</h1><div class="session-card"><h3>Syncthing Setup for Obsidian Vault Sync</h3><p>**Goal:** Sync Obsidian vault between Hermes agent (Linux) and Windows machine (mastermind, Tailscale: `100.65.70.47`)<br><br>### Steps Taken<br>- Attempted SSH-based sync like existing NAS setup — OpenSSH unavailable on Windows<br>- Chose **Syncthing** as alternative (bidirectional, works over Tailscale)<br>- Installed Syncthing v1.30.0 on Linux via apt<br>- Configured systemd service (`syncthing@root`) for persistence<br>- Linux device ID: `T7HL47R-4AONO3M-ZK3AIXT-LUVBCTB-TM56YQ3-XDEQMEB-GDE7VH6-EIJTKAH`<br>- Windows device ID: `AFRQORX-SVDQ2CV-FFA2VC6-F7MAGVD-O2YA4LO-Y4N33WW-6LAF6PG-MJJ46QE`<br><br>### Issues Resolved<br>- Path errors on Windows (`dsing` vs `dsing512`, OneDrive path issues)<br>- Moved folder to `C:\Obsidian Vault` to avoid permissions problems<br>- Syncthing bound to Tailscale IP only (`tcp://100.114.52.106:22000`) after Docker IP clutter<br>- Pending device/folder acceptance flow — both sides needed to share<br><br>### Current State<br>- ✅ 17 files synced bidirectionally (42,813 bytes)<br>- ✅ Both devices at 100% completion<br>- ✅ Folder: `obsidian-vault` — `idle` state<br>- ✅ Auto-start on boot via systemd</p></div><div class="session-card"><h3>Other Notes</h3><p>- HTTP server for vault browsing attempted but not completed (background process issue)<br>- Model switched to DeepSeek V4 Pro during session</p></div><div class="session-card"><h3>[[Tech Stack]]</h3><p></p></div></div>
+<a href="../subjects/" class="back-link">← All Subjects</a>
+<div class="content-page"><h1>Obsidian Vault Sync</h1><div style="margin-top:0.5rem;"><span class="tag">obsidian</span><span class="tag">sync</span></div>
+<p style="color:var(--text-muted);margin-top:0.75rem;">Syncing vault across Linux, Windows (Syncthing), and NAS (tar-over-SSH).</p>
+<h2>Vault Notes (0)</h2><p style="color:var(--text-muted)">No vault notes linked yet.</p></div>
 </div>
 <footer>
   <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>

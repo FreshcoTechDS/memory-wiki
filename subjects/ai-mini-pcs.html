@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Mini PCs — Hardware Reviews — Memory Wiki</title>
+<link rel="stylesheet" href="..//style.css">
+</head>
+<body>
+<nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="..//">Home</a>
+  <a href="..//subjects/">Subjects</a>
+  <a href="..//daily/">Daily Logs</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav>
+<div class="container">
+
+<a href="../subjects/" class="back-link">← All Subjects</a>
+<div class="content-page"><h1>AI Mini PCs — Hardware Reviews</h1><div style="margin-top:0.5rem;"><span class="tag">hardware</span><span class="tag">AI</span><span class="tag">review</span></div>
+<p style="color:var(--text-muted);margin-top:0.75rem;">Best affordable AI Mini PCs with NPUs. Reviews published on freshco.tech.</p>
+<h2>Vault Notes (1)</h2><div class="session-card"><h3>📄 Best Affordable AI Mini PCs of 2026: NPU-Powered Desktops That Won't Break the Bank</h3><p style="font-size:0.8rem;color:var(--text-muted);">Best AI Mini PCs 2026 - Review.md</p><pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;"># Best Affordable AI Mini PCs of 2026: NPU-Powered Desktops That Won't Break the Bank
+
+AI PCs aren't just $3,000 laptops anymore. The best affordable AI mini PCs now pack dedicated Neural Processing Units — the same kind of hardware that powers Windows Copilot, local language models, and real-time video effects — into boxes small enough to disappear behind a monitor. And prices have dropped fast. You can get a genuinely capable AI-ready mini PC for $600. Two years ago that number would have been funny.
+
+I spent the last few weeks digging through spec sheets, benchmarks, and owner forums to find the five best affordable AI mini PCs that actually deliver on the NPU promise. No marketing fluff. Here's what's worth buying.
+
+---
+
+## The Quick List
+
+| Rank | Model | NPU Chip | NPU TOPS | Starting Price |
+|---|---|---|---|---|
+| 1 | ASUS NUC 14 Pro AI | Intel Lunar Lake | 47 | $899 |
+| 2 | Geekom A8 | AMD Strix Point | 50 | $849 |
+| 3 | Minisforum AtomMan X7 Ti | Intel Meteor Lake | 34 | $779 |
+| 4 | GMKtec NucBox K8 Plus | AMD Hawk Point | 16 | $599 |
+| 5 | MSI Cubi NUC AI | Intel Meteor Lake | 34 | $749 |
+
+---
+
+## What Makes an AI Mini PC Different?
+
+A quick detour, because the marketin</pre></div></div>
+</div>
+<footer>
+  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
+  Auto-generated: May 23, 2026 at 07:55 AM</p>
+</footer>
+<script>
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q || q.length < 2) { res.classList.remove('active'); return; }
+  fetch('..//search-index.json').then(r => r.json()).then(idx => {
+    const ql = q.toLowerCase();
+    const matches = idx.filter(item =>
+      item.title.toLowerCase().includes(ql) ||
+      (item.preview || '').toLowerCase().includes(ql) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(ql))
+    ).slice(0, 8);
+    if (matches.length === 0) {
+      res.innerHTML = '<div class="no-results">No matches found</div>';
+    } else {
+      res.innerHTML = matches.map(m =>
+        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
+      ).join('');
+    }
+    res.classList.add('active');
+  });
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
+});
+</script>
+</body>
+</html>

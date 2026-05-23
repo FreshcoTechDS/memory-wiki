@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WordPress Blog Integration — Memory Wiki</title>
+<link rel="stylesheet" href="..//style.css">
+</head>
+<body>
+<nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="..//">Home</a>
+  <a href="..//subjects/">Subjects</a>
+  <a href="..//daily/">Daily Logs</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav>
+<div class="container">
+
+<a href="../subjects/" class="back-link">← All Subjects</a>
+<div class="content-page"><h1>WordPress Blog Integration</h1><div style="margin-top:0.5rem;"><span class="tag">wordpress</span><span class="tag">blog</span><span class="tag">content</span></div>
+<p style="color:var(--text-muted);margin-top:0.75rem;">Connecting freshco.tech to Hermes for automated research→draft→publish.</p>
+<h2>Vault Notes (1)</h2><div class="session-card"><h3>📄 How to Setup WordPress with Hermes</h3><p style="font-size:0.8rem;color:var(--text-muted);">how to setup WordPress with Hermes.md</p><pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;"># How to Setup WordPress with Hermes
+
+Blueprint for connecting Hermes Agent to a WordPress blog (e.g., Hostinger-hosted) to research topics and write/publish posts autonomously.
+
+---
+
+## Phase 1 — Enable WordPress REST API
+
+On the WordPress side:
+
+1. **Confirm your site URL** — you'll need it for all API calls
+2. **Generate an Application Password**:
+   - Go to WP Admin → Users → Profile → Application Passwords
+   - Enter a name (e.g., "Hermes Agent") and click **Add New**
+   - Save the generated password — it only shows once
+   - *No plugin needed — Application Passwords are a WordPress core feature and work on Hostinger out of the box*
+3. **Verify the REST API** works by visiting: `https://yourdomain.com/wp-json/wp/v2/posts`
+4. **Check Permalinks** — ensure they are *not* set to "Plain" in Settings → Permalinks (or the REST API will return 404)
+
+---
+
+## Phase 2 — Store Credentials
+
+Store credentials in `~/.hermes/.env`:
+
+```env
+WORDPRESS_SITE_URL=https://yourdomain.com
+WORDPRESS_USERNAME=admin
+WORDPRESS_APP_PASSWORD=xxxx xxxx xxxx xxxx xxxx xxxx
+```
+
+**Auth method:** HTTP Basic Auth with `username:application-password` base64-encoded.
+
+---
+
+## Phase 3 — Blog Post Workflow (4-Stag</pre></div></div>
+</div>
+<footer>
+  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
+  Auto-generated: May 23, 2026 at 07:55 AM</p>
+</footer>
+<script>
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q || q.length < 2) { res.classList.remove('active'); return; }
+  fetch('..//search-index.json').then(r => r.json()).then(idx => {
+    const ql = q.toLowerCase();
+    const matches = idx.filter(item =>
+      item.title.toLowerCase().includes(ql) ||
+      (item.preview || '').toLowerCase().includes(ql) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(ql))
+    ).slice(0, 8);
+    if (matches.length === 0) {
+      res.innerHTML = '<div class="no-results">No matches found</div>';
+    } else {
+      res.innerHTML = matches.map(m =>
+        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
+      ).join('');
+    }
+    res.classList.add('active');
+  });
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
+});
+</script>
+</body>
+</html>

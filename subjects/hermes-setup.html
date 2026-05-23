@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hermes Agent Setup — Memory Wiki</title>
+<link rel="stylesheet" href="..//style.css">
+</head>
+<body>
+<nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="..//">Home</a>
+  <a href="..//subjects/">Subjects</a>
+  <a href="..//daily/">Daily Logs</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav>
+<div class="container">
+
+<a href="../subjects/" class="back-link">← All Subjects</a>
+<div class="content-page"><h1>Hermes Agent Setup</h1><div style="margin-top:0.5rem;"><span class="tag">hermes</span><span class="tag">setup</span><span class="tag">infrastructure</span></div>
+<p style="color:var(--text-muted);margin-top:0.75rem;">Telegram, GitHub, skills, Obsidian sync, email, gateway config.</p>
+<h2>Vault Notes (1)</h2><div class="session-card"><h3>📄 Model Pricing — Deepseek V4 Pro</h3><p style="font-size:0.8rem;color:var(--text-muted);">Projects/Model Pricing — DeepSeek V4 Pro.md</p><pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;"># Model Pricing — DeepSeek V4 Pro
+
+## Model Switched
+
+Changed Hermes Agent global default model from `google/gemini-1.5-pro-002` to `deepseek/deepseek-v4-pro` via OpenRouter.
+
+```bash
+hermes config set model.default deepseek/deepseek-v4-pro
+```
+
+Config lives at `/root/.hermes/config.yaml` and takes effect on next session restart (`/reset` or reconnect).
+
+## Pricing (via OpenRouter)
+
+| Metric | Per Token | Per 1M Tokens |
+|--------|-----------|---------------|
+| **Prompt (input)** | $0.000000435 | **$0.435** |
+| **Completion (output)** | $0.00000087 | **$0.87** |
+| **Cache read** | $0.000000003625 | **$0.0036** |
+
+- **Context window:** 1,048,576 tokens (~1M)
+- **Cache reads:** 99%+ discount vs regular prompt tokens
+- **Competitor comparison:**
+  - DeepSeek V4 Flash (non-free): $0.10 / $0.20 per 1M tokens
+  - DeepSeek V4 Flash (free): $0 / $0 per 1M tokens
+
+## Session Renamed
+
+Session was renamed from `20260522_214604_e9827441` to **Farmers app**:
+
+```bash
+hermes sessions rename 20260522_214604_e9827441 "Farmers app"
+```
+
+## Related
+
+- [[FarmDirect]] — Full architecture and GTM plan
+- [[FarmDirect - Backend Logic]] — Backend logic deep dive</pre></div></div>
+</div>
+<footer>
+  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
+  Auto-generated: May 23, 2026 at 07:55 AM</p>
+</footer>
+<script>
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q || q.length < 2) { res.classList.remove('active'); return; }
+  fetch('..//search-index.json').then(r => r.json()).then(idx => {
+    const ql = q.toLowerCase();
+    const matches = idx.filter(item =>
+      item.title.toLowerCase().includes(ql) ||
+      (item.preview || '').toLowerCase().includes(ql) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(ql))
+    ).slice(0, 8);
+    if (matches.length === 0) {
+      res.innerHTML = '<div class="no-results">No matches found</div>';
+    } else {
+      res.innerHTML = matches.map(m =>
+        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
+      ).join('');
+    }
+    res.classList.add('active');
+  });
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
+});
+</script>
+</body>
+</html>
