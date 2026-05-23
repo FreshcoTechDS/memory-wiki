@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daily Log — 2026-05-19 — Memory Wiki</title>
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <nav>
   <span class="logo">🧠 Memory Wiki</span>
-  <a href="/">Home</a>
-  <a href="/subjects/">Subjects</a>
-  <a href="/daily/">Daily Logs</a>
+  <a href="../">Home</a>
+  <a href="../subjects/">Subjects</a>
+  <a href="../daily/">Daily Logs</a>
   <div class="search-wrap">
     <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
     <div class="search-results" id="search-results"></div>
@@ -19,7 +19,7 @@
 </nav>
 <div class="container">
 
-<a href="/daily/" class="back-link">← All Daily Logs</a>
+<a href="../daily/" class="back-link">← All Daily Logs</a>
 <div class="content-page">
 <h1>2026-05-19</h1>
 <div class="session-card" id="20260519_085554_ef757831">
@@ -35,7 +35,7 @@
 function doSearch(q) {
   const res = document.getElementById('search-results');
   if (!q || q.length < 2) { res.classList.remove('active'); return; }
-  fetch('/search-index.json').then(r => r.json()).then(idx => {
+  fetch('../search-index.json').then(r => r.json()).then(idx => {
     const ql = q.toLowerCase();
     const matches = idx.filter(item =>
       item.title.toLowerCase().includes(ql) ||
