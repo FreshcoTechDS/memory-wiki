@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Logs — Memory Wiki</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="/">Home</a>
+  <a href="/subjects/">Subjects</a>
+  <a href="/daily/">Daily Logs</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav>
+<div class="container">
+
+<a href="/" class="back-link">← Home</a>
+<div class="content-page">
+<h1>Daily Logs</h1>
+<div class="daily-list">
+<a href="/daily/2026-05-22.html" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-22</div>
+    <h3>FarmDirect Architecture & Backend Logic; Syncthing Vault Sync & Session Infrastructure</h3>
+    <p>2 sessions this day</p>
+  </div>
+</a><a href="/daily/2026-05-21.html" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-21</div>
+    <h3>Model & System Check</h3>
+    <p>1 session this day</p>
+  </div>
+</a><a href="/daily/2026-05-20.html" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-20</div>
+    <h3>AI Mini PC Blog Post & Context Engineering</h3>
+    <p>1 session this day</p>
+  </div>
+</a><a href="/daily/2026-05-19.html" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-19</div>
+    <h3>Email, Gateway & WordPress Pipeline</h3>
+    <p>1 session this day</p>
+  </div>
+</a><a href="/daily/2026-05-18.html" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-18</div>
+    <h3>Skills Installation & Wiki Init</h3>
+    <p>1 session this day</p>
+  </div>
+</a><a href="/daily/2026-05-16.html" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-16</div>
+    <h3>GPU & VRAM Raw Materials Deep Dive</h3>
+    <p>1 session this day</p>
+  </div>
+</a><a href="/daily/2026-05-15.html" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-15</div>
+    <h3>GitHub Auth & Digital Products Research</h3>
+    <p>1 session this day</p>
+  </div>
+</a><a href="/daily/2026-05-12.html" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-12</div>
+    <h3>Telegram Integration & GitHub Setup; Initial Greeting & Hermes Setup</h3>
+    <p>2 sessions this day</p>
+  </div>
+</a></div></div></div>
+<footer>
+  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
+  Last updated: May 23, 2026 at 04:58 AM</p>
+</footer>
+<script>
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q || q.length < 2) { res.classList.remove('active'); return; }
+  fetch('/search-index.json').then(r => r.json()).then(idx => {
+    const ql = q.toLowerCase();
+    const matches = idx.filter(item =>
+      item.title.toLowerCase().includes(ql) ||
+      (item.preview || '').toLowerCase().includes(ql) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(ql))
+    ).slice(0, 8);
+    if (matches.length === 0) {
+      res.innerHTML = '<div class="no-results">No matches found</div>';
+    } else {
+      res.innerHTML = matches.map(m =>
+        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
+      ).join('');
+    }
+    res.classList.add('active');
+  });
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
+});
+</script>
+</body>
+</html>

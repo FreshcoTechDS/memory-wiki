@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FarmDirect — Farmer-to-Consumer Marketplace — Memory Wiki</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="/">Home</a>
+  <a href="/subjects/">Subjects</a>
+  <a href="/daily/">Daily Logs</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav>
+<div class="container">
+
+<a href="/subjects/" class="back-link">← All Subjects</a>
+<div class="content-page subject-header">
+  <h1>FarmDirect — Farmer-to-Consumer Marketplace</h1>
+  <div style="margin-top:0.5rem;"><span class="tag">project</span> <span class="tag">marketplace</span> <span class="tag">agriculture</span> <span class="tag">google-cloud</span></div>
+  <p style="color:var(--text-muted);margin-top:0.75rem;">A marketplace connecting local farmers directly with consumers. Architecture, backend logic, GCP design, Stripe payments, delivery orchestration.</p>
+</div>
+
+<div class="content-page">
+  <h2>Vault Notes (3)</h2>
+  <div class="session-card">
+  <h3>📄 Model Pricing — Deepseek V4 Pro</h3>
+  <p style="font-size:0.8rem;color:var(--text-muted);">Projects/Model Pricing — DeepSeek V4 Pro.md</p>
+  <pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;">1|---
+     2|tags:
+     3|  - hermes
+     4|  - config
+     5|  - ai-models
+     6|  - pricing
+     7|created: 2026-05-22
+     8|---
+     9|
+    10|# Model Pricing — DeepSeek V4 Pro
+    11|
+    12|## Model Switched
+    13|
+    14|Changed Hermes Agent global default model from `google/gemini-1.5-pro-002` to `deepseek/deepseek-v4-pro` via OpenRouter.
+    15|
+    16|```bash
+    17|hermes config set model.default deepseek/deepseek-v4-pro
+    18|```
+    19|
+    20|Config lives at `/root/.hermes/config.yaml` and takes effect on next session restart (`/reset` or reconnect).
+    21|
+    22|## Pricing (via OpenRouter)
+    23|
+    24|| Metric | Per Token | Per 1M Tokens |
+    25||--------|-----------|---------------|
+    26|| **Prompt (input)** | $0.000000435 | **$0.435** |
+    27|| **Completion (ou</pre>
+</div><div class="session-card">
+  <h3>📄 Farmdirect</h3>
+  <p style="font-size:0.8rem;color:var(--text-muted);">Projects/FarmDirect.md</p>
+  <pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;">1|---
+     2|tags:
+     3|  - project
+     4|  - marketplace
+     5|  - agriculture
+     6|  - google-cloud
+     7|  - startup
+     8|created: 2026-05-22
+     9|status: planning
+    10|---
+    11|
+    12|# FarmDirect — Farmer-to-Consumer Marketplace
+    13|
+    14|## Overview
+    15|
+    16|A marketplace connecting local farmers directly with consumers, handling listings, orders, payments, and eventually delivery. Farmers list their harvest; consumers browse and buy. The platform handles payments via Stripe Connect (escrow), real-time chat via Firestore, and delivery orchestration as a Phase 2 plugin.
+    17|
+    18|## Architecture (Google Cloud — us-central1)
+    19|
+    20|### Serverless-First on Cloud Run
+    21|
+    22|Every backend service runs as its own Cloud Run container:
+    23|
+</pre>
+</div><div class="session-card">
+  <h3>📄 Farmdirect   Backend Logic</h3>
+  <p style="font-size:0.8rem;color:var(--text-muted);">Projects/FarmDirect - Backend Logic.md</p>
+  <pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;">1|---
+     2|tags:
+     3|  - project
+     4|  - marketplace
+     5|  - agriculture
+     6|  - backend
+     7|  - architecture
+     8|created: 2026-05-23
+     9|parent: "[[FarmDirect]]"
+    10|---
+    11|
+    12|# FarmDirect — Backend Logic & Service Architecture
+    13|
+    14|## DoorDash Pattern → FarmDirect Translation
+    15|
+    16|| DoorDash | FarmDirect | Key Difference |
+    17||----------|-----------|----------------|
+    18|| Restaurant lists menu | Farmer lists **harvest inventory** | Finite, seasonal, spoils — not made-to-order |
+    19|| Customer orders meal | Customer orders **produce by weight/unit** | Bulk + consumer portions coexist |
+    20|| Restaurant accepts & cooks | Farmer accepts & **harvests/packs** | Time-to-ready varies (hours, not minutes) |
+    21|| Dasher pick</pre>
+</div>
+
+  <h2>Related Sessions (1)</h2>
+  <div class="session-card" id="20260522_214604_e9827441">
+  <div class="s-date">2026-05-22 <span class="s-source">via telegram</span></div>
+  <h3>FarmDirect Architecture & Backend Logic</h3>
+  <p>Built the complete FarmDirect architecture on Google Cloud:<br>• GCP architecture diagram (Cloud Run, Pub/Sub, Cloud SQL, Firestore, Memorystore, Stripe Connect)<br>• Full backend logic — order state machine, inventory reservation with row locks, Stripe Connect payment flow, delivery matching algorithm, cancellation handler, pre-order seasonality handling<br>• 9 Pub/Sub event types with publisher/subscriber catalog<br>• Go pseudocode for all critical backend flows<br>• Marketing strategy: 3-phase go-to-market plan<br>• Architecture HTML diagram saved to /root/farmdirect-architecture.html<br>• Plan document emailed to skipclaw317@freshcoai.tech<br>• Model pricing check — switched to DeepSeek V4 Pro as global default</p>
+</div>
+</div>
+</div>
+<footer>
+  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
+  Last updated: May 23, 2026 at 04:58 AM</p>
+</footer>
+<script>
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q || q.length < 2) { res.classList.remove('active'); return; }
+  fetch('/search-index.json').then(r => r.json()).then(idx => {
+    const ql = q.toLowerCase();
+    const matches = idx.filter(item =>
+      item.title.toLowerCase().includes(ql) ||
+      (item.preview || '').toLowerCase().includes(ql) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(ql))
+    ).slice(0, 8);
+    if (matches.length === 0) {
+      res.innerHTML = '<div class="no-results">No matches found</div>';
+    } else {
+      res.innerHTML = matches.map(m =>
+        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
+      ).join('');
+    }
+    res.classList.add('active');
+  });
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
+});
+</script>
+</body>
+</html>

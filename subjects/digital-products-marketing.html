@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Products & Marketing Strategy — Memory Wiki</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="/">Home</a>
+  <a href="/subjects/">Subjects</a>
+  <a href="/daily/">Daily Logs</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav>
+<div class="container">
+
+<a href="/subjects/" class="back-link">← All Subjects</a>
+<div class="content-page subject-header">
+  <h1>Digital Products & Marketing Strategy</h1>
+  <div style="margin-top:0.5rem;"><span class="tag">digital-products</span> <span class="tag">marketing</span> <span class="tag">business</span></div>
+  <p style="color:var(--text-muted);margin-top:0.75rem;">Research on top-selling digital products in 2026, digital marketing strategy, and content monetization.</p>
+</div>
+
+<div class="content-page">
+  <h2>Vault Notes (2)</h2>
+  <div class="session-card">
+  <h3>📄 Digital Product Sells 2026</h3>
+  <p style="font-size:0.8rem;color:var(--text-muted);">Digital Product Sells 2026.md</p>
+  <pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;">1|# Digital Product Sells 2026
+     2|
+     3|*Researched May 14, 2026 — Digital product transactions are up 70% in the last two years.*
+     4|
+     5|## Tier 1 — Highest Demand & Profit
+     6|
+     7|### Online Courses
+     8|- $22.8B market in 2024, still soaring
+     9|- Teach anything — coding, marketing, cooking, fitness
+    10|- Earning potential: **$500–$10K+/mo**
+    11|- Pairs well with community support and mentorship
+    12|
+    13|### AI Products
+    14|- Custom GPTs, AI assistants, prompt packs
+    15|- The newest gold rush category in digital products
+    16|- Earning potential: **$100–$5K+/mo**
+    17|
+    18|### Paid Communities & Memberships
+    19|- Recurring monthly revenue via Discord, Slack, or dedicated platforms
+    20|- Exclusive content, networking, and ongoing v</pre>
+</div><div class="session-card">
+  <h3>📄 My Interest</h3>
+  <p style="font-size:0.8rem;color:var(--text-muted);">My Interest.md</p>
+  <pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;">1|# My Interest
+     2|
+     3|I am interested in digital marketing and selling digital products. I would like to review hardware and computer components.</pre>
+</div>
+
+  <h2>Related Sessions (1)</h2>
+  <div class="session-card" id="20260514_225720_99117ab2">
+  <div class="s-date">2026-05-15 <span class="s-source">via telegram</span></div>
+  <h3>GitHub Auth & Digital Products Research</h3>
+  <p>Account setup and market research:<br>• GitHub authentication configured (FreshcoTechDS, ID: 106840770)<br>• Git credential helper set to store, identity configured<br>• Created Obsidian vault at /root/Documents/Obsidian Vault<br>• Digital products market research:<br>  Online courses ($22.8B market), AI products (custom GPTs, prompt packs),<br>  Paid communities/memberships, coaching, eBooks, templates<br>• Digital product transactions up 70% in two years<br>• Noted interest in hardware/computer component reviews</p>
+</div>
+</div>
+</div>
+<footer>
+  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
+  Last updated: May 23, 2026 at 04:58 AM</p>
+</footer>
+<script>
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q || q.length < 2) { res.classList.remove('active'); return; }
+  fetch('/search-index.json').then(r => r.json()).then(idx => {
+    const ql = q.toLowerCase();
+    const matches = idx.filter(item =>
+      item.title.toLowerCase().includes(ql) ||
+      (item.preview || '').toLowerCase().includes(ql) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(ql))
+    ).slice(0, 8);
+    if (matches.length === 0) {
+      res.innerHTML = '<div class="no-results">No matches found</div>';
+    } else {
+      res.innerHTML = matches.map(m =>
+        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
+      ).join('');
+    }
+    res.classList.add('active');
+  });
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
+});
+</script>
+</body>
+</html>

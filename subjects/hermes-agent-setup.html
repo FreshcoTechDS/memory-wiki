@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hermes Agent Setup & Integrations — Memory Wiki</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="/">Home</a>
+  <a href="/subjects/">Subjects</a>
+  <a href="/daily/">Daily Logs</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav>
+<div class="container">
+
+<a href="/subjects/" class="back-link">← All Subjects</a>
+<div class="content-page subject-header">
+  <h1>Hermes Agent Setup & Integrations</h1>
+  <div style="margin-top:0.5rem;"><span class="tag">hermes</span> <span class="tag">setup</span> <span class="tag">telegram</span> <span class="tag">infrastructure</span></div>
+  <p style="color:var(--text-muted);margin-top:0.75rem;">Telegram integration, GitHub auth, skill installation, Obsidian sync, Hostinger email, systemd services, gateway configuration.</p>
+</div>
+
+<div class="content-page">
+  <h2>Vault Notes (0)</h2>
+  <p style="color:var(--text-muted)">No vault notes linked yet.</p>
+
+  <h2>Related Sessions (4)</h2>
+  <div class="session-card" id="20260512_160656_02f60809">
+  <div class="s-date">2026-05-12 <span class="s-source">via telegram</span></div>
+  <h3>Telegram Integration & GitHub Setup</h3>
+  <p>First integration session:<br>• Telegram bot token updated in ~/.hermes/.env<br>• Allowed user ID: 8638494218<br>• Gateway restarted — Telegram connected via polling mode<br>• GitHub auth flow planned: Personal Access Token, git config<br>• User directed to generate Classic PAT with repo + workflow scopes</p>
+</div><div class="session-card" id="20260512_154154_64c429">
+  <div class="s-date">2026-05-12 <span class="s-source">via cli</span></div>
+  <h3>Initial Greeting & Hermes Setup</h3>
+  <p>First contact:<br>• Initial Hermes Agent connection established<br>• Telegram integration walkthrough discussed<br>• Gateway diagnostic: crash loop due to invalid bot token<br>• Token replacement, gateway restart, successful connection<br>• User ID 8638494218 verified and allowed</p>
+</div><div class="session-card" id="20260519_085554_ef757831">
+  <div class="s-date">2026-05-19 <span class="s-source">via telegram</span></div>
+  <h3>Email, Gateway & WordPress Pipeline</h3>
+  <p>Infrastructure setup day:<br>• Connected Hostinger email (skipclaw317@freshcoai.tech) via Himalaya CLI<br>• IMAP: imap.hostinger.com:993, SMTP: smtp.hostinger.com:587<br>• Installed Hermes gateway as systemd service (survives reboots)<br>• Set up Obsidian → NAS sync (cloudnamedfresh, 100.75.115.18)<br>• Cron job: daily tar-over-SSH sync at 4 AM ET<br>• WordPress REST API connection attempted — 401 error (role permissions issue)<br>• Saved WordPress setup guide to vault</p>
+</div><div class="session-card" id="20260522_142146_1cb0e959">
+  <div class="s-date">2026-05-22 <span class="s-source">via telegram</span></div>
+  <h3>Syncthing Vault Sync & Session Infrastructure</h3>
+  <p>Set up cross-device Obsidian vault sync:<br>• Installed Syncthing for real-time sync to Windows machine 'mastermind' (100.65.70.47)<br>• Device ID: T7HL47R-4AONO3M-...<br>• Windows vault path: C:\Obsidian Vault<br>• Synced 17 files, 42,813 bytes — 100% complete<br>• Created session summary cron job (d1daca444f78, every 12h)<br>• Resolved OneDrive permission issues on Windows side<br>• Verified Tailscale connectivity between all devices</p>
+</div>
+</div>
+</div>
+<footer>
+  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
+  Last updated: May 23, 2026 at 04:58 AM</p>
+</footer>
+<script>
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q || q.length < 2) { res.classList.remove('active'); return; }
+  fetch('/search-index.json').then(r => r.json()).then(idx => {
+    const ql = q.toLowerCase();
+    const matches = idx.filter(item =>
+      item.title.toLowerCase().includes(ql) ||
+      (item.preview || '').toLowerCase().includes(ql) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(ql))
+    ).slice(0, 8);
+    if (matches.length === 0) {
+      res.innerHTML = '<div class="no-results">No matches found</div>';
+    } else {
+      res.innerHTML = matches.map(m =>
+        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
+      ).join('');
+    }
+    res.classList.add('active');
+  });
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
+});
+</script>
+</body>
+</html>

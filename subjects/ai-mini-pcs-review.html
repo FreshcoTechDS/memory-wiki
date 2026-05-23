@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best AI Mini PCs 2026 — Hardware Reviews — Memory Wiki</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="/">Home</a>
+  <a href="/subjects/">Subjects</a>
+  <a href="/daily/">Daily Logs</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav>
+<div class="container">
+
+<a href="/subjects/" class="back-link">← All Subjects</a>
+<div class="content-page subject-header">
+  <h1>Best AI Mini PCs 2026 — Hardware Reviews</h1>
+  <div style="margin-top:0.5rem;"><span class="tag">hardware</span> <span class="tag">review</span> <span class="tag">AI</span> <span class="tag">mini-pc</span></div>
+  <p style="color:var(--text-muted);margin-top:0.75rem;">Research, review, and publication of best affordable AI Mini PCs with NPUs. Covers ASUS NUC, Geekom, Minisforum, GMKtec, MSI.</p>
+</div>
+
+<div class="content-page">
+  <h2>Vault Notes (1)</h2>
+  <div class="session-card">
+  <h3>📄 Best Ai Mini Pcs 2026   Review</h3>
+  <p style="font-size:0.8rem;color:var(--text-muted);">Best AI Mini PCs 2026 - Review.md</p>
+  <pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;">1|# Best Affordable AI Mini PCs of 2026: NPU-Powered Desktops That Won't Break the Bank
+     2|
+     3|AI PCs aren't just $3,000 laptops anymore. The best affordable AI mini PCs now pack dedicated Neural Processing Units — the same kind of hardware that powers Windows Copilot, local language models, and real-time video effects — into boxes small enough to disappear behind a monitor. And prices have dropped fast. You can get a genuinely capable AI-ready mini PC for $600. Two years ago that number would have been funny.
+     4|
+     5|I spent the last few weeks digging through spec sheets, benchmarks, and owner forums to find the five best affordable AI mini PCs that actually deliver on the NPU promise. No marketing fluff. Here's what's worth buying.
+     6|
+     7|---
+     8|
+     9|## The </pre>
+</div>
+
+  <h2>Related Sessions (1)</h2>
+  <div class="session-card" id="20260520_045103_9915f82f">
+  <div class="s-date">2026-05-20 <span class="s-source">via telegram</span></div>
+  <h3>AI Mini PC Blog Post & Context Engineering</h3>
+  <p>Content creation marathon:<br>• Published 'Best Affordable AI Mini PCs of 2026' blog post (Post ID 1159)<br>• Wrote 'LLM Context Engineering' blog post (Post ID 1166, 1,813 words)<br>• Created SEO/GEO blog writing skill for consistent quality<br>• Fixed HTML table rendering in WordPress<br>• Resolved slug conflicts (stale draft cleanup)<br>• Email delivery via Himalaya CLI to dsingleton@freshco.tech<br>• Network security deep-dive: exfiltration payloads, DNS tunneling, Pi-hole defense<br>• Initiated local AI research (LM Studio + Ollama) — in progress</p>
+</div>
+</div>
+</div>
+<footer>
+  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
+  Last updated: May 23, 2026 at 04:58 AM</p>
+</footer>
+<script>
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q || q.length < 2) { res.classList.remove('active'); return; }
+  fetch('/search-index.json').then(r => r.json()).then(idx => {
+    const ql = q.toLowerCase();
+    const matches = idx.filter(item =>
+      item.title.toLowerCase().includes(ql) ||
+      (item.preview || '').toLowerCase().includes(ql) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(ql))
+    ).slice(0, 8);
+    if (matches.length === 0) {
+      res.innerHTML = '<div class="no-results">No matches found</div>';
+    } else {
+      res.innerHTML = matches.map(m =>
+        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
+      ).join('');
+    }
+    res.classList.add('active');
+  });
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
+});
+</script>
+</body>
+</html>

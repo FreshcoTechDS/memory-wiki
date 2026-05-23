@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Wiki — Memory Wiki</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="/">Home</a>
+  <a href="/subjects/">Subjects</a>
+  <a href="/daily/">Daily Logs</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav>
+<div class="container">
+
+<div class="hero">
+  <h1>Memory Wiki</h1>
+  <p>Every subject we've explored, every day we've worked together — searchable and organized.</p>
+</div>
+
+<div class="section-title">📚 Subjects</div>
+<div class="subject-grid">
+<a href="/subjects/farmdirect.html" style="text-decoration:none">
+  <div class="subject-card">
+    <h3>FarmDirect — Farmer-to-Consumer Marketplace</h3>
+    <p>A marketplace connecting local farmers directly with consumers. Architecture, backend logic, GCP design, Stripe payments, delivery orchestration.</p>
+    <div class="tags"><span class="tag">project</span> <span class="tag">marketplace</span> <span class="tag">agriculture</span></div>
+    <div class="meta"><span>📄 3 notes</span> <span>💬 1 sessions</span></div>
+  </div>
+</a><a href="/subjects/ai-mini-pcs-review.html" style="text-decoration:none">
+  <div class="subject-card">
+    <h3>Best AI Mini PCs 2026 — Hardware Reviews</h3>
+    <p>Research, review, and publication of best affordable AI Mini PCs with NPUs. Covers ASUS NUC, Geekom, Minisforum, GMKtec, MSI.</p>
+    <div class="tags"><span class="tag">hardware</span> <span class="tag">review</span> <span class="tag">AI</span></div>
+    <div class="meta"><span>📄 1 notes</span> <span>💬 1 sessions</span></div>
+  </div>
+</a><a href="/subjects/wordpress-blog-setup.html" style="text-decoration:none">
+  <div class="subject-card">
+    <h3>WordPress Blog Integration with Hermes</h3>
+    <p>Connecting freshco.tech WordPress to Hermes Agent for automated research→draft→publish pipeline. REST API, Application Passwords, SEO/GEO.</p>
+    <div class="tags"><span class="tag">wordpress</span> <span class="tag">blog</span> <span class="tag">content</span></div>
+    <div class="meta"><span>📄 1 notes</span> <span>💬 2 sessions</span></div>
+  </div>
+</a><a href="/subjects/gpu-vram-supply-chain.html" style="text-decoration:none">
+  <div class="subject-card">
+    <h3>GPU, VRAM & Raw Materials Research</h3>
+    <p>Deep dive into raw materials for GPU/VRAM manufacturing and publicly traded companies on US exchanges.</p>
+    <div class="tags"><span class="tag">hardware</span> <span class="tag">GPU</span> <span class="tag">supply-chain</span></div>
+    <div class="meta"><span>💬 1 sessions</span></div>
+  </div>
+</a><a href="/subjects/hermes-agent-setup.html" style="text-decoration:none">
+  <div class="subject-card">
+    <h3>Hermes Agent Setup & Integrations</h3>
+    <p>Telegram integration, GitHub auth, skill installation, Obsidian sync, Hostinger email, systemd services, gateway configuration.</p>
+    <div class="tags"><span class="tag">hermes</span> <span class="tag">setup</span> <span class="tag">telegram</span></div>
+    <div class="meta"><span>💬 4 sessions</span></div>
+  </div>
+</a><a href="/subjects/context-engineering.html" style="text-decoration:none">
+  <div class="subject-card">
+    <h3>Context Engineering for LLMs</h3>
+    <p>Blog post on optimizing LLM prompts through context engineering — giving AI the right info while wasting fewer tokens.</p>
+    <div class="tags"><span class="tag">AI</span> <span class="tag">LLM</span> <span class="tag">prompt-engineering</span></div>
+    <div class="meta"><span>📄 1 notes</span> <span>💬 1 sessions</span></div>
+  </div>
+</a><a href="/subjects/digital-products-marketing.html" style="text-decoration:none">
+  <div class="subject-card">
+    <h3>Digital Products & Marketing Strategy</h3>
+    <p>Research on top-selling digital products in 2026, digital marketing strategy, and content monetization.</p>
+    <div class="tags"><span class="tag">digital-products</span> <span class="tag">marketing</span> <span class="tag">business</span></div>
+    <div class="meta"><span>📄 2 notes</span> <span>💬 1 sessions</span></div>
+  </div>
+</a><a href="/subjects/obsidian-vault-sync.html" style="text-decoration:none">
+  <div class="subject-card">
+    <h3>Obsidian Vault Synchronization</h3>
+    <p>Syncing the Obsidian vault across Linux (Hermes), Windows (mastermind via Syncthing), and NAS (cloudnamedfresh via tar-over-SSH).</p>
+    <div class="tags"><span class="tag">obsidian</span> <span class="tag">sync</span> <span class="tag">infrastructure</span></div>
+    <div class="meta"><span>💬 2 sessions</span></div>
+  </div>
+</a><a href="/subjects/hostinger-email-setup.html" style="text-decoration:none">
+  <div class="subject-card">
+    <h3>Hostinger Email with Himalaya CLI</h3>
+    <p>Configuring skipclaw317@freshcoai.tech via Himalaya CLI for IMAP/SMTP email access from the terminal.</p>
+    <div class="tags"><span class="tag">email</span> <span class="tag">hostinger</span> <span class="tag">infrastructure</span></div>
+    <div class="meta"><span>💬 1 sessions</span></div>
+  </div>
+</a>
+</div>
+
+<div class="section-title">📅 Recent Daily Logs  <a href="/daily/" style="font-size:0.8rem;font-weight:400;">View all →</a></div>
+<div class="daily-list">
+<a href="/daily/2026-05-22.html#20260522_214604_e9827441" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-22</div>
+    <h3>FarmDirect Architecture & Backend Logic</h3>
+    <p>Built the complete FarmDirect architecture on Google Cloud:...</p>
+  </div>
+</a><a href="/daily/2026-05-22.html#20260522_142146_1cb0e959" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-22</div>
+    <h3>Syncthing Vault Sync & Session Infrastructure</h3>
+    <p>Set up cross-device Obsidian vault sync:...</p>
+  </div>
+</a><a href="/daily/2026-05-21.html#20260521_093014_2d6c7b18" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-21</div>
+    <h3>Model & System Check</h3>
+    <p>System verification and model check:...</p>
+  </div>
+</a><a href="/daily/2026-05-20.html#20260520_045103_9915f82f" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-20</div>
+    <h3>AI Mini PC Blog Post & Context Engineering</h3>
+    <p>Content creation marathon:...</p>
+  </div>
+</a><a href="/daily/2026-05-19.html#20260519_085554_ef757831" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-19</div>
+    <h3>Email, Gateway & WordPress Pipeline</h3>
+    <p>Infrastructure setup day:...</p>
+  </div>
+</a><a href="/daily/2026-05-18.html#20260518_113840_635018dd" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-18</div>
+    <h3>Skills Installation & Wiki Init</h3>
+    <p>Superpowers skills installed:...</p>
+  </div>
+</a><a href="/daily/2026-05-16.html#20260516_085956_e5276be7" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-16</div>
+    <h3>GPU & VRAM Raw Materials Deep Dive</h3>
+    <p>Comprehensive hardware supply chain research:...</p>
+  </div>
+</a><a href="/daily/2026-05-15.html#20260514_225720_99117ab2" style="text-decoration:none">
+  <div class="daily-entry">
+    <div class="date">2026-05-15</div>
+    <h3>GitHub Auth & Digital Products Research</h3>
+    <p>Account setup and market research:...</p>
+  </div>
+</a>
+</div>
+</div>
+<footer>
+  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
+  Last updated: May 23, 2026 at 04:58 AM</p>
+</footer>
+<script>
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q || q.length < 2) { res.classList.remove('active'); return; }
+  fetch('/search-index.json').then(r => r.json()).then(idx => {
+    const ql = q.toLowerCase();
+    const matches = idx.filter(item =>
+      item.title.toLowerCase().includes(ql) ||
+      (item.preview || '').toLowerCase().includes(ql) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(ql))
+    ).slice(0, 8);
+    if (matches.length === 0) {
+      res.innerHTML = '<div class="no-results">No matches found</div>';
+    } else {
+      res.innerHTML = matches.map(m =>
+        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
+      ).join('');
+    }
+    res.classList.add('active');
+  });
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
+});
+</script>
+</body>
+</html>
