@@ -22,7 +22,25 @@
 <a href="../subjects/" class="back-link">← All Subjects</a>
 <div class="content-page"><h1>Hermes Agent Setup</h1><div style="margin-top:0.5rem;"><span class="tag">hermes</span><span class="tag">setup</span><span class="tag">infrastructure</span></div>
 <p style="color:var(--text-muted);margin-top:0.75rem;">Telegram, GitHub, skills, Obsidian sync, email, gateway config.</p>
-<h2>Vault Notes (1)</h2><div class="session-card"><h3>📄 Model Pricing — Deepseek V4 Pro</h3><p style="font-size:0.8rem;color:var(--text-muted);">Projects/Model Pricing — DeepSeek V4 Pro.md</p><pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;"># Model Pricing — DeepSeek V4 Pro
+<h2>Vault Notes (2)</h2><div class="session-card"><h3>📄 Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent</h3><p style="font-size:0.8rem;color:var(--text-muted);">Memory OS - 6-Layer Open-Source Memory Stack for Hermes Agent.md</p><pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;"># Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent
+
+**Source:** [MarkTechPost — June 1, 2026](https://www.marktechpost.com/2026/06/01/meet-memory-os-a-6-layer-open-source-memory-stack-built-on-top-of-hermes-agent/)  
+**Author:** Michal Sutter  
+**Repository:** [ClaudioDrews/Memory-OS](https://github.com/ClaudioDrews/Memory-OS) (MIT License)  
+**Developer:** Claudio Drews (@ClaudioDrews25)
+
+## Overview
+
+Hermes Agent already remembers across sessions with curated memory files and full-text session search. But a new community project — **Memory OS** — argues built-in memory is too shallow for serious work. It stacks **six memory layers** onto Hermes, adding a vector database, structured facts, and an auto-curated knowledge wiki.
+
+Memory OS is not a Hermes plugin you toggle on. It's a **layered system that sits beside Hermes Agent's own memory**, keeping the built-in layers and adding four more above them. The full stack runs locally using Docker, Qdrant, Redis, and Python 3.11+.
+
+## The Six Layers
+
+| Layer | Name | Description |
+|-------|------|-------------|
+| 1 | **Workspace** | Holds `MEMORY.md`, `USER.md`, `CREATIVE.md` — injected into system prompt each turn |
+| 2 </pre></div><div class="session-card"><h3>📄 Model Pricing — Deepseek V4 Pro</h3><p style="font-size:0.8rem;color:var(--text-muted);">Projects/Model Pricing — DeepSeek V4 Pro.md</p><pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;"># Model Pricing — DeepSeek V4 Pro
 
 ## Model Switched
 
@@ -63,7 +81,7 @@ hermes sessions rename 20260522_214604_e9827441 "Farmers app"
 </div>
 <footer>
   <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
-  Auto-generated: June 02, 2026 at 06:00 AM</p>
+  Auto-generated: June 03, 2026 at 06:00 AM</p>
 </footer>
 <script>
 function doSearch(q) {
