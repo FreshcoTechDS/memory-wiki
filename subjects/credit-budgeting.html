@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Credit & Budgeting — Memory Wiki</title>
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -20,67 +20,32 @@
 <div class="container">
 
 <a href="../subjects/" class="back-link">← All Subjects</a>
-<div class="content-page subject-header">
-  <h1>Credit & Budgeting</h1>
-  <div style="margin-top:0.5rem;"><span class="tag">digital-products</span> <span class="tag">investing</span> <span class="tag">finance</span></div>
-  <p style="color:var(--text-muted);margin-top:0.75rem;">Domain audit for credit repair and budgeting digital products. High-intent keywords, trending product types, and affiliate monetization strategies.</p>
-</div>
+<div class="content-page subject-header"><h1>Credit & Budgeting</h1><div style="margin-top:0.5rem;"><span class="tag">digital-products</span> <span class="tag">investing</span> <span class="tag">finance</span></div><p style="color:var(--text-muted);margin-top:0.75rem;">Domain audit for credit repair and budgeting digital products. High-intent keywords, trending product types, and affiliate monetization strategies.</p></div>
 <div class="content-page">
-  <h2>Vault Notes (1)</h2>
-  <div class="session-card">
-  <h3>📄 Research Domain Credit Budgeting</h3>
-  <p style="font-size:0.8rem;color:var(--text-muted);">queries/research-domain-credit-budgeting.md</p>
-  <pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;">     1|---
-     2|title: Research-Domain-Credit-Budgeting
-     3|created: 2026-06-05
-     4|updated: 2026-06-05
-     5|type: query
-     6|tags: [digital-products, investing, reference]
-     7|sources: []
-     8|confidence: high
-     9|---
-    10|
-    11|# Research Results: Credit & Budgeting Domain
-    12|
-    13|## 1. High-Intent Keywords
-    14|- **Credit:** "Credit repair dispute letters", "Credit score tracker spreadsheet", "Credit building roadmap", "Debt payoff plan".
-    15|- **Budgeting:** "Zero-based budget template", "Debt snowball tracker", "Monthly expense dashboard", "Cash stuffing envelopes printables", "Financial goal planner".
-    16|
-    17|## 2. Trending Product Types
-    18|- **Spreadsheets:** Automated debt trackers, net worth calculators, monthly dashboards (Google She</pre>
-</div>
-  <h2>Related Sessions (0)</h2>
-  <p style="color:var(--text-muted)">No sessions recorded yet.</p>
-</div>
-</div>
+<h2>Vault Notes (1)</h2>
+<div class="session-card">
+  <h3>📄 research-domain-credit-budgeting</h3><p style="font-size:0.8rem;color:var(--text-muted);">queries/research-domain-credit-budgeting.md</p>
+  <pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;"></pre></div>
+<h2>Related Sessions (0)</h2>
+<p style="color:var(--text-muted)">No sessions recorded yet.</p>
+</div></div>
 <footer>
   <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
-  Last updated: June 05, 2026 at 10:57 PM</p>
+  Last updated: June 05, 2026 at 11:12 PM</p>
 </footer>
 <script>
-function doSearch(q) {
-  const res = document.getElementById('search-results');
-  if (!q || q.length < 2) { res.classList.remove('active'); return; }
-  fetch('../search-index.json').then(r => r.json()).then(idx => {
-    const ql = q.toLowerCase();
-    const matches = idx.filter(item =>
-      item.title.toLowerCase().includes(ql) ||
-      (item.preview || '').toLowerCase().includes(ql) ||
-      (item.tags || []).some(t => t.toLowerCase().includes(ql))
-    ).slice(0, 8);
-    if (matches.length === 0) {
-      res.innerHTML = '<div class="no-results">No matches found</div>';
-    } else {
-      res.innerHTML = matches.map(m =>
-        '<a href="' + m.url + '"><div class="match-title">' + m.title + '</div><div class="match-preview">' + (m.preview || '').substring(0, 100) + '</div></a>'
-      ).join('');
-    }
+function doSearch(q){
+  const res=document.getElementById('search-results');
+  if(!q||q.length<2){res.classList.remove('active');return;}
+  fetch('../search-index.json').then(r=>r.json()).then(idx=>{
+    const ql=q.toLowerCase();
+    const matches=idx.filter(item=>item.title.toLowerCase().includes(ql)||(item.preview||'').toLowerCase().includes(ql)||(item.tags||[]).some(t=>t.toLowerCase().includes(ql))).slice(0,8);
+    if(matches.length===0){res.innerHTML='<div class="no-results">No matches found</div>';}
+    else{res.innerHTML=matches.map(m=>'<a href="'+m.url+'"><div class="match-title">'+m.title+'</div><div class="match-preview">'+(m.preview||'').substring(0,100)+'</div></a>').join('');}
     res.classList.add('active');
   });
 }
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
-});
+document.addEventListener('click',(e)=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active');});
 </script>
 </body>
 </html>

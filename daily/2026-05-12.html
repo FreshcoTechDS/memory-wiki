@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Daily Log — 2026-05-12 — Memory Wiki</title>
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -18,47 +18,24 @@
   </div>
 </nav>
 <div class="container">
-
-<a href="../daily/" class="back-link">← All Daily Logs</a>
-<div class="content-page">
-<h1>2026-05-12</h1>
-<div class="session-card" id="20260512_160656_02f60809">
-  <div class="s-date">2026-05-12 <span class="s-source">via telegram</span></div>
-  <h3>Telegram Integration & GitHub Setup</h3>
-  <p>First integration session:<br>• Telegram bot token updated in ~/.hermes/.env<br>• Allowed user ID: 8638494218<br>• Gateway restarted — Telegram connected via polling mode<br>• GitHub auth flow planned: Personal Access Token, git config<br>• User directed to generate Classic PAT with repo + workflow scopes</p>
-</div><div class="session-card" id="20260512_154154_64c429">
-  <div class="s-date">2026-05-12 <span class="s-source">via cli</span></div>
-  <h3>Initial Greeting & Hermes Setup</h3>
-  <p>First contact:<br>• Initial Hermes Agent connection established<br>• Telegram integration walkthrough discussed<br>• Gateway diagnostic: crash loop due to invalid bot token<br>• Token replacement, gateway restart, successful connection<br>• User ID 8638494218 verified and allowed</p>
-</div></div></div>
+<a href="../daily/" class="back-link">← All Daily Logs</a><div class="content-page"><h1>2026-05-12</h1><div class="session-card" id="20260512_154154_64c429"><div class="s-date">2026-05-12 <span class="s-source">via cli</span></div><h3>Telegram Bot Setup for Hermes</h3><p>Set up Telegram integration for Hermes Agent. Updated bot token in .env file after old token caused gateway crash-loop. Restarted gateway — Telegram connected in polling mode successfully.</p></div></div></div>
 <footer>
   <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
-  Last updated: May 23, 2026 at 04:58 AM</p>
+  Last updated: June 05, 2026 at 11:12 PM</p>
 </footer>
 <script>
-function doSearch(q) {
-  const res = document.getElementById('search-results');
-  if (!q || q.length < 2) { res.classList.remove('active'); return; }
-  fetch('../search-index.json').then(r => r.json()).then(idx => {
-    const ql = q.toLowerCase();
-    const matches = idx.filter(item =>
-      item.title.toLowerCase().includes(ql) ||
-      (item.preview || '').toLowerCase().includes(ql) ||
-      (item.tags || []).some(t => t.toLowerCase().includes(ql))
-    ).slice(0, 8);
-    if (matches.length === 0) {
-      res.innerHTML = '<div class="no-results">No matches found</div>';
-    } else {
-      res.innerHTML = matches.map(m =>
-        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
-      ).join('');
-    }
+function doSearch(q){
+  const res=document.getElementById('search-results');
+  if(!q||q.length<2){res.classList.remove('active');return;}
+  fetch('../search-index.json').then(r=>r.json()).then(idx=>{
+    const ql=q.toLowerCase();
+    const matches=idx.filter(item=>item.title.toLowerCase().includes(ql)||(item.preview||'').toLowerCase().includes(ql)||(item.tags||[]).some(t=>t.toLowerCase().includes(ql))).slice(0,8);
+    if(matches.length===0){res.innerHTML='<div class="no-results">No matches found</div>';}
+    else{res.innerHTML=matches.map(m=>'<a href="'+m.url+'"><div class="match-title">'+m.title+'</div><div class="match-preview">'+(m.preview||'').substring(0,100)+'</div></a>').join('');}
     res.classList.add('active');
   });
 }
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
-});
+document.addEventListener('click',(e)=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active');});
 </script>
 </body>
 </html>
