@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic AI — Memory Wiki</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="../">Home</a>
+  <a href="../subjects/">Subjects</a>
+  <a href="../daily/">Daily Logs</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav>
+<div class="container">
+
+<a href="../subjects/" class="back-link">← All Subjects</a>
+<div class="content-page subject-header">
+  <h1>Agentic AI</h1>
+  <div style="margin-top:0.5rem;"><span class="tag">ai-ml</span> <span class="tag">digital-products</span> <span class="tag">agent</span></div>
+  <p style="color:var(--text-muted);margin-top:0.75rem;">Research on autonomous AI agents, multi-agent architectures, and no-code automation. Product opportunities for 'How-To' guides and affiliate partnerships.</p>
+</div>
+<div class="content-page">
+  <h2>Vault Notes (1)</h2>
+  <div class="session-card">
+  <h3>📄 Research Domain Agentic Ai</h3>
+  <p style="font-size:0.8rem;color:var(--text-muted);">queries/research-domain-agentic-ai.md</p>
+  <pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;">     1|---
+     2|title: Research-Domain-Agentic-AI
+     3|created: 2026-06-05
+     4|updated: 2026-06-05
+     5|type: query
+     6|tags: [ai-ml, digital-products, ideas]
+     7|sources: []
+     8|confidence: high
+     9|---
+    10|
+    11|# Agentic AI Research: Product & Affiliate Opportunities
+    12|
+    13|## Market Pain Point
+    14|The primary market gap is the "Integration Gap": users understand AI tools exist but struggle to chain them into autonomous, reliable business processes.
+    15|
+    16|## High-Value "How-To" E-Book Topics
+    17|1. **The Autonomous Stack**: Building AI agents for Customer Support & Lead Gen.
+    18|   - *Target:* Small businesses needing low-code automation.
+    19|2. **Agentic Workflows**: A blueprint for automating SaaS operations.
+    20|   - *Target:*</pre>
+</div>
+  <h2>Related Sessions (1)</h2>
+  <div class="session-card" id="20260602_181729_0bcb31d9">
+  <div class="s-date">2026-06-02 <span class="s-source">via telegram</span></div>
+  <h3>Memory OS Research — Agentic AI Memory Architecture</h3>
+  <p>Explored Memory OS, a 6-layer open-source memory stack for AI agents. Discussed how autonomous agents manage persistent memory with workspace, sessions, vector DB, and auto-curated wikis.</p>
+</div>
+</div>
+</div>
+<footer>
+  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
+  Last updated: June 05, 2026 at 10:57 PM</p>
+</footer>
+<script>
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q || q.length < 2) { res.classList.remove('active'); return; }
+  fetch('../search-index.json').then(r => r.json()).then(idx => {
+    const ql = q.toLowerCase();
+    const matches = idx.filter(item =>
+      item.title.toLowerCase().includes(ql) ||
+      (item.preview || '').toLowerCase().includes(ql) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(ql))
+    ).slice(0, 8);
+    if (matches.length === 0) {
+      res.innerHTML = '<div class="no-results">No matches found</div>';
+    } else {
+      res.innerHTML = matches.map(m =>
+        '<a href="' + m.url + '"><div class="match-title">' + m.title + '</div><div class="match-preview">' + (m.preview || '').substring(0, 100) + '</div></a>'
+      ).join('');
+    }
+    res.classList.add('active');
+  });
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
+});
+</script>
+</body>
+</html>
