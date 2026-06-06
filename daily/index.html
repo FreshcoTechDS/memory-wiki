@@ -2,40 +2,57 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daily Logs — Memory Wiki</title>
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav>
   <span class="logo">🧠 Memory Wiki</span>
-  <a href="../">Home</a>
-  <a href="../subjects/">Subjects</a>
-  <a href="../daily/">Daily Logs</a>
+  <a href="./">Home</a>
+  <a href="./subjects/">Subjects</a>
+  <a href="./daily/">Daily Logs</a>
   <div class="search-wrap">
     <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
     <div class="search-results" id="search-results"></div>
   </div>
 </nav>
 <div class="container">
-<a href="../" class="back-link">← Home</a><div class="content-page"><h1>Daily Logs</h1><div class="daily-list"><a href="2026-06-02.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-06-02</div><h3>Memory OS Research — Agentic AI Memory Architecture</h3><p>1 session this day</p></div></a><a href="2026-05-25.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-05-25</div><h3>Ryzen AI Halo Research + Hermes Setup</h3><p>1 session this day</p></div></a><a href="2026-05-22.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-05-22</div><h3>Syncthing Setup — Obsidian Vault on Windows; WordPress Blog Post + SEO/GEO Skill</h3><p>2 sessions this day</p></div></a><a href="2026-05-21.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-05-21</div><h3>Architecture Diagrams + Financial Calculators</h3><p>1 session this day</p></div></a><a href="2026-05-20.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-05-20</div><h3>AI Mini PCs Blog Post — WordPress Publishing</h3><p>1 session this day</p></div></a><a href="2026-05-19.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-05-19</div><h3>WordPress Setup + NAS Vault Sync + Email</h3><p>1 session this day</p></div></a><a href="2026-05-18.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-05-18</div><h3>Skills Installation + Wiki Integration + WordPress Blueprint</h3><p>1 session this day</p></div></a><a href="2026-05-14.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-05-14</div><h3>Digital Product Research — Top Sellers 2026</h3><p>1 session this day</p></div></a><a href="2026-05-12.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-05-12</div><h3>Telegram Bot Setup for Hermes</h3><p>1 session this day</p></div></a></div></div></div>
+<div class="hero"><h1>Daily Logs</h1><p>4 days of work — every session, chronologically.</p></div>
+<div class="section-title">📅 All Days</div><div class="daily-list"><a href="2026-05-25 Ai workstation Summary.html" style="text-decoration:none">
+  <div class="daily-entry"><div class="date">2026-05-25 Ai workstation Summary</div><h3>Goals Accomplished · Links & References</h3><p>2 sections</p></div></a><a href="2026-05-23.html" style="text-decoration:none">
+  <div class="daily-entry"><div class="date">2026-05-23</div><h3>FarmDirect Backend Architecture · Memory Wiki Website · Model & Pricing · Cross-References</h3><p>4 sections</p></div></a><a href="2026-05-22.html" style="text-decoration:none">
+  <div class="daily-entry"><div class="date">2026-05-22</div><h3>Syncthing Setup for Obsidian Vault Sync · Other Notes · [[Tech Stack]]</h3><p>3 sections</p></div></a><a href="2026-05-14.html" style="text-decoration:none">
+  <div class="daily-entry"><div class="date">2026-05-14</div><h3>GitHub · Obsidian · Notes Created</h3><p>3 sections</p></div></a></div>
+<a href="./" class="back-link" style="display:inline-block;margin-top:2rem;">← Home</a></div>
 <footer>
   <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
-  Last updated: June 05, 2026 at 11:12 PM</p>
+  Auto-generated: June 06, 2026 at 06:00 AM</p>
 </footer>
 <script>
-function doSearch(q){
-  const res=document.getElementById('search-results');
-  if(!q||q.length<2){res.classList.remove('active');return;}
-  fetch('../search-index.json').then(r=>r.json()).then(idx=>{
-    const ql=q.toLowerCase();
-    const matches=idx.filter(item=>item.title.toLowerCase().includes(ql)||(item.preview||'').toLowerCase().includes(ql)||(item.tags||[]).some(t=>t.toLowerCase().includes(ql))).slice(0,8);
-    if(matches.length===0){res.innerHTML='<div class="no-results">No matches found</div>';}
-    else{res.innerHTML=matches.map(m=>'<a href="'+m.url+'"><div class="match-title">'+m.title+'</div><div class="match-preview">'+(m.preview||'').substring(0,100)+'</div></a>').join('');}
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q || q.length < 2) { res.classList.remove('active'); return; }
+  fetch('./search-index.json').then(r => r.json()).then(idx => {
+    const ql = q.toLowerCase();
+    const matches = idx.filter(item =>
+      item.title.toLowerCase().includes(ql) ||
+      (item.preview || '').toLowerCase().includes(ql) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(ql))
+    ).slice(0, 8);
+    if (matches.length === 0) {
+      res.innerHTML = '<div class="no-results">No matches found</div>';
+    } else {
+      res.innerHTML = matches.map(m =>
+        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
+      ).join('');
+    }
     res.classList.add('active');
   });
 }
-document.addEventListener('click',(e)=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active');});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
+});
 </script>
 </body>
 </html>

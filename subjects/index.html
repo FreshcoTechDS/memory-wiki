@@ -2,40 +2,62 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>All Subjects — Memory Wiki</title>
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav>
   <span class="logo">🧠 Memory Wiki</span>
-  <a href="../">Home</a>
-  <a href="../subjects/">Subjects</a>
-  <a href="../daily/">Daily Logs</a>
+  <a href="./">Home</a>
+  <a href="./subjects/">Subjects</a>
+  <a href="./daily/">Daily Logs</a>
   <div class="search-wrap">
     <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
     <div class="search-results" id="search-results"></div>
   </div>
 </nav>
 <div class="container">
-<a href="../" class="back-link">← Home</a><div class="content-page"><h1>All Subjects</h1><div class="subject-grid"><a href="hermes-config.html" style="text-decoration:none"><div class="subject-card"><h3>Hermes Agent Configuration</h3><p>Setup and configuration of the Hermes Agent — Telegram, gateway, skills, model selection, and platform integrations....</p><div class="tags"><span class="tag">hermes</span> <span class="tag">configuration</span> <span class="tag">setup</span></div></div></a><a href="digital-products.html" style="text-decoration:none"><div class="subject-card"><h3>Digital Products</h3><p>Research on selling digital goods — eBooks, templates, financial planners, and digital art. Market analysis and product ...</p><div class="tags"><span class="tag">digital-products</span> <span class="tag">marketing</span> <span class="tag">ecommerce</span></div></div></a><a href="credit-budgeting.html" style="text-decoration:none"><div class="subject-card"><h3>Credit & Budgeting</h3><p>Domain audit for credit repair and budgeting digital products. High-intent keywords, trending product types, and affilia...</p><div class="tags"><span class="tag">digital-products</span> <span class="tag">investing</span> <span class="tag">finance</span></div></div></a><a href="agentic-ai.html" style="text-decoration:none"><div class="subject-card"><h3>Agentic AI</h3><p>Research on autonomous AI agents, multi-agent architectures, and no-code automation. Product opportunities for 'How-To' ...</p><div class="tags"><span class="tag">ai-ml</span> <span class="tag">digital-products</span> <span class="tag">agent</span></div></div></a><a href="autonomous-stack.html" style="text-decoration:none"><div class="subject-card"><h3>Autonomous Stack E-Book</h3><p>5-module outline for 'The Autonomous Stack' — an eBook teaching small businesses to build AI agents for customer support...</p><div class="tags"><span class="tag">digital-products</span> <span class="tag">ai-ml</span> <span class="tag">ebook</span></div></div></a><a href="wordpress-blog.html" style="text-decoration:none"><div class="subject-card"><h3>WordPress Blog (freshco.tech)</h3><p>WordPress integration for automated blog publishing. REST API setup, credential management, AI Mini PC reviews, content ...</p><div class="tags"><span class="tag">wordpress</span> <span class="tag">blogging</span> <span class="tag">seo</span></div></div></a><a href="syncthing-obsidian.html" style="text-decoration:none"><div class="subject-card"><h3>Obsidian Vault Sync</h3><p>Syncthing setup for bidirectional Obsidian vault sync between Linux server and Windows 'mastermind' over Tailscale. NAS ...</p><div class="tags"><span class="tag">obsidian</span> <span class="tag">syncthing</span> <span class="tag">tailscale</span></div></div></a><a href="farmdirect-app.html" style="text-decoration:none"><div class="subject-card"><h3>FarmDirect Marketplace App</h3><p>Google Cloud architecture for a farmer-to-customer mobile marketplace app. Backend, networking, and infrastructure desig...</p><div class="tags"><span class="tag">projects</span> <span class="tag">agriculture</span> <span class="tag">cloud</span></div></div></a><a href="financial-calculators.html" style="text-decoration:none"><div class="subject-card"><h3>Financial Calculator Tools</h3><p>Interactive HTML calculators for credit cards and mortgages with Chart.js visualizations. Hosted on GitHub Pages....</p><div class="tags"><span class="tag">projects</span> <span class="tag">finance</span> <span class="tag">tools</span></div></div></a></div></div></div>
+<div class="hero"><h1>All Subjects</h1><p>9 topics — every conversation and note, organized by subject.</p></div>
+<div class="section-title">📚 Browse by Topic</div><div class="subject-grid"><a href="farmdirect.html" style="text-decoration:none">
+  <div class="subject-card"><h3>FarmDirect — Marketplace</h3><p>Farmer-to-consumer marketplace. Architecture, backend logic, GCP, Stripe, delivery.</p><div class="tags"><span class="tag">project</span><span class="tag">marketplace</span><span class="tag">agriculture</span></div><div class="meta"><span>📄 2 notes</span></div></div></a><a href="ai-mini-pcs.html" style="text-decoration:none">
+  <div class="subject-card"><h3>AI Mini PCs — Hardware Reviews</h3><p>Best affordable AI Mini PCs with NPUs. Reviews published on freshco.tech.</p><div class="tags"><span class="tag">hardware</span><span class="tag">AI</span><span class="tag">review</span></div><div class="meta"><span>📄 1 notes</span></div></div></a><a href="wordpress-blog.html" style="text-decoration:none">
+  <div class="subject-card"><h3>WordPress Blog Integration</h3><p>Connecting freshco.tech to Hermes for automated research→draft→publish.</p><div class="tags"><span class="tag">wordpress</span><span class="tag">blog</span><span class="tag">content</span></div><div class="meta"><span>📄 1 notes</span></div></div></a><a href="gpu-supply-chain.html" style="text-decoration:none">
+  <div class="subject-card"><h3>GPU & VRAM Supply Chain</h3><p>Raw materials for GPU/VRAM manufacturing and publicly traded companies.</p><div class="tags"><span class="tag">hardware</span><span class="tag">GPU</span><span class="tag">investing</span></div><div class="meta"><span>📄 0 notes</span></div></div></a><a href="hermes-setup.html" style="text-decoration:none">
+  <div class="subject-card"><h3>Hermes Agent Setup</h3><p>Telegram, GitHub, skills, Obsidian sync, email, gateway config.</p><div class="tags"><span class="tag">hermes</span><span class="tag">setup</span><span class="tag">infrastructure</span></div><div class="meta"><span>📄 2 notes</span></div></div></a><a href="context-engineering.html" style="text-decoration:none">
+  <div class="subject-card"><h3>Context Engineering</h3><p>Optimizing LLM prompts — giving AI the right info, wasting fewer tokens.</p><div class="tags"><span class="tag">AI</span><span class="tag">LLM</span><span class="tag">blog</span></div><div class="meta"><span>📄 1 notes</span></div></div></a><a href="digital-products.html" style="text-decoration:none">
+  <div class="subject-card"><h3>Digital Products & Marketing</h3><p>Top-selling digital products 2026, marketing strategy, monetization.</p><div class="tags"><span class="tag">digital-products</span><span class="tag">marketing</span></div><div class="meta"><span>📄 3 notes</span></div></div></a><a href="obsidian-sync.html" style="text-decoration:none">
+  <div class="subject-card"><h3>Obsidian Vault Sync</h3><p>Syncing vault across Linux, Windows (Syncthing), and NAS (tar-over-SSH).</p><div class="tags"><span class="tag">obsidian</span><span class="tag">sync</span></div><div class="meta"><span>📄 0 notes</span></div></div></a><a href="hostinger-email.html" style="text-decoration:none">
+  <div class="subject-card"><h3>Hostinger Email Setup</h3><p>Configuring skipclaw317@freshcoai.tech via Himalaya CLI.</p><div class="tags"><span class="tag">email</span><span class="tag">infrastructure</span></div><div class="meta"><span>📄 0 notes</span></div></div></a></div>
+<a href="./" class="back-link" style="display:inline-block;margin-top:2rem;">← Home</a></div>
 <footer>
   <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
-  Last updated: June 05, 2026 at 11:12 PM</p>
+  Auto-generated: June 06, 2026 at 06:00 AM</p>
 </footer>
 <script>
-function doSearch(q){
-  const res=document.getElementById('search-results');
-  if(!q||q.length<2){res.classList.remove('active');return;}
-  fetch('../search-index.json').then(r=>r.json()).then(idx=>{
-    const ql=q.toLowerCase();
-    const matches=idx.filter(item=>item.title.toLowerCase().includes(ql)||(item.preview||'').toLowerCase().includes(ql)||(item.tags||[]).some(t=>t.toLowerCase().includes(ql))).slice(0,8);
-    if(matches.length===0){res.innerHTML='<div class="no-results">No matches found</div>';}
-    else{res.innerHTML=matches.map(m=>'<a href="'+m.url+'"><div class="match-title">'+m.title+'</div><div class="match-preview">'+(m.preview||'').substring(0,100)+'</div></a>').join('');}
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q || q.length < 2) { res.classList.remove('active'); return; }
+  fetch('./search-index.json').then(r => r.json()).then(idx => {
+    const ql = q.toLowerCase();
+    const matches = idx.filter(item =>
+      item.title.toLowerCase().includes(ql) ||
+      (item.preview || '').toLowerCase().includes(ql) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(ql))
+    ).slice(0, 8);
+    if (matches.length === 0) {
+      res.innerHTML = '<div class="no-results">No matches found</div>';
+    } else {
+      res.innerHTML = matches.map(m =>
+        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
+      ).join('');
+    }
     res.classList.add('active');
   });
 }
-document.addEventListener('click',(e)=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active');});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
+});
 </script>
 </body>
 </html>
