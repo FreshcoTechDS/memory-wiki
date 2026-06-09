@@ -22,11 +22,39 @@
 <a href="../subjects/" class="back-link">← All Subjects</a>
 <div class="content-page"><h1>Obsidian Vault Sync</h1><div style="margin-top:0.5rem;"><span class="tag">obsidian</span><span class="tag">sync</span></div>
 <p style="color:var(--text-muted);margin-top:0.75rem;">Syncing vault across Linux, Windows (Syncthing), and NAS (tar-over-SSH).</p>
-<h2>Vault Notes (0)</h2><p style="color:var(--text-muted)">No vault notes linked yet.</p></div>
+<h2>Vault Notes (1)</h2><div class="session-card"><h3>📄 Syncthing Troubleshooting Guide</h3><p style="font-size:0.8rem;color:var(--text-muted);">concepts/syncthing-troubleshooting-guide.md</p><pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;"># Syncthing Troubleshooting Guide
+
+## Setup
+- **Server:** `100.114.52.106:22000`, device ID `T7HL47R-...`
+- **Windows (mastermind):** `100.74.69.32`, device ID `AFRQORX-...`
+- **Folder:** `obsidian-vault` → server: `/root/Documents/Obsidian Vault`, Windows: `C:\Obsidian Vault`
+
+## Common Issues & Fixes
+
+### 1. NordVPN Blocks Connection
+**Symptom:** Tailscale shows "active" but Syncthing says "Disconnected"
+**Fix:** Disable NordVPN, or set up split tunneling to exclude `syncthing.exe` and `tailscale.exe`
+
+### 2. Port 22000 Blocked
+**Symptom:** `lastSeen: never`, `connected=False`
+**Fix:** Windows Defender Firewall → Inbound Rule → TCP 22000 → Private networks only
+
+### 3. QUIC Listener Warning
+**Symptom:** `quic://0.0.0.0:22000: bind: Only one usage...`
+**Fix:** Settings → Connections → blank out QUIC Listen Addresses. Harmless otherwise.
+
+### 4. Case Conflict (Projects vs projects)
+**Symptom:** "remote uses different upper or lowercase characters"
+**Fix:** Consolidate into one case (lowercase preferred). Merge files, delete duplicate directory.
+
+### 5. GUI Not Accessible
+**Fix:** Bind to `127.0.0.1:8384` for local-only access. Use `0.0.0.0:8384` for remote.
+
+### 6. Tailscale IP Cha</pre></div></div>
 </div>
 <footer>
   <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
-  Auto-generated: June 08, 2026 at 06:00 AM</p>
+  Auto-generated: June 09, 2026 at 06:00 AM</p>
 </footer>
 <script>
 function doSearch(q) {
