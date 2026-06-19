@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Image & Video Generation — Local AI — Memory Wiki</title><link rel="stylesheet" href="../style.css"></head><body><nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="../">Home</a>
+  <a href="../subjects/">Subjects</a>
+  <a href="../daily/">Daily</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav><div class="container"><a href="../subjects/" class="back-link">&larr; All Subjects</a><div class="content-page subject-header"><h1>Image & Video Generation — Local AI</h1><div style="margin-top:.5rem"><span class="tag">AI</span> <span class="tag">image-generation</span> <span class="tag">video-generation</span> <span class="tag">local-ai</span> <span class="tag">vram</span></div><p style="color:var(--text-muted);margin-top:.75rem">Run FLUX.1-dev (Midjourney-quality), Wan 2.2-14B (Sora-quality video), LTX-Video 2.3 (30-60s clips), Stable Diffusion 3.5, HunyuanVideo 1.5, CogVideoX-5B, Mochi 1 locally on AMD Strix Halo. VRAM requirements, generation speeds, ComfyUI setup, and memory tier recommendations.</p></div><div class="content-page"><h2>Vault Notes (5)</h2><div class="session-card"><h3>Image & Video Generation Models for Local AI PCs</h3><p style="font-size:.8rem;color:var(--text-muted)">image-video-gen-models-vram.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
+# Image & Video Generation Models for Local AI PCs
+
+Comprehensive guide to running image and video generation models locally on **AMD Strix Halo systems** (Ryzen AI Max+ 395, Radeon 8060S 40 CU, 256 GB/s unified memory).
+
+&gt; **Key difference from LLMs:** These models need GPU compute (not just memory bandwidth). The 8060S iGPU is roughly **RTX 4060 laptop** class in raw compute — capable but not a datacenter GPU. Generation times will be longer than cloud services, but you own the pipeline and pay $0 per image.
+
+**Runner: ComfyUI** is the standard for local image/video gen. Supports all these models via custom nodes. **Diffusers** (HuggingFace) for Python pipelines.
+
+---
+
+## ⚡ Image Generation Models (Top Picks)
+
+### 1. **FLUX.1-dev** 🔥 *(Black Forest Labs)*
+
+| Metric | Value |
+|---|---|
+|</pre></div><div class="session-card"><h3>1. System Persona & Core Objective</h3><p style="font-size:.8rem;color:var(--text-muted)">Agent Skill Profile Master Multi-Agent Application Architect.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
+Agent Skill Profile: Master Multi-Agent Application Architect
+**ID:** `master_architect_orchestrator`  
+**Target Architecture:** Optimized for Hierarchical Multi-Agent Execution Systems (e.g., Hermes Agent, OpenClaw).
+
+---
+
+## 1. System Persona & Core Objective
+[cite_start]The agent acts as the Lead Software Architect and Multi-Agent Orchestrator[cite: 3]. [cite_start]Its primary objective is to transform application concepts into stable, secure, and scalable software blueprints [cite: 4][cite_start], design the complete technical workflow[cite: 5], and explicitly delegate execution boundaries to specialized sub-agents. [cite_start]This orchestration eliminates structural fragmentation, prevents production critical bugs [cite: 4][cite_start], and enforces strict organization-wide engineer</pre></div><div class="session-card"><h3>Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent</h3><p style="font-size:.8rem;color:var(--text-muted)">Memory OS - 6-Layer Open-Source Memory Stack for Hermes Agent.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
+# Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent
+
+**Source:** [MarkTechPost — June 1, 2026](https://www.marktechpost.com/2026/06/01/meet-memory-os-a-6-layer-open-source-memory-stack-built-on-top-of-hermes-agent/)  
+**Author:** Michal Sutter  
+**Repository:** [ClaudioDrews/Memory-OS](https://github.com/ClaudioDrews/Memory-OS) (MIT License)  
+**Developer:** Claudio Drews (@ClaudioDrews25)
+
+## Overview
+
+Hermes Agent already remembers across sessions with curated memory files and full-text session search. But a new community project — **Memory OS** — argues built-in memory is too shallow for serious work. It stacks **six memory layers** onto Hermes, adding a vector database, structured facts, and an auto-curated knowledge wiki.
+
+Memory OS is not a Hermes plugin you toggle on.</pre></div><div class="session-card"><h3>Local LLM Models for AI Mini PCs — Memory Tier Guide</h3><p style="font-size:.8rem;color:var(--text-muted)">llm-models-by-vram-tier.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
+# Local LLM Models for AI Mini PCs — Memory Tier Guide
+
+Comprehensive guide to running LLMs locally on AMD Strix Halo systems (Ryzen AI Max+ 395) with unified LPDDR5X-8000 memory at **256 GB/s bandwidth**. Covers the four key memory tiers: **32GB, 64GB, 96GB, and 128GB**.
+
+&gt; **Scope:** GGUF quantization via llama.cpp / Ollama / LM Studio. Vulkan/ROCm backend. All sizes approximate — actual GGUF files vary by tokenizer, vocabulary, and architecture.
+
+---
+
+## ⚡ Quick Reference: Quantization Sizes
+
+| Quantization | Size Formula | Quality | Best For |
+|---|---|---|---|
+| **Q4_K_M** | ~0.55 GB per 1B params | Very good (95%+ of FP16) | Daily driver, best balance |
+| **Q5_K_M** | ~0.65 GB per 1B params | Excellent | When you have headroom |
+| **Q8_0** | ~1.0 GB per 1B params | Near-lossless | C</pre></div><div class="session-card"><h3>Agentic AI Research: Product & Affiliate Opportunities</h3><p style="font-size:.8rem;color:var(--text-muted)">queries/research-domain-agentic-ai.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
+# Agentic AI Research: Product & Affiliate Opportunities
+
+## Market Pain Point
+The primary market gap is the "Integration Gap": users understand AI tools exist but struggle to chain them into autonomous, reliable business processes.
+
+## High-Value "How-To" E-Book Topics
+1. **The Autonomous Stack**: Building AI agents for Customer Support & Lead Gen.
+   - *Target:* Small businesses needing low-code automation.
+2. **Agentic Workflows**: A blueprint for automating SaaS operations.
+   - *Target:* SaaS operators struggling with manual data reporting.
+3. **From Prompt to Process**: Mastering multi-agent orchestration.
+   - *Target:* Advanced users ready for swarm/multi-agent architectures (e.g., CrewAI, LangGraph).
+
+## High-Authority Affiliate Sources
+- **Make.com**: Visual workflow automation </pre></div><h2>Related Sessions (1)</h2><div class="session-card" id="2026-06-18"><div class="s-date">2026-06-18<span class="s-source"> via telegram</span></div><h3>Local AI Image & Video Gen + LLM Research</h3><p>Researched 10 image/video gen models for Strix Halo: Wan 2.2-14B (Sora-quality, 16-37GB VRAM), LTX-Video 2.3 (30-60s clips, 12GB), FLUX.1-dev (Midjourney-quality images, 16-33GB), SD 3.5 Large/Medium, HunyuanVideo 1.5, CogVideoX-5B, Mochi 1. Created LLM models guide covering Llama 4 Scout (18 t/s), DeepSeek R1 distillation, Qwen 3, Mistral Large 2, Command R+. 64GB identified as sweet spot for both text LLMs and creative workloads. Fixed model config to deepseek-v4-pro.</p></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 19, 2026 at 03:12 AM</p></footer><script>
+function doSearch(q){var r=document.getElementById('search-results');if(!q||q.length<2){r.classList.remove('active');return}
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{var ql=q.toLowerCase();
+var m=idx.filter(i=>i.title.toLowerCase().includes(ql)||(i.preview||'').toLowerCase().includes(ql)||(i.tags||[]).some(t=>t.toLowerCase().includes(ql))).slice(0,8);
+if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+else r.innerHTML=m.map(i=>'<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(i.preview||'').substring(0,100)+'</div></a>').join('');
+r.classList.add('active')})}
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
+</script></body></html>

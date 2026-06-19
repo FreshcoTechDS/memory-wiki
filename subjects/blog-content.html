@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Blog Content & WordPress Publishing — Memory Wiki</title><link rel="stylesheet" href="../style.css"></head><body><nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="../">Home</a>
+  <a href="../subjects/">Subjects</a>
+  <a href="../daily/">Daily</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav><div class="container"><a href="../subjects/" class="back-link">&larr; All Subjects</a><div class="content-page subject-header"><h1>Blog Content & WordPress Publishing</h1><div style="margin-top:.5rem"><span class="tag">blog</span> <span class="tag">WordPress</span> <span class="tag">SEO</span> <span class="tag">content</span></div><p style="color:var(--text-muted);margin-top:.75rem">SEO/GEO-optimized blog posts: AI mini PCs, context engineering, local AI guides. WordPress publishing workflow and draft management on freshco.tech.</p></div><div class="content-page"><h2>Vault Notes (2)</h2><div class="session-card"><h3>The Future of Local AI is Small: Why the AMD Ryzen AI Halo Changes Everything</h3><p style="font-size:.8rem;color:var(--text-muted)">Ryzen AI Halo Blog Post.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
+# The Future of Local AI is Small: Why the AMD Ryzen AI Halo Changes Everything
+
+The era of relying solely on massive, sluggish cloud clusters for AI is coming to an end. We are standing on the precipice of a revolution in **local AI**, where the most powerful models run right on your desktop, with zero latency and complete privacy. While the industry has been waiting for a hero, AMD has stepped up to the plate. The upcoming **Ryzen AI Halo**—a dedicated, high-performance **AI mini pc**—isn't just a new piece of hardware; it’s a bold statement that the desktop is once again the center of the computing world.
+
+## Shattering the Memory Bottleneck
+For years, local enthusiasts have struggled with the "memory wall." Running modern large language models (LLMs) requires massive, high-bandwidth m</pre></div><div class="session-card"><h3>Blog Outline: AMD Ryzen AI Halo – The $4,000 AI Development Powerhouse</h3><p style="font-size:.8rem;color:var(--text-muted)">Ryzen AI Halo Blog Outline.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
+# Blog Outline: AMD Ryzen AI Halo – The $4,000 AI Development Powerhouse
+
+**Target Site:** freshco.tech
+**Category:** AI, Tech Hardware, Workstations
+**Goal:** Inform developers and tech enthusiasts about AMD's high-end AI mini-PC.
+
+## 1. Introduction
+- The shift toward local AI development.
+- Announcement hook: Dr. Lisa Su's CES 2026 tease and the June pre-order details.
+- Why "Ryzen AI Halo" marks a new era for the ROCm ecosystem.
+
+## 2. Hardware Breakdown: What’s Under the Hood?
+- High-level specs based on the "Halo" silicon (Unified memory architecture).
+- The significance of the integrated NPU and high-bandwidth memory.
+- Comparison: Why spend $3,999 on a Mini-PC vs. building a desktop?
+
+## 3. The Software Advantage: ROCm for the Desktop
+- Bridging the gap: Making enterprise-grade RO</pre></div><h2>Related Sessions (3)</h2><div class="session-card" id="2026-05-22"><div class="s-date">2026-05-22<span class="s-source"> via telegram</span></div><h3>AI Mini PCs Blog Post + GPU Supply Chain Research</h3><p>Wrote 'Best Affordable AI Mini PCs of 2026': ASUS NUC 14 Pro AI (Intel Lunar Lake, 47 TOPS), Geekom A8 (AMD Strix Point, 50 TOPS), Minisforum AtomMan X7 Ti (up to 96GB DDR5), GMKtec NucBox K8 Plus, MSI Cubi NUC AI. Published draft (ID 1159). Researched GPU/VRAM raw materials supply chain: 60+ elements, key companies ASML, TSMC, Applied Materials, Lam Research, Micron, Entegris, NVDA, AMD. Local LLM (LM Studio/Ollama) blog task timed out.</p></div><div class="session-card" id="2026-06-01"><div class="s-date">2026-06-01<span class="s-source"> via telegram</span></div><h3>GMKtec EVO-X2 Local LLM Review</h3><p>GMKtec EVO-X2 AI Mini PC: AMD Ryzen AI Max+ 395 (16C/32T, Radeon 8060S 40 CU, 256 GB/s). Pricing: 64GB/$1,499, 128GB/$3,199. Performance: Llama 4 Scout 109B at 15 t/s with Vulkan/ROCm, smaller models 30-50+ t/s. Recommended: Llama 3.3 70B Q4, Llama 4 Scout, Qwen2.5 32-72B, DeepSeek-Coder V2. WordPress draft published (ID 1172).</p></div><div class="session-card" id="2026-05-20"><div class="s-date">2026-05-20<span class="s-source"> via telegram</span></div><h3>Local AI Hardware & Context Engineering Blog</h3><p>Context Engineering for LLMs blog post (1,813 words, ID 1166). Discussed local AI hardware: upgradeable vs soldered RAM, NPU TOPS, Minisforum AtomMan X7 Ti (96GB) as best for local LLMs. Created SEO/GEO blog writing skill. Email setup via Himalaya CLI. Paused Obsidian-to-NAS sync cron.</p></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 19, 2026 at 03:12 AM</p></footer><script>
+function doSearch(q){var r=document.getElementById('search-results');if(!q||q.length<2){r.classList.remove('active');return}
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{var ql=q.toLowerCase();
+var m=idx.filter(i=>i.title.toLowerCase().includes(ql)||(i.preview||'').toLowerCase().includes(ql)||(i.tags||[]).some(t=>t.toLowerCase().includes(ql))).slice(0,8);
+if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+else r.innerHTML=m.map(i=>'<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(i.preview||'').substring(0,100)+'</div></a>').join('');
+r.classList.add('active')})}
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
+</script></body></html>

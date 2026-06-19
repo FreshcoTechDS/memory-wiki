@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Daily Log — 2026-06-05 — Memory Wiki</title><link rel="stylesheet" href="../style.css"></head><body><nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="../">Home</a>
+  <a href="../subjects/">Subjects</a>
+  <a href="../daily/">Daily</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav><div class="container"><a href="../daily/" class="back-link">&larr; All Daily Logs</a><div class="content-page"><h1>2026-06-05</h1><div class="session-card" id="2026-06-05"><div class="s-date">2026-06-05<span class="s-source"> via telegram</span></div><h3>AMD Ryzen AI Mini PCs + Google Trends 2026</h3><p>10 AMD Ryzen AI mini PCs: 5 Strix Halo (HP Z2 Mini G1a, Framework Desktop, Beelink GTR9 Pro, Minisforum AI X1 Pro, GMKtec EVO-X2) with soldered LPDDR5X up to 128GB at 256 GB/s, and 5 Strix Point (Minisforum AI X1, Beelink SER9 Pro, Geekom A9 Max, Lenovo ThinkCentre Neo Ultra, ASUS NUC 14 Pro AI) with upgradeable DDR5 SODIMM at 89 GB/s. Google Trends 2026: 'local ai' avg 60.1 (3x growth Jan-May), 'mini pc' avg 47.1, 'ai pc' avg 37.5. 'mini ai pc' too early to chart. Product images gathered for 9/10 models. Correction: GMKtec NucBox K11 uses Ryzen 9 8945HS, not HX 370.</p></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 19, 2026 at 03:12 AM</p></footer><script>
+function doSearch(q){var r=document.getElementById('search-results');if(!q||q.length<2){r.classList.remove('active');return}
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{var ql=q.toLowerCase();
+var m=idx.filter(i=>i.title.toLowerCase().includes(ql)||(i.preview||'').toLowerCase().includes(ql)||(i.tags||[]).some(t=>t.toLowerCase().includes(ql))).slice(0,8);
+if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+else r.innerHTML=m.map(i=>'<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(i.preview||'').substring(0,100)+'</div></a>').join('');
+r.classList.add('active')})}
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
+</script></body></html>
