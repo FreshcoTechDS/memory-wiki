@@ -1,18 +1,55 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Daily Log — 2026-05-22 — Memory Wiki</title><link rel="stylesheet" href="../style.css"></head><body><nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Log — 2026-05-22 — Memory Wiki</title>
+<link rel="stylesheet" href="..//style.css">
+</head>
+<body>
+<nav>
   <span class="logo">🧠 Memory Wiki</span>
-  <a href="../">Home</a>
-  <a href="../subjects/">Subjects</a>
-  <a href="../daily/">Daily</a>
+  <a href="..//">Home</a>
+  <a href="..//subjects/">Subjects</a>
+  <a href="..//daily/">Daily Logs</a>
   <div class="search-wrap">
-    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
     <div class="search-results" id="search-results"></div>
   </div>
-</nav><div class="container"><a href="../daily/" class="back-link">&larr; All Daily Logs</a><div class="content-page"><h1>2026-05-22</h1><div class="session-card" id="2026-05-22"><div class="s-date">2026-05-22<span class="s-source"> via telegram</span></div><h3>AI Mini PCs Blog Post + GPU Supply Chain Research</h3><p>Wrote 'Best Affordable AI Mini PCs of 2026': ASUS NUC 14 Pro AI (Intel Lunar Lake, 47 TOPS), Geekom A8 (AMD Strix Point, 50 TOPS), Minisforum AtomMan X7 Ti (up to 96GB DDR5), GMKtec NucBox K8 Plus, MSI Cubi NUC AI. Published draft (ID 1159). Researched GPU/VRAM raw materials supply chain: 60+ elements, key companies ASML, TSMC, Applied Materials, Lam Research, Micron, Entegris, NVDA, AMD. Local LLM (LM Studio/Ollama) blog task timed out.</p></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 19, 2026 at 03:12 AM</p></footer><script>
-function doSearch(q){var r=document.getElementById('search-results');if(!q||q.length<2){r.classList.remove('active');return}
-fetch('../search-index.json').then(x=>x.json()).then(idx=>{var ql=q.toLowerCase();
-var m=idx.filter(i=>i.title.toLowerCase().includes(ql)||(i.preview||'').toLowerCase().includes(ql)||(i.tags||[]).some(t=>t.toLowerCase().includes(ql))).slice(0,8);
-if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
-else r.innerHTML=m.map(i=>'<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(i.preview||'').substring(0,100)+'</div></a>').join('');
-r.classList.add('active')})}
-document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
-</script></body></html>
+</nav>
+<div class="container">
+
+<a href="../daily/" class="back-link">← All Daily Logs</a>
+<div class="content-page"><h1>2026-05-22</h1><div class="session-card"><h3>Syncthing Setup for Obsidian Vault Sync</h3><p>**Goal:** Sync Obsidian vault between Hermes agent (Linux) and Windows machine (mastermind, Tailscale: `100.65.70.47`)<br><br>### Steps Taken<br>- Attempted SSH-based sync like existing NAS setup — OpenSSH unavailable on Windows<br>- Chose **Syncthing** as alternative (bidirectional, works over Tailscale)<br>- Installed Syncthing v1.30.0 on Linux via apt<br>- Configured systemd service (`syncthing@root`) for persistence<br>- Linux device ID: `T7HL47R-4AONO3M-ZK3AIXT-LUVBCTB-TM56YQ3-XDEQMEB-GDE7VH6-EIJTKAH`<br>- Windows device ID: `AFRQORX-SVDQ2CV-FFA2VC6-F7MAGVD-O2YA4LO-Y4N33WW-6LAF6PG-MJJ46QE`<br><br>### Issues Resolved<br>- Path errors on Windows (`dsing` vs `dsing512`, OneDrive path issues)<br>- Moved folder to `C:\Obsidian Vault` to avoid permissions problems<br>- Syncthing bound to Tailscale IP only (`tcp://100.114.52.106:22000`) after Docker IP clutter<br>- Pending device/folder acceptance flow — both sides needed to share<br><br>### Current State<br>- ✅ 17 files synced bidirectionally (42,813 bytes)<br>- ✅ Both devices at 100% completion<br>- ✅ Folder: `obsidian-vault` — `idle` state<br>- ✅ Auto-start on boot via systemd</p></div><div class="session-card"><h3>Other Notes</h3><p>- HTTP server for vault browsing attempted but not completed (background process issue)<br>- Model switched to DeepSeek V4 Pro during session</p></div><div class="session-card"><h3>[[Tech Stack]]</h3><p></p></div></div>
+</div>
+<footer>
+  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
+  Auto-generated: June 19, 2026 at 06:00 AM</p>
+</footer>
+<script>
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q || q.length < 2) { res.classList.remove('active'); return; }
+  fetch('..//search-index.json').then(r => r.json()).then(idx => {
+    const ql = q.toLowerCase();
+    const matches = idx.filter(item =>
+      item.title.toLowerCase().includes(ql) ||
+      (item.preview || '').toLowerCase().includes(ql) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(ql))
+    ).slice(0, 8);
+    if (matches.length === 0) {
+      res.innerHTML = '<div class="no-results">No matches found</div>';
+    } else {
+      res.innerHTML = matches.map(m =>
+        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
+      ).join('');
+    }
+    res.classList.add('active');
+  });
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
+});
+</script>
+</body>
+</html>

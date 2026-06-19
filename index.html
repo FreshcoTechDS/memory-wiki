@@ -1,18 +1,69 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Memory Wiki — Memory Wiki</title><link rel="stylesheet" href="style.css"></head><body><nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Wiki — Memory Wiki</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
   <span class="logo">🧠 Memory Wiki</span>
-  <a href="">Home</a>
-  <a href="subjects/">Subjects</a>
-  <a href="daily/">Daily</a>
+  <a href="./">Home</a>
+  <a href="./subjects/">Subjects</a>
+  <a href="./daily/">Daily Logs</a>
   <div class="search-wrap">
-    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)">
+    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
     <div class="search-results" id="search-results"></div>
   </div>
-</nav><div class="container"><div class="hero"><h1>Memory Wiki</h1><p>Every subject we've explored, every day we've worked together — searchable and organized.</p></div><div class="section-title">Subjects <a href="subjects/" style="font-size:.8rem;font-weight:400;margin-left:.5rem">View all</a></div><div class="subject-grid"><a href="subjects/ai-mini-pcs.html" style="text-decoration:none"><div class="subject-card"><h3>AI Mini PCs — Hardware Reviews</h3><p>AMD Ryzen AI mini PC reviews: Strix Halo (256 GB/s, soldered LPDDR5X up to 128GB) vs Strix Point (89 GB/s, upgradeable DDR5 up to 64GB). Pricing, NPU </p><div class="tags"><span class="tag">hardware</span> <span class="tag">AI</span> <span class="tag">AMD</span></div><div class="meta"><span>9 notes</span> <span>4 sessions</span></div></div></a><a href="subjects/local-llm-models.html" style="text-decoration:none"><div class="subject-card"><h3>Local LLM Models — VRAM Tier Guide</h3><p>Text LLMs on AI mini PCs at 32GB, 64GB, 96GB, 128GB unified memory. Model families: Llama 4 Scout (109B MoE, 18 t/s), DeepSeek R1, Qwen 3, Mistral, Co</p><div class="tags"><span class="tag">AI</span> <span class="tag">LLM</span> <span class="tag">local-ai</span></div><div class="meta"><span>3 notes</span> <span>2 sessions</span></div></div></a><a href="subjects/image-video-gen-models.html" style="text-decoration:none"><div class="subject-card"><h3>Image & Video Generation — Local AI</h3><p>Run FLUX.1-dev (Midjourney-quality), Wan 2.2-14B (Sora-quality video), LTX-Video 2.3 (30-60s clips), Stable Diffusion 3.5, HunyuanVideo 1.5, CogVideoX</p><div class="tags"><span class="tag">AI</span> <span class="tag">image-generation</span> <span class="tag">video-generation</span></div><div class="meta"><span>5 notes</span> <span>1 sessions</span></div></div></a><a href="subjects/gpu-supply-chain.html" style="text-decoration:none"><div class="subject-card"><h3>GPU & VRAM Supply Chain</h3><p>Raw materials for GPU/VRAM manufacturing: silicon, rare earths, dopants, interconnects. Public companies: ASML, TSMC, Micron, Applied Materials, Lam R</p><div class="tags"><span class="tag">hardware</span> <span class="tag">GPU</span> <span class="tag">supply-chain</span></div><div class="meta"> <span>1 sessions</span></div></div></a><a href="subjects/hermes-agent-setup.html" style="text-decoration:none"><div class="subject-card"><h3>Hermes Agent Setup & Configuration</h3><p>Telegram gateway, GitHub integration (PAT, git credential), skill management, model configuration, cron jobs, session management.</p><div class="tags"><span class="tag">hermes</span> <span class="tag">setup</span> <span class="tag">telegram</span></div><div class="meta"><span>4 notes</span> </div></div></a><a href="subjects/memory-os.html" style="text-decoration:none"><div class="subject-card"><h3>Memory OS — Agent Memory Stack</h3><p>MIT-licensed 6-layer open-source memory stack for Hermes Agent: Workspace, Sessions, Structured Facts, Fabric, Qdrant vector DB, LLM Wiki.</p><div class="tags"><span class="tag">hermes</span> <span class="tag">memory</span> <span class="tag">open-source</span></div><div class="meta"><span>2 notes</span> <span>1 sessions</span></div></div></a><a href="subjects/blog-content.html" style="text-decoration:none"><div class="subject-card"><h3>Blog Content & WordPress Publishing</h3><p>SEO/GEO-optimized blog posts: AI mini PCs, context engineering, local AI guides. WordPress publishing workflow and draft management on freshco.tech.</p><div class="tags"><span class="tag">blog</span> <span class="tag">WordPress</span> <span class="tag">SEO</span></div><div class="meta"><span>2 notes</span> <span>3 sessions</span></div></div></a><a href="subjects/sessions-archive.html" style="text-decoration:none"><div class="subject-card"><h3>Session Archives</h3><p>Complete archive of all research sessions, daily logs, and knowledge consolidation across projects.</p><div class="tags"><span class="tag">archive</span> <span class="tag">sessions</span> <span class="tag">daily-logs</span></div><div class="meta"> </div></div></a></div><div class="section-title">Recent Sessions <a href="daily/" style="font-size:.8rem;font-weight:400;margin-left:.5rem">View all</a></div><div class="daily-list"><a href="daily/2026-06-18.html#2026-06-18" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-06-18</div><h3>Local AI Image & Video Gen + LLM Research</h3><p>Researched 10 image/video gen models for Strix Halo: Wan 2.2-14B (Sora-quality, 16-37GB VRAM), LTX-Video 2.3 (30-60s cli...</p></div></a><a href="daily/2026-06-05.html#2026-06-05" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-06-05</div><h3>AMD Ryzen AI Mini PCs + Google Trends 2026</h3><p>10 AMD Ryzen AI mini PCs: 5 Strix Halo (HP Z2 Mini G1a, Framework Desktop, Beelink GTR9 Pro, Minisforum AI X1 Pro, GMKte...</p></div></a><a href="daily/2026-06-02.html#2026-06-02" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-06-02</div><h3>Memory OS Stack for Hermes Agent</h3><p>Researched Memory OS: new MIT-licensed open-source 6-layer memory stack built on Hermes Agent. Layers: Workspace (MEMORY...</p></div></a><a href="daily/2026-06-01.html#2026-06-01" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-06-01</div><h3>GMKtec EVO-X2 Local LLM Review</h3><p>GMKtec EVO-X2 AI Mini PC: AMD Ryzen AI Max+ 395 (16C/32T, Radeon 8060S 40 CU, 256 GB/s). Pricing: 64GB/$1,499, 128GB/$3,...</p></div></a><a href="daily/2026-05-22.html#2026-05-22" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-05-22</div><h3>AI Mini PCs Blog Post + GPU Supply Chain Research</h3><p>Wrote 'Best Affordable AI Mini PCs of 2026': ASUS NUC 14 Pro AI (Intel Lunar Lake, 47 TOPS), Geekom A8 (AMD Strix Point,...</p></div></a><a href="daily/2026-05-20.html#2026-05-20" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-05-20</div><h3>Local AI Hardware & Context Engineering Blog</h3><p>Context Engineering for LLMs blog post (1,813 words, ID 1166). Discussed local AI hardware: upgradeable vs soldered RAM,...</p></div></a></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 19, 2026 at 03:12 AM</p></footer><script>
-function doSearch(q){var r=document.getElementById('search-results');if(!q||q.length<2){r.classList.remove('active');return}
-fetch('search-index.json').then(x=>x.json()).then(idx=>{var ql=q.toLowerCase();
-var m=idx.filter(i=>i.title.toLowerCase().includes(ql)||(i.preview||'').toLowerCase().includes(ql)||(i.tags||[]).some(t=>t.toLowerCase().includes(ql))).slice(0,8);
-if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
-else r.innerHTML=m.map(i=>'<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(i.preview||'').substring(0,100)+'</div></a>').join('');
-r.classList.add('active')})}
-document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
-</script></body></html>
+</nav>
+<div class="container">
+<div class="hero"><h1>Memory Wiki</h1><p>Every subject explored, every day worked — searchable and organized.</p></div>
+<div class="section-title">📚 Subjects</div><div class="subject-grid"><a href="subjects/farmdirect.html" style="text-decoration:none">
+  <div class="subject-card"><h3>FarmDirect — Marketplace</h3><p>Farmer-to-consumer marketplace. Architecture, backend logic, GCP, Stripe, delivery.</p><div class="tags"><span class="tag">project</span><span class="tag">marketplace</span><span class="tag">agriculture</span></div><div class="meta"><span>📄 2 notes</span></div></div></a><a href="subjects/ai-mini-pcs.html" style="text-decoration:none">
+  <div class="subject-card"><h3>AI Mini PCs — Hardware Reviews</h3><p>Best affordable AI Mini PCs with NPUs. Reviews published on freshco.tech.</p><div class="tags"><span class="tag">hardware</span><span class="tag">AI</span><span class="tag">review</span></div><div class="meta"><span>📄 1 notes</span></div></div></a><a href="subjects/wordpress-blog.html" style="text-decoration:none">
+  <div class="subject-card"><h3>WordPress Blog Integration</h3><p>Connecting freshco.tech to Hermes for automated research→draft→publish.</p><div class="tags"><span class="tag">wordpress</span><span class="tag">blog</span><span class="tag">content</span></div><div class="meta"><span>📄 1 notes</span></div></div></a><a href="subjects/gpu-supply-chain.html" style="text-decoration:none">
+  <div class="subject-card"><h3>GPU & VRAM Supply Chain</h3><p>Raw materials for GPU/VRAM manufacturing and publicly traded companies.</p><div class="tags"><span class="tag">hardware</span><span class="tag">GPU</span><span class="tag">investing</span></div><div class="meta"><span>📄 2 notes</span></div></div></a><a href="subjects/hermes-setup.html" style="text-decoration:none">
+  <div class="subject-card"><h3>Hermes Agent Setup</h3><p>Telegram, GitHub, skills, Obsidian sync, email, gateway config.</p><div class="tags"><span class="tag">hermes</span><span class="tag">setup</span><span class="tag">infrastructure</span></div><div class="meta"><span>📄 2 notes</span></div></div></a><a href="subjects/context-engineering.html" style="text-decoration:none">
+  <div class="subject-card"><h3>Context Engineering</h3><p>Optimizing LLM prompts — giving AI the right info, wasting fewer tokens.</p><div class="tags"><span class="tag">AI</span><span class="tag">LLM</span><span class="tag">blog</span></div><div class="meta"><span>📄 1 notes</span></div></div></a><a href="subjects/digital-products.html" style="text-decoration:none">
+  <div class="subject-card"><h3>Digital Products & Marketing</h3><p>Top-selling digital products 2026, marketing strategy, monetization.</p><div class="tags"><span class="tag">digital-products</span><span class="tag">marketing</span></div><div class="meta"><span>📄 3 notes</span></div></div></a><a href="subjects/obsidian-sync.html" style="text-decoration:none">
+  <div class="subject-card"><h3>Obsidian Vault Sync</h3><p>Syncing vault across Linux, Windows (Syncthing), and NAS (tar-over-SSH).</p><div class="tags"><span class="tag">obsidian</span><span class="tag">sync</span></div><div class="meta"><span>📄 1 notes</span></div></div></a><a href="subjects/hostinger-email.html" style="text-decoration:none">
+  <div class="subject-card"><h3>Hostinger Email Setup</h3><p>Configuring skipclaw317@freshcoai.tech via Himalaya CLI.</p><div class="tags"><span class="tag">email</span><span class="tag">infrastructure</span></div><div class="meta"><span>📄 0 notes</span></div></div></a></div>
+<div class="section-title">📅 Recent Daily Logs <a href="daily/" style="font-size:0.8rem;font-weight:400;">View all →</a></div><div class="daily-list"><a href="daily/2026-06-18.html" style="text-decoration:none">
+  <div class="daily-entry"><div class="date">2026-06-18</div><h3>AI Mini PC Research (June 5)</h3><p>- Continued [[ai-pc-research]]: compiled full 10-model comparison of AMD Ryzen AI mini PCs (Strix Ha...</p></div></a><a href="daily/2026-05-25 Ai workstation Summary.html" style="text-decoration:none">
+  <div class="daily-entry"><div class="date">2026-05-25 Ai workstation Summary</div><h3>Goals Accomplished</h3><p>1. **Model Switch & Environment Setup:** Successfully transitioned to the Gemini 1.5 Flash Preview m...</p></div></a><a href="daily/2026-05-23.html" style="text-decoration:none">
+  <div class="daily-entry"><div class="date">2026-05-23</div><h3>FarmDirect Backend Architecture</h3><p>- Designed full backend for a farm-to-consumer marketplace app (DoorDash/Uber Eats model, farms inst...</p></div></a><a href="daily/2026-05-22.html" style="text-decoration:none">
+  <div class="daily-entry"><div class="date">2026-05-22</div><h3>Syncthing Setup for Obsidian Vault Sync</h3><p>**Goal:** Sync Obsidian vault between Hermes agent (Linux) and Windows machine (mastermind, Tailscal...</p></div></a><a href="daily/2026-05-14.html" style="text-decoration:none">
+  <div class="daily-entry"><div class="date">2026-05-14</div><h3>GitHub</h3><p>- Connected GitHub account **FreshcoTechDS** to Hermes Agent
+- Token configured for git operations a...</p></div></a></div></div>
+<footer>
+  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
+  Auto-generated: June 19, 2026 at 06:00 AM</p>
+</footer>
+<script>
+function doSearch(q) {
+  const res = document.getElementById('search-results');
+  if (!q || q.length < 2) { res.classList.remove('active'); return; }
+  fetch('./search-index.json').then(r => r.json()).then(idx => {
+    const ql = q.toLowerCase();
+    const matches = idx.filter(item =>
+      item.title.toLowerCase().includes(ql) ||
+      (item.preview || '').toLowerCase().includes(ql) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(ql))
+    ).slice(0, 8);
+    if (matches.length === 0) {
+      res.innerHTML = '<div class="no-results">No matches found</div>';
+    } else {
+      res.innerHTML = matches.map(m =>
+        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
+      ).join('');
+    }
+    res.classList.add('active');
+  });
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
+});
+</script>
+</body>
+</html>
