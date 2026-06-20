@@ -299,7 +299,7 @@ def generate():
     for sid, sess in sorted(session_summaries.items(), key=lambda x: x[1]["date"], reverse=True)[:6]:
         daily_p += f'<a href="daily/{sess["date"]}.html#{sid}" style="text-decoration:none"><div class="daily-entry"><div class="date">{sess["date"]}</div><h3>{sess["title"]}</h3><p>{sess["summary"][:120]}...</p></div></a>'
 
-    home = page_head("Memory Wiki", "") + f'<div class="hero"><h1>Memory Wiki</h1><p>Every subject we\'ve explored, every day we\'ve worked together \u2014 searchable and organized.</p></div><div class="section-title">Subjects <a href="subjects/" style="font-size:.8rem;font-weight:400;margin-left:.5rem">View all</a></div><div class="subject-grid">{cards}</div><div class="section-title">Recent Sessions <a href="daily/" style="font-size:.8rem;font-weight:400;margin-left:.5rem">View all</a></div><div class="daily-list">{daily_p}</div>' + page_foot("")
+    home = page_head("Memory Wiki", "") + f'<div class="hero"><h1>Memory Wiki</h1><p>Every subject we\'ve explored, every day we\'ve worked together \u2014 searchable and organized.</p></div><div class="section-title">Subjects <a href="subjects/" style="font-size:.8rem;font-weight:400;margin-left:.5rem">View all</a></div><div class="subject-grid">{cards}</div>' + page_foot("")
     with open(f"{OUTPUT}/index.html", "w") as f: f.write(home)
 
     # --- SUBJECT PAGES (with TOC + backlinks + clickable tags) ---
@@ -324,7 +324,7 @@ def generate():
                 backlinks_html += f'<li><a href="{slugify(other_sid)}.html">{subjects[other_sid]["title"]}</a></li>'
             backlinks_html += '</ul></div>'
 
-        page = page_head(subj["title"], "../") + f'<a href="../subjects/" class="back-link">&larr; All Subjects</a><div class="content-page subject-header"><h1>{subj["title"]}</h1><div style="margin-top:.5rem">{tags_html}</div><p style="color:var(--text-muted);margin-top:.75rem">{subj["description"]}</p></div><div class="content-page">{toc_html}<h2>Vault Notes ({len(subj.get("files", []))})</h2>{files_html or "<p style=color:var(--text-muted)>No vault notes linked yet.</p>"}<h2>Related Sessions ({len(subj.get("sessions", []))})</h2>{sessions_html or "<p style=color:var(--text-muted)>No sessions recorded yet.</p>"}{backlinks_html}</div>' + page_foot("../")
+        page = page_head(subj["title"], "../") + f'<a href="../subjects/" class="back-link">&larr; All Subjects</a><div class="content-page subject-header"><h1>{subj["title"]}</h1><div style="margin-top:.5rem">{tags_html}</div><p style="color:var(--text-muted);margin-top:.75rem">{subj["description"]}</p></div><div class="content-page"><h2>Vault Notes ({len(subj.get("files", []))})</h2>{files_html or "<p style=color:var(--text-muted)>No vault notes linked yet.</p>"}<h2>Related Sessions ({len(subj.get("sessions", []))})</h2>{sessions_html or "<p style=color:var(--text-muted)>No sessions recorded yet.</p>"}{backlinks_html}</div>' + page_foot("../")
         with open(f"{OUTPUT}/subjects/{slug}.html", "w") as f: f.write(page)
 
     # Subjects index
