@@ -2,17 +2,30 @@
   <span class="logo">🧠 Memory Wiki</span>
   <a href="../">Home</a>
   <a href="../subjects/">Subjects</a>
+  <a href="../tags/">Tags</a>
   <a href="../daily/">Daily</a>
   <div class="search-wrap">
-    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)">
+    <input type="text" id="search-input" placeholder="Full-text search..." oninput="doSearch(this.value)">
     <div class="search-results" id="search-results"></div>
   </div>
-</nav><div class="container"><a href="../subjects/" class="back-link">&larr; All Subjects</a><div class="content-page subject-header"><h1>Session Archives</h1><div style="margin-top:.5rem"><span class="tag">archive</span> <span class="tag">sessions</span> <span class="tag">daily-logs</span></div><p style="color:var(--text-muted);margin-top:.75rem">Complete archive of all research sessions, daily logs, and knowledge consolidation across projects.</p></div><div class="content-page"><h2>Vault Notes (0)</h2><p style=color:var(--text-muted)>No vault notes linked yet.</p><h2>Related Sessions (0)</h2><p style=color:var(--text-muted)>No sessions recorded yet.</p></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 19, 2026 at 03:12 AM</p></footer><script>
-function doSearch(q){var r=document.getElementById('search-results');if(!q||q.length<2){r.classList.remove('active');return}
-fetch('../search-index.json').then(x=>x.json()).then(idx=>{var ql=q.toLowerCase();
-var m=idx.filter(i=>i.title.toLowerCase().includes(ql)||(i.preview||'').toLowerCase().includes(ql)||(i.tags||[]).some(t=>t.toLowerCase().includes(ql))).slice(0,8);
-if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
-else r.innerHTML=m.map(i=>'<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(i.preview||'').substring(0,100)+'</div></a>').join('');
-r.classList.add('active')})}
+</nav><div class="container"><a href="../subjects/" class="back-link">&larr; All Subjects</a><div class="content-page subject-header"><h1>Session Archives</h1><div style="margin-top:.5rem"><a href="../tags/archive.html" class="tag">archive</a> <a href="../tags/sessions.html" class="tag">sessions</a> <a href="../tags/daily-logs.html" class="tag">daily-logs</a></div><p style="color:var(--text-muted);margin-top:.75rem">Complete archive of all research sessions, daily logs, and knowledge consolidation across projects.</p></div><div class="content-page"><h2>Vault Notes (0)</h2><p style=color:var(--text-muted)>No vault notes linked yet.</p><h2>Related Sessions (0)</h2><p style=color:var(--text-muted)>No sessions recorded yet.</p><div class="backlinks"><h2>🔗 Referenced By</h2><ul><li><a href="ai-mini-pcs.html">AI Mini PCs — Hardware Reviews</a></li><li><a href="local-llm-models.html">Local LLM Models — VRAM Tier Guide</a></li><li><a href="image-video-gen-models.html">Image & Video Generation — Local AI</a></li><li><a href="hermes-agent-setup.html">Hermes Agent Setup & Configuration</a></li><li><a href="memory-os.html">Memory OS — Agent Memory Stack</a></li></ul></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 20, 2026 at 09:00 AM</p></footer><script>
+var SI=[];
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{SI=idx});
+function doSearch(q){
+  var r=document.getElementById('search-results');
+  if(!q||q.length<2){r.classList.remove('active');return}
+  var ql=q.toLowerCase(), qw=ql.split(/\s+/);
+  var m=SI.filter(i=>{
+    var txt=(i.title+' '+(i.preview||'')+' '+(i.content||'')+' '+(i.tags||[]).join(' ')).toLowerCase();
+    return qw.every(w=>txt.includes(w));
+  }).slice(0,10);
+  if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+  else r.innerHTML=m.map(i=>{
+    var ctx='',c=(i.content||''),idx=c.toLowerCase().indexOf(ql);
+    if(idx>=0)ctx=c.substring(Math.max(0,idx-40),idx+80);
+    return '<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(ctx||(i.preview||'').substring(0,100))+'</div></a>';
+  }).join('');
+  r.classList.add('active');
+}
 document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
 </script></body></html>

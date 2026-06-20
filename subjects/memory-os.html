@@ -2,35 +2,62 @@
   <span class="logo">🧠 Memory Wiki</span>
   <a href="../">Home</a>
   <a href="../subjects/">Subjects</a>
+  <a href="../tags/">Tags</a>
   <a href="../daily/">Daily</a>
   <div class="search-wrap">
-    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)">
+    <input type="text" id="search-input" placeholder="Full-text search..." oninput="doSearch(this.value)">
     <div class="search-results" id="search-results"></div>
   </div>
-</nav><div class="container"><a href="../subjects/" class="back-link">&larr; All Subjects</a><div class="content-page subject-header"><h1>Memory OS — Agent Memory Stack</h1><div style="margin-top:.5rem"><span class="tag">hermes</span> <span class="tag">memory</span> <span class="tag">open-source</span> <span class="tag">RAG</span></div><p style="color:var(--text-muted);margin-top:.75rem">MIT-licensed 6-layer open-source memory stack for Hermes Agent: Workspace, Sessions, Structured Facts, Fabric, Qdrant vector DB, LLM Wiki.</p></div><div class="content-page"><h2>Vault Notes (2)</h2><div class="session-card"><h3>Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent</h3><p style="font-size:.8rem;color:var(--text-muted)">Memory OS - 6-Layer Open-Source Memory Stack for Hermes Agent.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
-# Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent
-
-**Source:** [MarkTechPost — June 1, 2026](https://www.marktechpost.com/2026/06/01/meet-memory-os-a-6-layer-open-source-memory-stack-built-on-top-of-hermes-agent/)  
-**Author:** Michal Sutter  
-**Repository:** [ClaudioDrews/Memory-OS](https://github.com/ClaudioDrews/Memory-OS) (MIT License)  
-**Developer:** Claudio Drews (@ClaudioDrews25)
-
-## Overview
-
-Hermes Agent already remembers across sessions with curated memory files and full-text session search. But a new community project — **Memory OS** — argues built-in memory is too shallow for serious work. It stacks **six memory layers** onto Hermes, adding a vector database, structured facts, and an auto-curated knowledge wiki.
-
-Memory OS is not a Hermes plugin you toggle on.</pre></div><div class="session-card"><h3>The Future of Local AI is Small: Why the AMD Ryzen AI Halo Changes Everything</h3><p style="font-size:.8rem;color:var(--text-muted)">Ryzen AI Halo Blog Post.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
-# The Future of Local AI is Small: Why the AMD Ryzen AI Halo Changes Everything
-
-The era of relying solely on massive, sluggish cloud clusters for AI is coming to an end. We are standing on the precipice of a revolution in **local AI**, where the most powerful models run right on your desktop, with zero latency and complete privacy. While the industry has been waiting for a hero, AMD has stepped up to the plate. The upcoming **Ryzen AI Halo**—a dedicated, high-performance **AI mini pc**—isn't just a new piece of hardware; it’s a bold statement that the desktop is once again the center of the computing world.
-
-## Shattering the Memory Bottleneck
-For years, local enthusiasts have struggled with the "memory wall." Running modern large language models (LLMs) requires massive, high-bandwidth m</pre></div><h2>Related Sessions (1)</h2><div class="session-card" id="2026-06-02"><div class="s-date">2026-06-02<span class="s-source"> via telegram</span></div><h3>Memory OS Stack for Hermes Agent</h3><p>Researched Memory OS: new MIT-licensed open-source 6-layer memory stack built on Hermes Agent. Layers: Workspace (MEMORY.md), Sessions (state.db + FTS5), Structured Facts (SQLite + trust scoring), Fabric (forked Icarus, 16 tools), Qdrant vector DB (4096d), LLM Wiki (auto-curated). Features 4-level fallback cascade, social-closer filter, weekly decay scanner, local-first Docker stack.</p></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 19, 2026 at 03:12 AM</p></footer><script>
-function doSearch(q){var r=document.getElementById('search-results');if(!q||q.length<2){r.classList.remove('active');return}
-fetch('../search-index.json').then(x=>x.json()).then(idx=>{var ql=q.toLowerCase();
-var m=idx.filter(i=>i.title.toLowerCase().includes(ql)||(i.preview||'').toLowerCase().includes(ql)||(i.tags||[]).some(t=>t.toLowerCase().includes(ql))).slice(0,8);
-if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
-else r.innerHTML=m.map(i=>'<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(i.preview||'').substring(0,100)+'</div></a>').join('');
-r.classList.add('active')})}
+</nav><div class="container"><a href="../subjects/" class="back-link">&larr; All Subjects</a><div class="content-page subject-header"><h1>Memory OS — Agent Memory Stack</h1><div style="margin-top:.5rem"><a href="../tags/hermes.html" class="tag">hermes</a> <a href="../tags/memory.html" class="tag">memory</a> <a href="../tags/open-source.html" class="tag">open-source</a> <a href="../tags/rag.html" class="tag">RAG</a></div><p style="color:var(--text-muted);margin-top:.75rem">MIT-licensed 6-layer open-source memory stack for Hermes Agent: Workspace, Sessions, Structured Facts, Fabric, Qdrant vector DB, LLM Wiki.</p></div><div class="content-page"><nav class="toc"><h3>📑 On This Page</h3><ul><li><a href="#memory-os-a-6-layer-open-source-memory-stack-for-hermes-agent">Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent</a></li><li style="padding-left:1.25rem"><a href="#overview">Overview</a></li><li style="padding-left:1.25rem"><a href="#the-six-layers">The Six Layers</a></li><li style="padding-left:1.25rem"><a href="#retrieval-flow">Retrieval Flow</a></li><li style="padding-left:1.25rem"><a href="#fallback-cascade-cleanup">Fallback Cascade & Cleanup</a></li><li style="padding-left:1.25rem"><a href="#local-first-architecture">Local-First Architecture</a></li><li style="padding-left:1.25rem"><a href="#strengths">Strengths</a></li><li style="padding-left:1.25rem"><a href="#limitations">Limitations</a></li><li style="padding-left:1.25rem"><a href="#key-takeaways">Key Takeaways</a></li><li style="padding-left:1.25rem"><a href="#related-notes">Related Notes</a></li><li style="padding-left:1.25rem"><a href="#tags">Tags</a></li><li><a href="#the-future-of-local-ai-is-small-why-the-amd-ryzen-ai-halo-changes-everything">The Future of Local AI is Small: Why the AMD Ryzen AI Halo Changes Everything</a></li><li style="padding-left:1.25rem"><a href="#shattering-the-memory-bottleneck">Shattering the Memory Bottleneck</a></li><li style="padding-left:1.25rem"><a href="#the-rocm-renaissance">The ROCm Renaissance</a></li><li style="padding-left:1.25rem"><a href="#a-positive-outlook-on-local-compute">A Positive Outlook on Local Compute</a></li><li style="padding-left:1.25rem"><a href="#pre-orders-your-ticket-to-the-revolution">Pre-Orders: Your Ticket to the Revolution</a></li></ul></nav><h2>Vault Notes (2)</h2><div class="session-card"><h3>Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent</h3><p style="font-size:.8rem;color:var(--text-muted)">Memory OS - 6-Layer Open-Source Memory Stack for Hermes Agent.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent</h1>
+<br>
+&lt;strong&gt;Source:&lt;/strong&gt; [MarkTechPost — June 1, 2026](https://www.marktechpost.com/2026/06/01/meet-memory-os-a-6-layer-open-source-memory-stack-built-on-top-of-hermes-agent/)  
+&lt;strong&gt;Author:&lt;/strong&gt; Michal Sutter  
+&lt;strong&gt;Repository:&lt;/strong&gt; [ClaudioDrews/Memory-OS](https://github.com/ClaudioDrews/Memory-OS) (MIT License)  
+&lt;strong&gt;Developer:&lt;/strong&gt; Claudio Drews (@ClaudioDrews25)
+<br>
+<h2 id="overview">Overview</h2>
+<br>
+Hermes Agent already remembers across sessions with curated memory files and full-text session search. But a new community project — &lt;strong&gt;Memory OS&lt;/strong&gt; — argues built-in memory is too shallow for serious work. It stacks &lt;strong&gt;six memory layers&lt;/strong&gt; onto Hermes, adding a vector database, structured facts, and an auto-curated knowledge wiki.
+<br>
+Memory OS is not a Hermes plugin you toggle on. It's a &lt;strong&gt;layered system that sits beside Hermes Agent's own memory&lt;/strong&gt;, keeping the built-in layers and adding four more above them. The full stack runs locally using Docker, Qdrant, Redis, and Python 3.11+.
+<br>
+<h2 id="the-six-layers">The Six Layers</h2>
+<br>
+| Layer | Name | Description |
+|-------|------|-------------|
+| 1 | **Workspace** | Holds `MEMORY.md`, `USER.md`, `CREATIVE.md` — injected into system prompt each turn |
+| 2 | **Sessions** | `state.db` — SQLite with FTS5 full-text search across conversation history |
+| 3 | **Structured Facts** | `memory_store.db` — SQLite with HRR, FTS5, and trust scoring; feedback loop adjusts trust scores over time; entity resolution included |
+| 4 | **Fabric** | Heavily forked versi</div></div><div class="session-card"><h3>The Future of Local AI is Small: Why the AMD Ryzen AI Halo Changes Everything</h3><p style="font-size:.8rem;color:var(--text-muted)">Ryzen AI Halo Blog Post.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>The Future of Local AI is Small: Why the AMD Ryzen AI Halo Changes Everything</h1>
+<br>
+The era of relying solely on massive, sluggish cloud clusters for AI is coming to an end. We are standing on the precipice of a revolution in &lt;strong&gt;local AI&lt;/strong&gt;, where the most powerful models run right on your desktop, with zero latency and complete privacy. While the industry has been waiting for a hero, AMD has stepped up to the plate. The upcoming &lt;strong&gt;Ryzen AI Halo&lt;/strong&gt;—a dedicated, high-performance &lt;strong&gt;AI mini pc&lt;/strong&gt;—isn't just a new piece of hardware; it’s a bold statement that the desktop is once again the center of the computing world.
+<br>
+<h2 id="shattering-the-memory-bottleneck">Shattering the Memory Bottleneck</h2>
+For years, local enthusiasts have struggled with the "memory wall." Running modern large language models (LLMs) requires massive, high-bandwidth memory. AMD has solved this by designing the Ryzen AI Halo around specialized "Halo" silicon. By utilizing a unified memory pool with bandwidth that shatters typical consumer PC limitations, this machine is custom-built to handle complex AI workloads that would make other &lt;strong&gt;AI mini pc&lt;/strong&gt; units crumble.
+<br>
+Whether it’s real-time inference with Llama 3, lightning-fast model fine-tuning, or high-fidelity generative AI tasks, the Halo silicon is built to ensure your compute power isn't held hostage by data transfer speeds.
+<br>
+<h2 id="the-rocm-renaissance">The ROCm Renaissance</h2>
+The most exciting part of this announcement isn't just the raw power—it’s AMD’s commitment to software. By packaging this hardware as a dedicated developm</div></div><h2>Related Sessions (1)</h2><div class="session-card" id="2026-06-02"><div class="s-date">2026-06-02<span class="s-source"> via telegram</span></div><h3>Memory OS Stack for Hermes Agent</h3><p>Researched Memory OS: MIT-licensed 6-layer memory stack. Layers: Workspace, Sessions, Structured Facts, Fabric (16 tools), Qdrant vector DB (4096d), LLM Wiki. Features 4-level fallback cascade, social-closer filter, weekly decay scanner.</p></div><div class="backlinks"><h2>🔗 Referenced By</h2><ul><li><a href="ai-mini-pcs.html">AI Mini PCs — Hardware Reviews</a></li><li><a href="local-llm-models.html">Local LLM Models — VRAM Tier Guide</a></li><li><a href="image-video-gen-models.html">Image & Video Generation — Local AI</a></li><li><a href="hermes-agent-setup.html">Hermes Agent Setup & Configuration</a></li><li><a href="blog-content.html">Blog Content & WordPress Publishing</a></li></ul></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 20, 2026 at 09:00 AM</p></footer><script>
+var SI=[];
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{SI=idx});
+function doSearch(q){
+  var r=document.getElementById('search-results');
+  if(!q||q.length<2){r.classList.remove('active');return}
+  var ql=q.toLowerCase(), qw=ql.split(/\s+/);
+  var m=SI.filter(i=>{
+    var txt=(i.title+' '+(i.preview||'')+' '+(i.content||'')+' '+(i.tags||[]).join(' ')).toLowerCase();
+    return qw.every(w=>txt.includes(w));
+  }).slice(0,10);
+  if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+  else r.innerHTML=m.map(i=>{
+    var ctx='',c=(i.content||''),idx=c.toLowerCase().indexOf(ql);
+    if(idx>=0)ctx=c.substring(Math.max(0,idx-40),idx+80);
+    return '<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(ctx||(i.preview||'').substring(0,100))+'</div></a>';
+  }).join('');
+  r.classList.add('active');
+}
 document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
 </script></body></html>

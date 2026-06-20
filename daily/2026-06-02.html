@@ -2,17 +2,30 @@
   <span class="logo">🧠 Memory Wiki</span>
   <a href="../">Home</a>
   <a href="../subjects/">Subjects</a>
+  <a href="../tags/">Tags</a>
   <a href="../daily/">Daily</a>
   <div class="search-wrap">
-    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)">
+    <input type="text" id="search-input" placeholder="Full-text search..." oninput="doSearch(this.value)">
     <div class="search-results" id="search-results"></div>
   </div>
-</nav><div class="container"><a href="../daily/" class="back-link">&larr; All Daily Logs</a><div class="content-page"><h1>2026-06-02</h1><div class="session-card" id="2026-06-02"><div class="s-date">2026-06-02<span class="s-source"> via telegram</span></div><h3>Memory OS Stack for Hermes Agent</h3><p>Researched Memory OS: new MIT-licensed open-source 6-layer memory stack built on Hermes Agent. Layers: Workspace (MEMORY.md), Sessions (state.db + FTS5), Structured Facts (SQLite + trust scoring), Fabric (forked Icarus, 16 tools), Qdrant vector DB (4096d), LLM Wiki (auto-curated). Features 4-level fallback cascade, social-closer filter, weekly decay scanner, local-first Docker stack.</p></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 19, 2026 at 03:12 AM</p></footer><script>
-function doSearch(q){var r=document.getElementById('search-results');if(!q||q.length<2){r.classList.remove('active');return}
-fetch('../search-index.json').then(x=>x.json()).then(idx=>{var ql=q.toLowerCase();
-var m=idx.filter(i=>i.title.toLowerCase().includes(ql)||(i.preview||'').toLowerCase().includes(ql)||(i.tags||[]).some(t=>t.toLowerCase().includes(ql))).slice(0,8);
-if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
-else r.innerHTML=m.map(i=>'<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(i.preview||'').substring(0,100)+'</div></a>').join('');
-r.classList.add('active')})}
+</nav><div class="container"><a href="../daily/" class="back-link">&larr; All Daily Logs</a><div class="content-page"><h1>2026-06-02</h1><div class="session-card" id="2026-06-02"><div class="s-date">2026-06-02<span class="s-source"> via telegram</span></div><h3>Memory OS Stack for Hermes Agent</h3><p>Researched Memory OS: MIT-licensed 6-layer memory stack. Layers: Workspace, Sessions, Structured Facts, Fabric (16 tools), Qdrant vector DB (4096d), LLM Wiki. Features 4-level fallback cascade, social-closer filter, weekly decay scanner.</p></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 20, 2026 at 09:00 AM</p></footer><script>
+var SI=[];
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{SI=idx});
+function doSearch(q){
+  var r=document.getElementById('search-results');
+  if(!q||q.length<2){r.classList.remove('active');return}
+  var ql=q.toLowerCase(), qw=ql.split(/\s+/);
+  var m=SI.filter(i=>{
+    var txt=(i.title+' '+(i.preview||'')+' '+(i.content||'')+' '+(i.tags||[]).join(' ')).toLowerCase();
+    return qw.every(w=>txt.includes(w));
+  }).slice(0,10);
+  if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+  else r.innerHTML=m.map(i=>{
+    var ctx='',c=(i.content||''),idx=c.toLowerCase().indexOf(ql);
+    if(idx>=0)ctx=c.substring(Math.max(0,idx-40),idx+80);
+    return '<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(ctx||(i.preview||'').substring(0,100))+'</div></a>';
+  }).join('');
+  r.classList.add('active');
+}
 document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
 </script></body></html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Tags — Memory Wiki</title><link rel="stylesheet" href="../style.css"></head><body><nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="../">Home</a>
+  <a href="../subjects/">Subjects</a>
+  <a href="../tags/">Tags</a>
+  <a href="../daily/">Daily</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Full-text search..." oninput="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav><div class="container"><a href="../" class="back-link">&larr; Home</a><div class="content-page"><h1>All Tags</h1><div class="tag-cloud"><a href="ai-ml.html">ai-ml<span class="count">12</span></a><a href="digital-products.html">digital-products<span class="count">12</span></a><a href="hardware.html">hardware<span class="count">10</span></a><a href="agentic-ai.html">agentic-ai<span class="count">8</span></a><a href="investing.html">investing<span class="count">6</span></a><a href="hermes.html">hermes<span class="count">6</span></a><a href="blogging.html">blogging<span class="count">6</span></a><a href="ideas.html">ideas<span class="count">5</span></a><a href="ebook.html">ebook<span class="count">5</span></a><a href="finance.html">finance<span class="count">5</span></a><a href="agriculture.html">agriculture<span class="count">4</span></a><a href="ai.html">AI<span class="count">3</span></a><a href="meta.html">meta<span class="count">3</span></a><a href="obsidian.html">obsidian<span class="count">3</span></a><a href="review.html">review<span class="count">3</span></a><a href="local-ai.html">local-ai<span class="count">2</span></a><a href="vram.html">vram<span class="count">2</span></a><a href="syncthing.html">syncthing<span class="count">2</span></a><a href="amd.html">AMD<span class="count">1</span></a><a href="mini-pc.html">mini-pc<span class="count">1</span></a><a href="llm.html">LLM<span class="count">1</span></a><a href="quantization.html">quantization<span class="count">1</span></a><a href="image-generation.html">image-generation<span class="count">1</span></a><a href="video-generation.html">video-generation<span class="count">1</span></a><a href="gpu.html">GPU<span class="count">1</span></a><a href="supply-chain.html">supply-chain<span class="count">1</span></a><a href="setup.html">setup<span class="count">1</span></a><a href="telegram.html">telegram<span class="count">1</span></a><a href="github.html">github<span class="count">1</span></a><a href="memory.html">memory<span class="count">1</span></a><a href="open-source.html">open-source<span class="count">1</span></a><a href="rag.html">RAG<span class="count">1</span></a><a href="blog.html">blog<span class="count">1</span></a><a href="wordpress.html">WordPress<span class="count">1</span></a><a href="seo.html">SEO<span class="count">1</span></a><a href="content.html">content<span class="count">1</span></a><a href="archive.html">archive<span class="count">1</span></a><a href="sessions.html">sessions<span class="count">1</span></a><a href="daily-logs.html">daily-logs<span class="count">1</span></a><a href="projects.html">projects<span class="count">1</span></a><a href="session.html">session<span class="count">1</span></a><a href="tailscale.html">tailscale<span class="count">1</span></a><a href="reference.html">reference<span class="count">1</span></a></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 20, 2026 at 09:00 AM</p></footer><script>
+var SI=[];
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{SI=idx});
+function doSearch(q){
+  var r=document.getElementById('search-results');
+  if(!q||q.length<2){r.classList.remove('active');return}
+  var ql=q.toLowerCase(), qw=ql.split(/\s+/);
+  var m=SI.filter(i=>{
+    var txt=(i.title+' '+(i.preview||'')+' '+(i.content||'')+' '+(i.tags||[]).join(' ')).toLowerCase();
+    return qw.every(w=>txt.includes(w));
+  }).slice(0,10);
+  if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+  else r.innerHTML=m.map(i=>{
+    var ctx='',c=(i.content||''),idx=c.toLowerCase().indexOf(ql);
+    if(idx>=0)ctx=c.substring(Math.max(0,idx-40),idx+80);
+    return '<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(ctx||(i.preview||'').substring(0,100))+'</div></a>';
+  }).join('');
+  r.classList.add('active');
+}
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
+</script></body></html>

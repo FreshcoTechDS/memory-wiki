@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Tag: ideas — Memory Wiki</title><link rel="stylesheet" href="../style.css"></head><body><nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="../">Home</a>
+  <a href="../subjects/">Subjects</a>
+  <a href="../tags/">Tags</a>
+  <a href="../daily/">Daily</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Full-text search..." oninput="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav><div class="container"><a href="../tags/" class="back-link">&larr; All Tags</a><div class="content-page"><h1>Tag: ideas</h1><p style="color:var(--text-muted)">5 items</p><h2>Subjects</h2><ul><li style=color:var(--text-muted)>No subjects</li></ul><h2>Notes (5)</h2><div class="session-card"><h3>Best Affordable AI Mini PCs of 2026: NPU-Powered Desktops That Won't Break the Bank</h3><p style="font-size:.8rem;color:var(--text-muted)">Best AI Mini PCs 2026 - Review.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>Best Affordable AI Mini PCs of 2026: NPU-Powered Desktops That Won't Break the Bank</h1>
+<br>
+AI PCs aren't just $3,000 laptops anymore. The best affordable AI mini PCs now pack dedicated Neural Processing Units — the same kind of hardware that powers Windows Copilot, local language models, and real-time video effects — into boxes small enough to disappear behind a monitor. And prices have dropped fast. You can get a genuinely capable AI-ready mini PC for $600. Two years ago that number would have bee</div></div><div class="session-card"><h3>Wiki Schema</h3><p style="font-size:.8rem;color:var(--text-muted)">SCHEMA.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>Wiki Schema</h1>
+<br>
+<h2 id="domain">Domain</h2>
+Personal knowledge base covering:
+<li>**Digital Products** — digital marketing, selling digital goods, product strategies</li>
+<li>**Hardware** — computer component reviews, benchmarks, comparisons</li>
+<li>**AI/ML** — models, techniques, tools, research developments</li>
+<li>**Investing** — stock research, crypto research, market analysis</li>
+<li>**Ideas** — concepts, brainstorms, opportunities to explore</li>
+<li>**Projects** — active work, plans, decisions, retrospectives</li>
+<br>
+<h2 id="conventions">Conventions</h2>
+<li>File names:</li></div></div><div class="session-card"><h3>Welcome to Your Vault</h3><p style="font-size:.8rem;color:var(--text-muted)">Welcome.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>Welcome to Your Vault</h1>
+<br>
+This vault is managed by Hermes Agent. I can:
+<br>
+<li>**Create notes** — just tell me what to write</li>
+<li>**Search your notes** — ask me to find anything</li>
+<li>**Edit and update** — I'll keep things current</li>
+<li>**Link ideas** — I use `[[wikilinks]]` to connect related notes</li>
+<br>
+<h2 id="quick-start">Quick Start</h2>
+<br>
+Try saying things like:
+<li>"Create a note about my project ideas"</li>
+<li>"Search my vault for anything about Python"</li>
+<li>"Add to my daily notes with today's tasks"</li>
+<br>
+<li>--</li>
+<br>
+*Created by Hermes Agent — 2026-05-</div></div><div class="session-card"><h3>LLM Context Engineering: Give AI the Right Info, Waste Fewer Tokens</h3><p style="font-size:.8rem;color:var(--text-muted)">Context Engineering for LLMs.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>LLM Context Engineering: Give AI the Right Info, Waste Fewer Tokens</h1>
+<br>
+Here's a weird fact: the single biggest factor in whether an AI gives you a great answer or a garbage one isn't the model you picked. It's not the temperature setting. It's &lt;em&gt;what you put in its context window.&lt;/em&gt;
+<br>
+Think of context as the AI's working memory. Everything you stuff in there — instructions, examples, conversation history, documents, tool definitions — competes for the model's attention. Put in too much and it gets</div></div><div class="session-card"><h3>App Architect Prompt</h3><p style="font-size:.8rem;color:var(--text-muted)">Prompts/App Architect prompt.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+You are an senior software engineer. I have this idea for a mobile or web application. The app would allow farmers to list their harvest or food for sell with a price and quanity. One the consumer side of the app I would like for consumers to be able to look at all the farmers food or harvest for sell and choose which items they want to buy. A feature I want to add later, is for once a order is confirmed by a seller and a buyer. A delivery person can choose form the the available confirmed and </div></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 20, 2026 at 09:00 AM</p></footer><script>
+var SI=[];
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{SI=idx});
+function doSearch(q){
+  var r=document.getElementById('search-results');
+  if(!q||q.length<2){r.classList.remove('active');return}
+  var ql=q.toLowerCase(), qw=ql.split(/\s+/);
+  var m=SI.filter(i=>{
+    var txt=(i.title+' '+(i.preview||'')+' '+(i.content||'')+' '+(i.tags||[]).join(' ')).toLowerCase();
+    return qw.every(w=>txt.includes(w));
+  }).slice(0,10);
+  if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+  else r.innerHTML=m.map(i=>{
+    var ctx='',c=(i.content||''),idx=c.toLowerCase().indexOf(ql);
+    if(idx>=0)ctx=c.substring(Math.max(0,idx-40),idx+80);
+    return '<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(ctx||(i.preview||'').substring(0,100))+'</div></a>';
+  }).join('');
+  r.classList.add('active');
+}
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
+</script></body></html>

@@ -1,59 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Logs — Memory Wiki</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<nav>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Daily Logs — Memory Wiki</title><link rel="stylesheet" href="../style.css"></head><body><nav>
   <span class="logo">🧠 Memory Wiki</span>
-  <a href="./">Home</a>
-  <a href="./subjects/">Subjects</a>
-  <a href="./daily/">Daily Logs</a>
+  <a href="../">Home</a>
+  <a href="../subjects/">Subjects</a>
+  <a href="../tags/">Tags</a>
+  <a href="../daily/">Daily</a>
   <div class="search-wrap">
-    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
+    <input type="text" id="search-input" placeholder="Full-text search..." oninput="doSearch(this.value)">
     <div class="search-results" id="search-results"></div>
   </div>
-</nav>
-<div class="container">
-<div class="hero"><h1>Daily Logs</h1><p>5 days of work — every session, chronologically.</p></div>
-<div class="section-title">📅 All Days</div><div class="daily-list"><a href="2026-06-18.html" style="text-decoration:none">
-  <div class="daily-entry"><div class="date">2026-06-18</div><h3>AI Mini PC Research (June 5) · Local AI Image & Video Generation Models (June 18) · Configuration</h3><p>3 sections</p></div></a><a href="2026-05-25 Ai workstation Summary.html" style="text-decoration:none">
-  <div class="daily-entry"><div class="date">2026-05-25 Ai workstation Summary</div><h3>Goals Accomplished · Links & References</h3><p>2 sections</p></div></a><a href="2026-05-23.html" style="text-decoration:none">
-  <div class="daily-entry"><div class="date">2026-05-23</div><h3>FarmDirect Backend Architecture · Memory Wiki Website · Model & Pricing · Cross-References</h3><p>4 sections</p></div></a><a href="2026-05-22.html" style="text-decoration:none">
-  <div class="daily-entry"><div class="date">2026-05-22</div><h3>Syncthing Setup for Obsidian Vault Sync · Other Notes · [[Tech Stack]]</h3><p>3 sections</p></div></a><a href="2026-05-14.html" style="text-decoration:none">
-  <div class="daily-entry"><div class="date">2026-05-14</div><h3>GitHub · Obsidian · Notes Created</h3><p>3 sections</p></div></a></div>
-<a href="./" class="back-link" style="display:inline-block;margin-top:2rem;">← Home</a></div>
-<footer>
-  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
-  Auto-generated: June 20, 2026 at 06:00 AM</p>
-</footer>
-<script>
-function doSearch(q) {
-  const res = document.getElementById('search-results');
-  if (!q || q.length < 2) { res.classList.remove('active'); return; }
-  fetch('./search-index.json').then(r => r.json()).then(idx => {
-    const ql = q.toLowerCase();
-    const matches = idx.filter(item =>
-      item.title.toLowerCase().includes(ql) ||
-      (item.preview || '').toLowerCase().includes(ql) ||
-      (item.tags || []).some(t => t.toLowerCase().includes(ql))
-    ).slice(0, 8);
-    if (matches.length === 0) {
-      res.innerHTML = '<div class="no-results">No matches found</div>';
-    } else {
-      res.innerHTML = matches.map(m =>
-        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
-      ).join('');
-    }
-    res.classList.add('active');
-  });
+</nav><div class="container"><a href="../" class="back-link">&larr; Home</a><div class="content-page"><h1>Daily Logs</h1><div class="daily-list"><a href="2026-06-18.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-06-18</div><h3>Local AI Image & Video Gen + LLM Research</h3><p>1 session</p></div></a><a href="2026-06-05.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-06-05</div><h3>AMD Ryzen AI Mini PCs + Google Trends 2026</h3><p>1 session</p></div></a><a href="2026-06-02.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-06-02</div><h3>Memory OS Stack for Hermes Agent</h3><p>1 session</p></div></a><a href="2026-06-01.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-06-01</div><h3>GMKtec EVO-X2 Local LLM Review</h3><p>1 session</p></div></a><a href="2026-05-22.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-05-22</div><h3>AI Mini PCs Blog Post + GPU Supply Chain</h3><p>1 session</p></div></a><a href="2026-05-20.html" style="text-decoration:none"><div class="daily-entry"><div class="date">2026-05-20</div><h3>Local AI Hardware & Context Engineering Blog</h3><p>1 session</p></div></a></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 20, 2026 at 09:00 AM</p></footer><script>
+var SI=[];
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{SI=idx});
+function doSearch(q){
+  var r=document.getElementById('search-results');
+  if(!q||q.length<2){r.classList.remove('active');return}
+  var ql=q.toLowerCase(), qw=ql.split(/\s+/);
+  var m=SI.filter(i=>{
+    var txt=(i.title+' '+(i.preview||'')+' '+(i.content||'')+' '+(i.tags||[]).join(' ')).toLowerCase();
+    return qw.every(w=>txt.includes(w));
+  }).slice(0,10);
+  if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+  else r.innerHTML=m.map(i=>{
+    var ctx='',c=(i.content||''),idx=c.toLowerCase().indexOf(ql);
+    if(idx>=0)ctx=c.substring(Math.max(0,idx-40),idx+80);
+    return '<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(ctx||(i.preview||'').substring(0,100))+'</div></a>';
+  }).join('');
+  r.classList.add('active');
 }
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
-});
-</script>
-</body>
-</html>
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
+</script></body></html>

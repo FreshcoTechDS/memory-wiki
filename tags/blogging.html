@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Tag: blogging — Memory Wiki</title><link rel="stylesheet" href="../style.css"></head><body><nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="../">Home</a>
+  <a href="../subjects/">Subjects</a>
+  <a href="../tags/">Tags</a>
+  <a href="../daily/">Daily</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Full-text search..." oninput="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav><div class="container"><a href="../tags/" class="back-link">&larr; All Tags</a><div class="content-page"><h1>Tag: blogging</h1><p style="color:var(--text-muted)">6 items</p><h2>Subjects</h2><ul><li style=color:var(--text-muted)>No subjects</li></ul><h2>Notes (6)</h2><div class="session-card"><h3>How to Setup WordPress with Hermes</h3><p style="font-size:.8rem;color:var(--text-muted)">how to setup WordPress with Hermes.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>How to Setup WordPress with Hermes</h1>
+<br>
+Blueprint for connecting Hermes Agent to a WordPress blog (e.g., Hostinger-hosted) to research topics and write/publish posts autonomously.
+<br>
+<li>--</li>
+<br>
+<h2 id="phase-1-enable-wordpress-rest-api">Phase 1 — Enable WordPress REST API</h2>
+<br>
+On the WordPress side:
+<br>
+1. &lt;strong&gt;Confirm your site URL&lt;/strong&gt; — you'll need it for all API calls
+2. &lt;strong&gt;Generate an Application Password&lt;/strong&gt;:
+   - Go to WP Admin → Users → Profile → Application Passwords
+   - Enter a name (e.g., "Hermes Agent") and click &lt;strong&gt;Add New&lt;/strong&gt;
+   - Save the generat</div></div><div class="session-card"><h3>Best Affordable AI Mini PCs of 2026: NPU-Powered Desktops That Won't Break the Bank</h3><p style="font-size:.8rem;color:var(--text-muted)">Best AI Mini PCs 2026 - Review.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>Best Affordable AI Mini PCs of 2026: NPU-Powered Desktops That Won't Break the Bank</h1>
+<br>
+AI PCs aren't just $3,000 laptops anymore. The best affordable AI mini PCs now pack dedicated Neural Processing Units — the same kind of hardware that powers Windows Copilot, local language models, and real-time video effects — into boxes small enough to disappear behind a monitor. And prices have dropped fast. You can get a genuinely capable AI-ready mini PC for $600. Two years ago that number would have bee</div></div><div class="session-card"><h3>LLM Context Engineering: Give AI the Right Info, Waste Fewer Tokens</h3><p style="font-size:.8rem;color:var(--text-muted)">Context Engineering for LLMs.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>LLM Context Engineering: Give AI the Right Info, Waste Fewer Tokens</h1>
+<br>
+Here's a weird fact: the single biggest factor in whether an AI gives you a great answer or a garbage one isn't the model you picked. It's not the temperature setting. It's &lt;em&gt;what you put in its context window.&lt;/em&gt;
+<br>
+Think of context as the AI's working memory. Everything you stuff in there — instructions, examples, conversation history, documents, tool definitions — competes for the model's attention. Put in too much and it gets</div></div><div class="session-card"><h3>Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent</h3><p style="font-size:.8rem;color:var(--text-muted)">Memory OS - 6-Layer Open-Source Memory Stack for Hermes Agent.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent</h1>
+<br>
+&lt;strong&gt;Source:&lt;/strong&gt; [MarkTechPost — June 1, 2026](https://www.marktechpost.com/2026/06/01/meet-memory-os-a-6-layer-open-source-memory-stack-built-on-top-of-hermes-agent/)  
+&lt;strong&gt;Author:&lt;/strong&gt; Michal Sutter  
+&lt;strong&gt;Repository:&lt;/strong&gt; [ClaudioDrews/Memory-OS](https://github.com/ClaudioDrews/Memory-OS) (MIT License)  
+&lt;strong&gt;Developer:&lt;/strong&gt; Claudio Drews (@ClaudioDrews25)
+<br>
+<h2 id="overview">Overview</h2>
+<br>
+Hermes Agent already remembers across sessions with curated memory files and f</div></div><div class="session-card"><h3>FarmDirect — Backend Logic & Service Architecture</h3><p style="font-size:.8rem;color:var(--text-muted)">projects/FarmDirect - Backend Logic.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>FarmDirect — Backend Logic & Service Architecture</h1>
+<br>
+<h2 id="doordash-pattern-farmdirect-translation">DoorDash Pattern → FarmDirect Translation</h2>
+<br>
+| DoorDash | FarmDirect | Key Difference |
+|----------|-----------|----------------|
+| Restaurant lists menu | Farmer lists **harvest inventory** | Finite, seasonal, spoils — not made-to-order |
+| Customer orders meal | Customer orders **produce by weight/unit** | Bulk + consumer portions coexist |
+| Restaurant accepts & cooks | Farmer accepts & **harvests/packs** | Time-to-ready varies (hours, no</div></div><div class="session-card"><h3>FarmDirect — Farmer-to-Consumer Marketplace</h3><p style="font-size:.8rem;color:var(--text-muted)">projects/FarmDirect.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>FarmDirect — Farmer-to-Consumer Marketplace</h1>
+<br>
+<h2 id="overview">Overview</h2>
+<br>
+A marketplace connecting local farmers directly with consumers, handling listings, orders, payments, and eventually delivery. Farmers list their harvest; consumers browse and buy. The platform handles payments via Stripe Connect (escrow), real-time chat via Firestore, and delivery orchestration as a Phase 2 plugin.
+<br>
+<h2 id="architecture-google-cloud-us-central1">Architecture (Google Cloud — us-central1)</h2>
+<br>
+<h3 id="serverless-first-on-cloud-run">Serverless-First on Cloud Run</h3>
+<br>
+Every backend service runs as its own Cl</div></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 20, 2026 at 09:00 AM</p></footer><script>
+var SI=[];
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{SI=idx});
+function doSearch(q){
+  var r=document.getElementById('search-results');
+  if(!q||q.length<2){r.classList.remove('active');return}
+  var ql=q.toLowerCase(), qw=ql.split(/\s+/);
+  var m=SI.filter(i=>{
+    var txt=(i.title+' '+(i.preview||'')+' '+(i.content||'')+' '+(i.tags||[]).join(' ')).toLowerCase();
+    return qw.every(w=>txt.includes(w));
+  }).slice(0,10);
+  if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+  else r.innerHTML=m.map(i=>{
+    var ctx='',c=(i.content||''),idx=c.toLowerCase().indexOf(ql);
+    if(idx>=0)ctx=c.substring(Math.max(0,idx-40),idx+80);
+    return '<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(ctx||(i.preview||'').substring(0,100))+'</div></a>';
+  }).join('');
+  r.classList.add('active');
+}
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
+</script></body></html>

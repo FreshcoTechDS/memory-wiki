@@ -2,56 +2,112 @@
   <span class="logo">🧠 Memory Wiki</span>
   <a href="../">Home</a>
   <a href="../subjects/">Subjects</a>
+  <a href="../tags/">Tags</a>
   <a href="../daily/">Daily</a>
   <div class="search-wrap">
-    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)">
+    <input type="text" id="search-input" placeholder="Full-text search..." oninput="doSearch(this.value)">
     <div class="search-results" id="search-results"></div>
   </div>
-</nav><div class="container"><a href="../subjects/" class="back-link">&larr; All Subjects</a><div class="content-page subject-header"><h1>Local LLM Models — VRAM Tier Guide</h1><div style="margin-top:.5rem"><span class="tag">AI</span> <span class="tag">LLM</span> <span class="tag">local-ai</span> <span class="tag">quantization</span> <span class="tag">vram</span></div><p style="color:var(--text-muted);margin-top:.75rem">Text LLMs on AI mini PCs at 32GB, 64GB, 96GB, 128GB unified memory. Model families: Llama 4 Scout (109B MoE, 18 t/s), DeepSeek R1, Qwen 3, Mistral, Command R+. GGUF quantization sizing, tokens/sec estimates, and use-case recommendations.</p></div><div class="content-page"><h2>Vault Notes (3)</h2><div class="session-card"><h3>Image & Video Generation Models for Local AI PCs</h3><p style="font-size:.8rem;color:var(--text-muted)">image-video-gen-models-vram.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
-# Image & Video Generation Models for Local AI PCs
-
-Comprehensive guide to running image and video generation models locally on **AMD Strix Halo systems** (Ryzen AI Max+ 395, Radeon 8060S 40 CU, 256 GB/s unified memory).
-
-&gt; **Key difference from LLMs:** These models need GPU compute (not just memory bandwidth). The 8060S iGPU is roughly **RTX 4060 laptop** class in raw compute — capable but not a datacenter GPU. Generation times will be longer than cloud services, but you own the pipeline and pay $0 per image.
-
-**Runner: ComfyUI** is the standard for local image/video gen. Supports all these models via custom nodes. **Diffusers** (HuggingFace) for Python pipelines.
-
----
-
-## ⚡ Image Generation Models (Top Picks)
-
-### 1. **FLUX.1-dev** 🔥 *(Black Forest Labs)*
-
+</nav><div class="container"><a href="../subjects/" class="back-link">&larr; All Subjects</a><div class="content-page subject-header"><h1>Local LLM Models — VRAM Tier Guide</h1><div style="margin-top:.5rem"><a href="../tags/ai.html" class="tag">AI</a> <a href="../tags/llm.html" class="tag">LLM</a> <a href="../tags/local-ai.html" class="tag">local-ai</a> <a href="../tags/quantization.html" class="tag">quantization</a> <a href="../tags/vram.html" class="tag">vram</a></div><p style="color:var(--text-muted);margin-top:.75rem">Text LLMs on AI mini PCs at 32GB, 64GB, 96GB, 128GB unified memory. Llama 4 Scout (109B MoE, 18 t/s), DeepSeek R1, Qwen 3, Mistral, Command R+. GGUF quantization sizing, tokens/sec estimates.</p></div><div class="content-page"><nav class="toc"><h3>📑 On This Page</h3><ul><li><a href="#image-video-generation-models-for-local-ai-pcs">Image & Video Generation Models for Local AI PCs</a></li><li style="padding-left:1.25rem"><a href="#image-generation-models-top-picks">⚡ Image Generation Models (Top Picks)</a></li><li style="padding-left:2.5rem"><a href="#1-flux-1-dev-black-forest-labs">1. **FLUX.1-dev** 🔥 *(Black Forest Labs)*</a></li><li style="padding-left:2.5rem"><a href="#2-flux-1-schnell-black-forest-labs">2. **FLUX.1-schnell** ⚡ *(Black Forest Labs)*</a></li><li style="padding-left:2.5rem"><a href="#3-stable-diffusion-3-5-large-stability-ai">3. **Stable Diffusion 3.5 Large** 🎨 *(Stability AI)*</a></li><li style="padding-left:2.5rem"><a href="#4-stable-diffusion-3-5-medium-stability-ai">4. **Stable Diffusion 3.5 Medium** 🏃 *(Stability AI)*</a></li><li style="padding-left:2.5rem"><a href="#5-sdxl-stable-diffusion-xl-stability-ai">5. **SDXL (Stable Diffusion XL)** 🏇 *(Stability AI)*</a></li><li style="padding-left:2.5rem"><a href="#6-pixart-sigma-huawei-pku">6. **PixArt-Σ (Sigma)** 🇨🇳 *(Huawei / PKU)*</a></li><li style="padding-left:1.25rem"><a href="#video-generation-models-top-picks">🎬 Video Generation Models (Top Picks)</a></li><li style="padding-left:2.5rem"><a href="#7-ltx-video-2-3-lightricks">7. **LTX-Video 2.3** ⚡⚡⚡ *(Lightricks)*</a></li><li style="padding-left:2.5rem"><a href="#8-wan-2-2-14b-t2v-i2v-alibaba">8. **Wan 2.2-14B (T2V + I2V)** 🎥🔥 *(Alibaba)*</a></li><li style="padding-left:2.5rem"><a href="#9-wan-2-2-1-3b-alibaba">9. **Wan 2.2-1.3B** 🏃💨 *(Alibaba)*</a></li><li style="padding-left:2.5rem"><a href="#10-hunyuanvideo-1-5-tencent">10. **HunyuanVideo 1.5** 🇨🇳🎬 *(Tencent)*</a></li><li style="padding-left:2.5rem"><a href="#11-cogvideox-5b-zhipu-ai-thudm">11. **CogVideoX-5B** 🎞️ *(Zhipu AI / THUDM)*</a></li><li style="padding-left:2.5rem"><a href="#12-mochi-1-genmo">12. **Mochi 1** 🌊 *(Genmo)*</a></li><li style="padding-left:1.25rem"><a href="#memory-tier-recommendations">📊 Memory Tier Recommendations</a></li><li style="padding-left:2.5rem"><a href="#32-gb-tier">32 GB Tier</a></li><li style="padding-left:2.5rem"><a href="#64-gb-the-sweet-spot">64 GB — The Sweet Spot</a></li><li style="padding-left:2.5rem"><a href="#96-gb-high-quality-all-the-way">96 GB — High Quality All the Way</a></li><li style="padding-left:2.5rem"><a href="#128-gb-the-creative-studio">128 GB — The Creative Studio</a></li><li style="padding-left:1.25rem"><a href="#quick-picks-by-use-case">🎯 Quick Picks by Use Case</a></li><li style="padding-left:1.25rem"><a href="#setup-for-amd-strix-halo">🔧 Setup for AMD Strix Halo</a></li><li style="padding-left:2.5rem"><a href="#rocm-environment">ROCm Environment</a></li><li style="padding-left:2.5rem"><a href="#comfyui-quick-install">ComfyUI Quick Install</a></li><li style="padding-left:2.5rem"><a href="#vram-saving-launch-flags">VRAM-Saving Launch Flags</a></li><li style="padding-left:2.5rem"><a href="#key-custom-nodes">Key Custom Nodes</a></li><li style="padding-left:1.25rem"><a href="#amd-caveats">⚠️ AMD Caveats</a></li><li style="padding-left:1.25rem"><a href="#related-notes">🔗 Related Notes</a></li><li><a href="#llm-context-engineering-give-ai-the-right-info-waste-fewer-tokens">LLM Context Engineering: Give AI the Right Info, Waste Fewer Tokens</a></li><li style="padding-left:1.25rem"><a href="#what-actually-lives-in-context">What Actually Lives in Context</a></li><li style="padding-left:1.25rem"><a href="#the-art-of-the-system-prompt">The Art of the System Prompt</a></li><li style="padding-left:2.5rem"><a href="#rules-for-system-prompts">Rules for system prompts</a></li><li style="padding-left:1.25rem"><a href="#smart-context-engineering-5-ways-to-reduce-token-waste">Smart Context Engineering: 5 Ways to Reduce Token Waste</a></li><li style="padding-left:2.5rem"><a href="#1-summarize-instead-of-accumulate">1. Summarize instead of accumulate</a></li><li style="padding-left:2.5rem"><a href="#2-be-selective-instead-of-comprehensive">2. Be selective instead of comprehensive</a></li><li style="padding-left:2.5rem"><a href="#3-use-sliding-windows">3. Use sliding windows</a></li><li style="padding-left:2.5rem"><a href="#4-compress-your-prompts">4. Compress your prompts</a></li><li style="padding-left:2.5rem"><a href="#5-cache-what-doesn-t-change">5. Cache what doesn't change</a></li><li style="padding-left:1.25rem"><a href="#agent-specific-challenges">Agent-Specific Challenges</a></li><li style="padding-left:2.5rem"><a href="#tool-definitions-are-expensive">Tool definitions are expensive</a></li><li style="padding-left:2.5rem"><a href="#multi-turn-conversations-balloon-fast">Multi-turn conversations balloon fast</a></li><li style="padding-left:2.5rem"><a href="#memory-needs-curation">Memory needs curation</a></li><li style="padding-left:1.25rem"><a href="#practical-tools-and-techniques">Practical Tools and Techniques</a></li><li style="padding-left:1.25rem"><a href="#the-golden-rules">The Golden Rules</a></li><li style="padding-left:1.25rem"><a href="#the-bottom-line">The Bottom Line</a></li><li><a href="#local-llm-models-for-ai-mini-pcs-memory-tier-guide">Local LLM Models for AI Mini PCs — Memory Tier Guide</a></li><li style="padding-left:1.25rem"><a href="#quick-reference-quantization-sizes">⚡ Quick Reference: Quantization Sizes</a></li><li style="padding-left:2.5rem"><a href="#memory-budget-per-tier">Memory Budget (per tier)</a></li><li style="padding-left:2.5rem"><a href="#speed-estimation-strix-halo-256-gb-s">Speed Estimation (Strix Halo — 256 GB/s)</a></li><li style="padding-left:1.25rem"><a href="#32gb-tier-the-practical-starting-point">🔷 32GB Tier — The Practical Starting Point</a></li><li style="padding-left:2.5rem"><a href="#recommended-models-sorted-by-priority">Recommended Models (sorted by priority)</a></li><li style="padding-left:2.5rem"><a href="#32gb-tier-strategy">32GB Tier Strategy</a></li><li style="padding-left:1.25rem"><a href="#64gb-tier-the-goldilocks-zone">🔶 64GB Tier — The Goldilocks Zone</a></li><li style="padding-left:2.5rem"><a href="#recommended-models">Recommended Models</a></li><li style="padding-left:2.5rem"><a href="#64gb-tier-strategy">64GB Tier Strategy</a></li><li style="padding-left:1.25rem"><a href="#96gb-tier-the-sweet-spot-expands">🟡 96GB Tier — The Sweet Spot Expands</a></li><li style="padding-left:2.5rem"><a href="#96gb-tier-strategy">96GB Tier Strategy</a></li><li style="padding-left:1.25rem"><a href="#128gb-tier-the-frontier-comes-home">🟢 128GB Tier — The Frontier Comes Home</a></li><li style="padding-left:2.5rem"><a href="#128gb-tier-strategy">128GB Tier Strategy</a></li><li style="padding-left:1.25rem"><a href="#model-selection-by-use-case-cross-tier-picks">🎯 Model Selection by Use Case (Cross-Tier Picks)</a></li><li style="padding-left:2.5rem"><a href="#general-chat-assistant">General Chat / Assistant</a></li><li style="padding-left:2.5rem"><a href="#coding">Coding</a></li><li style="padding-left:2.5rem"><a href="#reasoning-math-logic">Reasoning / Math / Logic</a></li><li style="padding-left:2.5rem"><a href="#roleplay-creative-writing">Roleplay / Creative Writing</a></li><li style="padding-left:2.5rem"><a href="#multilingual-chinese-japanese-korean-arabic-etc">Multilingual (Chinese, Japanese, Korean, Arabic, etc.)</a></li><li style="padding-left:2.5rem"><a href="#rag-enterprise-tool-use">RAG / Enterprise / Tool Use</a></li><li style="padding-left:1.25rem"><a href="#setup-optimization-tips">🔧 Setup & Optimization Tips</a></li><li style="padding-left:2.5rem"><a href="#llama-cpp-flags-for-strix-halo">llama.cpp Flags for Strix Halo</a></li><li><a href="#vulkan-backend-recommended-for-amd-igpu">Vulkan backend (recommended for AMD iGPU)</a></li><li style="padding-left:2.5rem"><a href="#rocm-vs-vulkan">ROCm vs Vulkan</a></li><li style="padding-left:2.5rem"><a href="#kv-cache-tuning">KV Cache Tuning</a></li><li style="padding-left:2.5rem"><a href="#ollama-quick-start">Ollama Quick Start</a></li><li><a href="#pull-and-run-auto-detects-best-quantization">Pull and run (auto-detects best quantization)</a></li><li style="padding-left:1.25rem"><a href="#tier-summary-what-you-get">📊 Tier Summary: What You Get</a></li><li style="padding-left:1.25rem"><a href="#cost-performance-sweet-spots">💰 Cost-Performance Sweet Spots</a></li><li style="padding-left:2.5rem"><a href="#best-value-highest-intelligence-per-dollar">Best Value (highest intelligence per dollar)</a></li><li style="padding-left:2.5rem"><a href="#diminishing-returns-threshold">Diminishing Returns Threshold</a></li><li style="padding-left:1.25rem"><a href="#what-you-still-can-t-run-even-at-128-gb">🚫 What You Still CAN'T Run (Even at 128 GB)</a></li></ul></nav><h2>Vault Notes (3)</h2><div class="session-card"><h3>Image & Video Generation Models for Local AI PCs</h3><p style="font-size:.8rem;color:var(--text-muted)">image-video-gen-models-vram.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>Image & Video Generation Models for Local AI PCs</h1>
+<br>
+Comprehensive guide to running image and video generation models locally on &lt;strong&gt;AMD Strix Halo systems&lt;/strong&gt; (Ryzen AI Max+ 395, Radeon 8060S 40 CU, 256 GB/s unified memory).
+<br>
+<blockquote>**Key difference from LLMs:** These models need GPU compute (not just memory bandwidth). The 8060S iGPU is roughly **RTX 4060 laptop** class in raw compute — capable but not a datacenter GPU. Generation times will be longer than cloud services, but you own the pipeline and pay $0 per image.</blockquote>
+<br>
+&lt;strong&gt;Runner: ComfyUI&lt;/strong&gt; is the standard for local image/video gen. Supports all these models via custom nodes. &lt;strong&gt;Diffusers&lt;/strong&gt; (HuggingFace) for Python pipelines.
+<br>
+<li>--</li>
+<br>
+<h2 id="image-generation-models-top-picks">⚡ Image Generation Models (Top Picks)</h2>
+<br>
+<h3 id="1-flux-1-dev-black-forest-labs">1. **FLUX.1-dev** 🔥 *(Black Forest Labs)*</h3>
+<br>
 | Metric | Value |
 |---|---|
-|</pre></div><div class="session-card"><h3>LLM Context Engineering: Give AI the Right Info, Waste Fewer Tokens</h3><p style="font-size:.8rem;color:var(--text-muted)">Context Engineering for LLMs.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
-# LLM Context Engineering: Give AI the Right Info, Waste Fewer Tokens
-
-Here's a weird fact: the single biggest factor in whether an AI gives you a great answer or a garbage one isn't the model you picked. It's not the temperature setting. It's *what you put in its context window.*
-
+| **Architecture** | Rectified Flow Transformer (12B params) |
+| **Full FP16 size** | ~23 GB |
+| **FP8 / NF4 size** | ~14 GB / ~11 GB |
+| **Recommended VRAM** | **16+ GB** (FP8), **24 GB** (FP16) |
+| **Text encoder** | T5-XXL (~9 GB extra in VRAM!) + CLIP-L |
+| **Generation speed** | 30–90 sec/image (8060S, 20–50 steps) |
+| **Quality** | ⭐⭐⭐⭐⭐ — Current open-source king for photorealism |
+| **Best for** | Photorealistic images, prompt adherence, complex scenes |
+| **Notes** | **T5-XXL text encoder is massive** — account for it in VRAM budget. Use `--fast-fp8` or GGUF quants to shrink it. |
+<br>
+&lt;strong&gt;VRAM breakdown (ComfyUI):&lt;/strong&gt;
+<li>Full FP16: model 23 GB + T5 9 GB + VAE 1 GB = **~33 GB total** ❌ Won't</li></div></div><div class="session-card"><h3>LLM Context Engineering: Give AI the Right Info, Waste Fewer Tokens</h3><p style="font-size:.8rem;color:var(--text-muted)">Context Engineering for LLMs.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>LLM Context Engineering: Give AI the Right Info, Waste Fewer Tokens</h1>
+<br>
+Here's a weird fact: the single biggest factor in whether an AI gives you a great answer or a garbage one isn't the model you picked. It's not the temperature setting. It's &lt;em&gt;what you put in its context window.&lt;/em&gt;
+<br>
 Think of context as the AI's working memory. Everything you stuff in there — instructions, examples, conversation history, documents, tool definitions — competes for the model's attention. Put in too much and it gets distracted. Put in too little and it doesn't have enough to work with. Put in the wrong things and it confidently gives you a beautifully written wrong answer.
-
-This is context engineering: the discipline of deciding what goes into an LLM's context window, how it's structured, and what gets left ou</pre></div><div class="session-card"><h3>Local LLM Models for AI Mini PCs — Memory Tier Guide</h3><p style="font-size:.8rem;color:var(--text-muted)">llm-models-by-vram-tier.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
-# Local LLM Models for AI Mini PCs — Memory Tier Guide
-
-Comprehensive guide to running LLMs locally on AMD Strix Halo systems (Ryzen AI Max+ 395) with unified LPDDR5X-8000 memory at **256 GB/s bandwidth**. Covers the four key memory tiers: **32GB, 64GB, 96GB, and 128GB**.
-
-&gt; **Scope:** GGUF quantization via llama.cpp / Ollama / LM Studio. Vulkan/ROCm backend. All sizes approximate — actual GGUF files vary by tokenizer, vocabulary, and architecture.
-
----
-
-## ⚡ Quick Reference: Quantization Sizes
-
+<br>
+This is context engineering: the discipline of deciding what goes into an LLM's context window, how it's structured, and what gets left out. It matters for everyone — from someone using ChatGPT to a developer building AI agents that autonomously complete multi-step tasks.
+<br>
+Let's break down how to do it well.
+<br>
+&lt;em&gt;Also see: [How To Get Into Crypto? Roadmap For A Web3 Developer](https://freshco.tech/how-to-get-into-crypto-roadmap-for-a-web3-developer/) — another deep dive for technical learners.&lt;/em&gt;
+<br>
+<br>
+<li>--</li>
+<br>
+<h2 id="what-actually-lives-in-context">What Actually Lives in Context</h2>
+<br>
+Every time you send a message to an LLM, the model doesn't just see your question. It sees a bundle of information that might include:
+<br>
+<li>**System prompt** — the "you are a helpful assistant" instructions, formatting rules, personality, and safety guidelines</li>
+<li>**Conversation history** — every back-</li></div></div><div class="session-card"><h3>Local LLM Models for AI Mini PCs — Memory Tier Guide</h3><p style="font-size:.8rem;color:var(--text-muted)">llm-models-by-vram-tier.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>Local LLM Models for AI Mini PCs — Memory Tier Guide</h1>
+<br>
+Comprehensive guide to running LLMs locally on AMD Strix Halo systems (Ryzen AI Max+ 395) with unified LPDDR5X-8000 memory at &lt;strong&gt;256 GB/s bandwidth&lt;/strong&gt;. Covers the four key memory tiers: &lt;strong&gt;32GB, 64GB, 96GB, and 128GB&lt;/strong&gt;.
+<br>
+<blockquote>**Scope:** GGUF quantization via llama.cpp / Ollama / LM Studio. Vulkan/ROCm backend. All sizes approximate — actual GGUF files vary by tokenizer, vocabulary, and architecture.</blockquote>
+<br>
+<li>--</li>
+<br>
+<h2 id="quick-reference-quantization-sizes">⚡ Quick Reference: Quantization Sizes</h2>
+<br>
 | Quantization | Size Formula | Quality | Best For |
 |---|---|---|---|
 | **Q4_K_M** | ~0.55 GB per 1B params | Very good (95%+ of FP16) | Daily driver, best balance |
 | **Q5_K_M** | ~0.65 GB per 1B params | Excellent | When you have headroom |
-| **Q8_0** | ~1.0 GB per 1B params | Near-lossless | C</pre></div><h2>Related Sessions (2)</h2><div class="session-card" id="2026-06-18"><div class="s-date">2026-06-18<span class="s-source"> via telegram</span></div><h3>Local AI Image & Video Gen + LLM Research</h3><p>Researched 10 image/video gen models for Strix Halo: Wan 2.2-14B (Sora-quality, 16-37GB VRAM), LTX-Video 2.3 (30-60s clips, 12GB), FLUX.1-dev (Midjourney-quality images, 16-33GB), SD 3.5 Large/Medium, HunyuanVideo 1.5, CogVideoX-5B, Mochi 1. Created LLM models guide covering Llama 4 Scout (18 t/s), DeepSeek R1 distillation, Qwen 3, Mistral Large 2, Command R+. 64GB identified as sweet spot for both text LLMs and creative workloads. Fixed model config to deepseek-v4-pro.</p></div><div class="session-card" id="2026-06-01"><div class="s-date">2026-06-01<span class="s-source"> via telegram</span></div><h3>GMKtec EVO-X2 Local LLM Review</h3><p>GMKtec EVO-X2 AI Mini PC: AMD Ryzen AI Max+ 395 (16C/32T, Radeon 8060S 40 CU, 256 GB/s). Pricing: 64GB/$1,499, 128GB/$3,199. Performance: Llama 4 Scout 109B at 15 t/s with Vulkan/ROCm, smaller models 30-50+ t/s. Recommended: Llama 3.3 70B Q4, Llama 4 Scout, Qwen2.5 32-72B, DeepSeek-Coder V2. WordPress draft published (ID 1172).</p></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 19, 2026 at 03:12 AM</p></footer><script>
-function doSearch(q){var r=document.getElementById('search-results');if(!q||q.length<2){r.classList.remove('active');return}
-fetch('../search-index.json').then(x=>x.json()).then(idx=>{var ql=q.toLowerCase();
-var m=idx.filter(i=>i.title.toLowerCase().includes(ql)||(i.preview||'').toLowerCase().includes(ql)||(i.tags||[]).some(t=>t.toLowerCase().includes(ql))).slice(0,8);
-if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
-else r.innerHTML=m.map(i=>'<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(i.preview||'').substring(0,100)+'</div></a>').join('');
-r.classList.add('active')})}
+| **Q8_0** | ~1.0 GB per 1B params | Near-lossless | Critical tasks, math |
+| **IQ4_XS** | ~0.45 GB per 1B params | Good | Squeezing big models in |
+| **Q3_K_M** | ~0.42 GB per 1B params | Acceptable | Last resort for giants |
+| **IQ2_XXS** | ~0.28 GB per 1B params | Degraded | Extreme size reduction |
+<br>
+<h3 id="memory-budget-per-tier">Memory Budget (per tier)</h3>
+<br>
+| Total RAM | OS + Overhead | KV Cache (8K ctx) | **Usable for Model** |
+|---|---|---|---|
+| **32 GB** | 3 GB | 1–2 GB | **~27 GB** |
+| **64 GB** | 3 GB | 2–4 GB | **~57 GB** |
+| **96 GB** | 3 GB | 3–5 GB | **~88 GB** |
+| **128 GB** | 3 GB | 4–6 GB | **~118 GB** |
+<br>
+<h3 id="speed-estimation-strix-halo-256-gb-s">Speed Estimation (Strix Halo — 256 GB/s)</h3>
+<br>
+With llama.cpp Vulkan backend at ~70% memory bandwidth efficiency:
+<li>**Effective bandwidth:** ~179 GB/s</li>
+<li>*</li></div></div><h2>Related Sessions (2)</h2><div class="session-card" id="2026-06-18"><div class="s-date">2026-06-18<span class="s-source"> via telegram</span></div><h3>Local AI Image & Video Gen + LLM Research</h3><p>Researched 10 image/video gen models for Strix Halo: Wan 2.2-14B (Sora-quality, 16-37GB VRAM), LTX-Video 2.3 (30-60s clips, 12GB), FLUX.1-dev (Midjourney-quality images, 16-33GB), SD 3.5 Large/Medium, HunyuanVideo 1.5, CogVideoX-5B, Mochi 1. Created LLM models guide covering Llama 4 Scout (18 t/s), DeepSeek R1 distillation, Qwen 3, Mistral Large 2, Command R+. 64GB identified as sweet spot for both text LLMs and creative workloads. Fixed model config to deepseek-v4-pro.</p></div><div class="session-card" id="2026-06-01"><div class="s-date">2026-06-01<span class="s-source"> via telegram</span></div><h3>GMKtec EVO-X2 Local LLM Review</h3><p>GMKtec EVO-X2 AI Mini PC: AMD Ryzen AI Max+ 395 (16C/32T, Radeon 8060S 40 CU, 256 GB/s). Pricing: 64GB/$1,499, 128GB/$3,199. Performance: Llama 4 Scout 109B at 15 t/s with Vulkan/ROCm. WordPress draft published (ID 1172).</p></div><div class="backlinks"><h2>🔗 Referenced By</h2><ul><li><a href="ai-mini-pcs.html">AI Mini PCs — Hardware Reviews</a></li><li><a href="image-video-gen-models.html">Image & Video Generation — Local AI</a></li><li><a href="hermes-agent-setup.html">Hermes Agent Setup & Configuration</a></li><li><a href="memory-os.html">Memory OS — Agent Memory Stack</a></li><li><a href="blog-content.html">Blog Content & WordPress Publishing</a></li></ul></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 20, 2026 at 09:00 AM</p></footer><script>
+var SI=[];
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{SI=idx});
+function doSearch(q){
+  var r=document.getElementById('search-results');
+  if(!q||q.length<2){r.classList.remove('active');return}
+  var ql=q.toLowerCase(), qw=ql.split(/\s+/);
+  var m=SI.filter(i=>{
+    var txt=(i.title+' '+(i.preview||'')+' '+(i.content||'')+' '+(i.tags||[]).join(' ')).toLowerCase();
+    return qw.every(w=>txt.includes(w));
+  }).slice(0,10);
+  if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+  else r.innerHTML=m.map(i=>{
+    var ctx='',c=(i.content||''),idx=c.toLowerCase().indexOf(ql);
+    if(idx>=0)ctx=c.substring(Math.max(0,idx-40),idx+80);
+    return '<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(ctx||(i.preview||'').substring(0,100))+'</div></a>';
+  }).join('');
+  r.classList.add('active');
+}
 document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
 </script></body></html>

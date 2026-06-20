@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Tag: hermes — Memory Wiki</title><link rel="stylesheet" href="../style.css"></head><body><nav>
+  <span class="logo">🧠 Memory Wiki</span>
+  <a href="../">Home</a>
+  <a href="../subjects/">Subjects</a>
+  <a href="../tags/">Tags</a>
+  <a href="../daily/">Daily</a>
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Full-text search..." oninput="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</nav><div class="container"><a href="../tags/" class="back-link">&larr; All Tags</a><div class="content-page"><h1>Tag: hermes</h1><p style="color:var(--text-muted)">6 items</p><h2>Subjects</h2><ul><li><a href="../subjects/hermes-agent-setup.html">Hermes Agent Setup & Configuration</a></li><li><a href="../subjects/memory-os.html">Memory OS — Agent Memory Stack</a></li></ul><h2>Notes (4)</h2><div class="session-card"><h3>How to Setup WordPress with Hermes</h3><p style="font-size:.8rem;color:var(--text-muted)">how to setup WordPress with Hermes.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>How to Setup WordPress with Hermes</h1>
+<br>
+Blueprint for connecting Hermes Agent to a WordPress blog (e.g., Hostinger-hosted) to research topics and write/publish posts autonomously.
+<br>
+<li>--</li>
+<br>
+<h2 id="phase-1-enable-wordpress-rest-api">Phase 1 — Enable WordPress REST API</h2>
+<br>
+On the WordPress side:
+<br>
+1. &lt;strong&gt;Confirm your site URL&lt;/strong&gt; — you'll need it for all API calls
+2. &lt;strong&gt;Generate an Application Password&lt;/strong&gt;:
+   - Go to WP Admin → Users → Profile → Application Passwords
+   - Enter a name (e.g., "Hermes Agent") and click &lt;strong&gt;Add New&lt;/strong&gt;
+   - Save the generat</div></div><div class="session-card"><h3>Welcome to Your Vault</h3><p style="font-size:.8rem;color:var(--text-muted)">Welcome.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>Welcome to Your Vault</h1>
+<br>
+This vault is managed by Hermes Agent. I can:
+<br>
+<li>**Create notes** — just tell me what to write</li>
+<li>**Search your notes** — ask me to find anything</li>
+<li>**Edit and update** — I'll keep things current</li>
+<li>**Link ideas** — I use `[[wikilinks]]` to connect related notes</li>
+<br>
+<h2 id="quick-start">Quick Start</h2>
+<br>
+Try saying things like:
+<li>"Create a note about my project ideas"</li>
+<li>"Search my vault for anything about Python"</li>
+<li>"Add to my daily notes with today's tasks"</li>
+<br>
+<li>--</li>
+<br>
+*Created by Hermes Agent — 2026-05-</div></div><div class="session-card"><h3>Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent</h3><p style="font-size:.8rem;color:var(--text-muted)">Memory OS - 6-Layer Open-Source Memory Stack for Hermes Agent.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent</h1>
+<br>
+&lt;strong&gt;Source:&lt;/strong&gt; [MarkTechPost — June 1, 2026](https://www.marktechpost.com/2026/06/01/meet-memory-os-a-6-layer-open-source-memory-stack-built-on-top-of-hermes-agent/)  
+&lt;strong&gt;Author:&lt;/strong&gt; Michal Sutter  
+&lt;strong&gt;Repository:&lt;/strong&gt; [ClaudioDrews/Memory-OS](https://github.com/ClaudioDrews/Memory-OS) (MIT License)  
+&lt;strong&gt;Developer:&lt;/strong&gt; Claudio Drews (@ClaudioDrews25)
+<br>
+<h2 id="overview">Overview</h2>
+<br>
+Hermes Agent already remembers across sessions with curated memory files and f</div></div><div class="session-card"><h3>Model Pricing — DeepSeek V4 Pro</h3><p style="font-size:.8rem;color:var(--text-muted)">projects/Model Pricing — DeepSeek V4 Pro.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>Model Pricing — DeepSeek V4 Pro</h1>
+<br>
+<h2 id="model-switched">Model Switched</h2>
+<br>
+Changed Hermes Agent global default model from &lt;code&gt;google/gemini-1.5-pro-002&lt;/code&gt; to &lt;code&gt;deepseek/deepseek-v4-pro&lt;/code&gt; via OpenRouter.
+<br>
+<pre>
+hermes config set model.default deepseek/deepseek-v4-pro
+</pre>
+<br>
+Config lives at &lt;code&gt;/root/.hermes/config.yaml&lt;/code&gt; and takes effect on next session restart (&lt;code&gt;/reset&lt;/code&gt; or reconnect).
+<br>
+<h2 id="pricing-via-openrouter">Pricing (via OpenRouter)</h2>
+<br>
+| Metric | Per Token | Per 1M Tokens |
+|--------|-----------|---------------|
+| **Prompt (input)** | $0.000000435</div></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 20, 2026 at 09:00 AM</p></footer><script>
+var SI=[];
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{SI=idx});
+function doSearch(q){
+  var r=document.getElementById('search-results');
+  if(!q||q.length<2){r.classList.remove('active');return}
+  var ql=q.toLowerCase(), qw=ql.split(/\s+/);
+  var m=SI.filter(i=>{
+    var txt=(i.title+' '+(i.preview||'')+' '+(i.content||'')+' '+(i.tags||[]).join(' ')).toLowerCase();
+    return qw.every(w=>txt.includes(w));
+  }).slice(0,10);
+  if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+  else r.innerHTML=m.map(i=>{
+    var ctx='',c=(i.content||''),idx=c.toLowerCase().indexOf(ql);
+    if(idx>=0)ctx=c.substring(Math.max(0,idx-40),idx+80);
+    return '<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(ctx||(i.preview||'').substring(0,100))+'</div></a>';
+  }).join('');
+  r.classList.add('active');
+}
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
+</script></body></html>

@@ -1,103 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GPU & VRAM Supply Chain — Memory Wiki</title>
-<link rel="stylesheet" href="..//style.css">
-</head>
-<body>
-<nav>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>GPU & VRAM Supply Chain — Memory Wiki</title><link rel="stylesheet" href="../style.css"></head><body><nav>
   <span class="logo">🧠 Memory Wiki</span>
-  <a href="..//">Home</a>
-  <a href="..//subjects/">Subjects</a>
-  <a href="..//daily/">Daily Logs</a>
+  <a href="../">Home</a>
+  <a href="../subjects/">Subjects</a>
+  <a href="../tags/">Tags</a>
+  <a href="../daily/">Daily</a>
   <div class="search-wrap">
-    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
+    <input type="text" id="search-input" placeholder="Full-text search..." oninput="doSearch(this.value)">
     <div class="search-results" id="search-results"></div>
   </div>
-</nav>
-<div class="container">
-
-<a href="../subjects/" class="back-link">← All Subjects</a>
-<div class="content-page"><h1>GPU & VRAM Supply Chain</h1><div style="margin-top:0.5rem;"><span class="tag">hardware</span><span class="tag">GPU</span><span class="tag">investing</span></div>
-<p style="color:var(--text-muted);margin-top:0.75rem;">Raw materials for GPU/VRAM manufacturing and publicly traded companies.</p>
-<h2>Vault Notes (2)</h2><div class="session-card"><h3>📄 Image Video Gen Models Vram</h3><p style="font-size:0.8rem;color:var(--text-muted);">image-video-gen-models-vram.md</p><pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;"># Image & Video Generation Models for Local AI PCs
-
-Comprehensive guide to running image and video generation models locally on **AMD Strix Halo systems** (Ryzen AI Max+ 395, Radeon 8060S 40 CU, 256 GB/s unified memory).
-
-&gt; **Key difference from LLMs:** These models need GPU compute (not just memory bandwidth). The 8060S iGPU is roughly **RTX 4060 laptop** class in raw compute — capable but not a datacenter GPU. Generation times will be longer than cloud services, but you own the pipeline and pay $0 per image.
-
-**Runner: ComfyUI** is the standard for local image/video gen. Supports all these models via custom nodes. **Diffusers** (HuggingFace) for Python pipelines.
-
----
-
-## ⚡ Image Generation Models (Top Picks)
-
-### 1. **FLUX.1-dev** 🔥 *(Black Forest Labs)*
-
-| Metric | Value |
-|---|---|
-| **Architecture** | Rectified Flow Transformer (12B params) |
-| **Full FP16 size** | ~23 GB |
-| **FP8 / NF4 size** | ~14 GB / ~11 GB |
-| **Recommended VRAM** | **16+ GB** (FP8), **24 GB** (FP16) |
-| **Text encoder** | T5-XXL (~9 GB extra in VRAM!) + CLIP-L |
-| **Generation speed** | 30–90 sec/image (8060S, 20–50 steps) |
-| **Quality** | ⭐⭐⭐⭐⭐ — Current open-source king for photorealism |
-| **Best f</pre></div><div class="session-card"><h3>📄 Llm Models By Vram Tier</h3><p style="font-size:0.8rem;color:var(--text-muted);">llm-models-by-vram-tier.md</p><pre style="font-size:0.8rem;white-space:pre-wrap;margin-top:0.5rem;"># Local LLM Models for AI Mini PCs — Memory Tier Guide
-
-Comprehensive guide to running LLMs locally on AMD Strix Halo systems (Ryzen AI Max+ 395) with unified LPDDR5X-8000 memory at **256 GB/s bandwidth**. Covers the four key memory tiers: **32GB, 64GB, 96GB, and 128GB**.
-
-&gt; **Scope:** GGUF quantization via llama.cpp / Ollama / LM Studio. Vulkan/ROCm backend. All sizes approximate — actual GGUF files vary by tokenizer, vocabulary, and architecture.
-
----
-
-## ⚡ Quick Reference: Quantization Sizes
-
-| Quantization | Size Formula | Quality | Best For |
-|---|---|---|---|
-| **Q4_K_M** | ~0.55 GB per 1B params | Very good (95%+ of FP16) | Daily driver, best balance |
-| **Q5_K_M** | ~0.65 GB per 1B params | Excellent | When you have headroom |
-| **Q8_0** | ~1.0 GB per 1B params | Near-lossless | Critical tasks, math |
-| **IQ4_XS** | ~0.45 GB per 1B params | Good | Squeezing big models in |
-| **Q3_K_M** | ~0.42 GB per 1B params | Acceptable | Last resort for giants |
-| **IQ2_XXS** | ~0.28 GB per 1B params | Degraded | Extreme size reduction |
-
-### Memory Budget (per tier)
-
-| Total RAM | OS + Overhead | KV Cache (8K ctx) | **Usable for Model** |
-|---|---|---|---|
-| **32 GB** | 3 GB | 1–2 GB |</pre></div></div>
-</div>
-<footer>
-  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
-  Auto-generated: June 20, 2026 at 06:00 AM</p>
-</footer>
-<script>
-function doSearch(q) {
-  const res = document.getElementById('search-results');
-  if (!q || q.length < 2) { res.classList.remove('active'); return; }
-  fetch('..//search-index.json').then(r => r.json()).then(idx => {
-    const ql = q.toLowerCase();
-    const matches = idx.filter(item =>
-      item.title.toLowerCase().includes(ql) ||
-      (item.preview || '').toLowerCase().includes(ql) ||
-      (item.tags || []).some(t => t.toLowerCase().includes(ql))
-    ).slice(0, 8);
-    if (matches.length === 0) {
-      res.innerHTML = '<div class="no-results">No matches found</div>';
-    } else {
-      res.innerHTML = matches.map(m =>
-        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
-      ).join('');
-    }
-    res.classList.add('active');
-  });
+</nav><div class="container"><a href="../subjects/" class="back-link">&larr; All Subjects</a><div class="content-page subject-header"><h1>GPU & VRAM Supply Chain</h1><div style="margin-top:.5rem"><a href="../tags/hardware.html" class="tag">hardware</a> <a href="../tags/gpu.html" class="tag">GPU</a> <a href="../tags/supply-chain.html" class="tag">supply-chain</a> <a href="../tags/investing.html" class="tag">investing</a></div><p style="color:var(--text-muted);margin-top:.75rem">Raw materials for GPU/VRAM: silicon, rare earths, interconnects. Public companies: ASML, TSMC, Micron, Applied Materials, Lam Research, Entegris, NVIDIA, AMD.</p></div><div class="content-page"><h2>Vault Notes (0)</h2><p style=color:var(--text-muted)>No vault notes linked yet.</p><h2>Related Sessions (1)</h2><div class="session-card" id="2026-05-22"><div class="s-date">2026-05-22<span class="s-source"> via telegram</span></div><h3>AI Mini PCs Blog Post + GPU Supply Chain</h3><p>Draft 'Best Affordable AI Mini PCs of 2026': ASUS NUC 14, Geekom A8, Minisforum AtomMan X7 Ti (96GB), GMKtec K8 Plus, MSI Cubi. Published draft (ID 1159). GPU/VRAM supply chain: 60+ elements, key companies ASML, TSMC, Micron, Applied Materials, Lam Research, Entegris, NVDA, AMD.</p></div><div class="backlinks"><h2>🔗 Referenced By</h2><ul><li><a href="ai-mini-pcs.html">AI Mini PCs — Hardware Reviews</a></li><li><a href="local-llm-models.html">Local LLM Models — VRAM Tier Guide</a></li><li><a href="image-video-gen-models.html">Image & Video Generation — Local AI</a></li><li><a href="hermes-agent-setup.html">Hermes Agent Setup & Configuration</a></li></ul></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 20, 2026 at 09:00 AM</p></footer><script>
+var SI=[];
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{SI=idx});
+function doSearch(q){
+  var r=document.getElementById('search-results');
+  if(!q||q.length<2){r.classList.remove('active');return}
+  var ql=q.toLowerCase(), qw=ql.split(/\s+/);
+  var m=SI.filter(i=>{
+    var txt=(i.title+' '+(i.preview||'')+' '+(i.content||'')+' '+(i.tags||[]).join(' ')).toLowerCase();
+    return qw.every(w=>txt.includes(w));
+  }).slice(0,10);
+  if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+  else r.innerHTML=m.map(i=>{
+    var ctx='',c=(i.content||''),idx=c.toLowerCase().indexOf(ql);
+    if(idx>=0)ctx=c.substring(Math.max(0,idx-40),idx+80);
+    return '<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(ctx||(i.preview||'').substring(0,100))+'</div></a>';
+  }).join('');
+  r.classList.add('active');
 }
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
-});
-</script>
-</body>
-</html>
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
+</script></body></html>

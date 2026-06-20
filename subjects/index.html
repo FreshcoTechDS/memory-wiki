@@ -1,63 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>All Subjects — Memory Wiki</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<nav>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>All Subjects — Memory Wiki</title><link rel="stylesheet" href="../style.css"></head><body><nav>
   <span class="logo">🧠 Memory Wiki</span>
-  <a href="./">Home</a>
-  <a href="./subjects/">Subjects</a>
-  <a href="./daily/">Daily Logs</a>
+  <a href="../">Home</a>
+  <a href="../subjects/">Subjects</a>
+  <a href="../tags/">Tags</a>
+  <a href="../daily/">Daily</a>
   <div class="search-wrap">
-    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
+    <input type="text" id="search-input" placeholder="Full-text search..." oninput="doSearch(this.value)">
     <div class="search-results" id="search-results"></div>
   </div>
-</nav>
-<div class="container">
-<div class="hero"><h1>All Subjects</h1><p>9 topics — every conversation and note, organized by subject.</p></div>
-<div class="section-title">📚 Browse by Topic</div><div class="subject-grid"><a href="farmdirect.html" style="text-decoration:none">
-  <div class="subject-card"><h3>FarmDirect — Marketplace</h3><p>Farmer-to-consumer marketplace. Architecture, backend logic, GCP, Stripe, delivery.</p><div class="tags"><span class="tag">project</span><span class="tag">marketplace</span><span class="tag">agriculture</span></div><div class="meta"><span>📄 2 notes</span></div></div></a><a href="ai-mini-pcs.html" style="text-decoration:none">
-  <div class="subject-card"><h3>AI Mini PCs — Hardware Reviews</h3><p>Best affordable AI Mini PCs with NPUs. Reviews published on freshco.tech.</p><div class="tags"><span class="tag">hardware</span><span class="tag">AI</span><span class="tag">review</span></div><div class="meta"><span>📄 1 notes</span></div></div></a><a href="wordpress-blog.html" style="text-decoration:none">
-  <div class="subject-card"><h3>WordPress Blog Integration</h3><p>Connecting freshco.tech to Hermes for automated research→draft→publish.</p><div class="tags"><span class="tag">wordpress</span><span class="tag">blog</span><span class="tag">content</span></div><div class="meta"><span>📄 1 notes</span></div></div></a><a href="gpu-supply-chain.html" style="text-decoration:none">
-  <div class="subject-card"><h3>GPU & VRAM Supply Chain</h3><p>Raw materials for GPU/VRAM manufacturing and publicly traded companies.</p><div class="tags"><span class="tag">hardware</span><span class="tag">GPU</span><span class="tag">investing</span></div><div class="meta"><span>📄 2 notes</span></div></div></a><a href="hermes-setup.html" style="text-decoration:none">
-  <div class="subject-card"><h3>Hermes Agent Setup</h3><p>Telegram, GitHub, skills, Obsidian sync, email, gateway config.</p><div class="tags"><span class="tag">hermes</span><span class="tag">setup</span><span class="tag">infrastructure</span></div><div class="meta"><span>📄 2 notes</span></div></div></a><a href="context-engineering.html" style="text-decoration:none">
-  <div class="subject-card"><h3>Context Engineering</h3><p>Optimizing LLM prompts — giving AI the right info, wasting fewer tokens.</p><div class="tags"><span class="tag">AI</span><span class="tag">LLM</span><span class="tag">blog</span></div><div class="meta"><span>📄 1 notes</span></div></div></a><a href="digital-products.html" style="text-decoration:none">
-  <div class="subject-card"><h3>Digital Products & Marketing</h3><p>Top-selling digital products 2026, marketing strategy, monetization.</p><div class="tags"><span class="tag">digital-products</span><span class="tag">marketing</span></div><div class="meta"><span>📄 3 notes</span></div></div></a><a href="obsidian-sync.html" style="text-decoration:none">
-  <div class="subject-card"><h3>Obsidian Vault Sync</h3><p>Syncing vault across Linux, Windows (Syncthing), and NAS (tar-over-SSH).</p><div class="tags"><span class="tag">obsidian</span><span class="tag">sync</span></div><div class="meta"><span>📄 1 notes</span></div></div></a><a href="hostinger-email.html" style="text-decoration:none">
-  <div class="subject-card"><h3>Hostinger Email Setup</h3><p>Configuring skipclaw317@freshcoai.tech via Himalaya CLI.</p><div class="tags"><span class="tag">email</span><span class="tag">infrastructure</span></div><div class="meta"><span>📄 0 notes</span></div></div></a></div>
-<a href="./" class="back-link" style="display:inline-block;margin-top:2rem;">← Home</a></div>
-<footer>
-  <p>Memory Wiki — Knowledge base of conversations and work with Hermes Agent<br>
-  Auto-generated: June 20, 2026 at 06:00 AM</p>
-</footer>
-<script>
-function doSearch(q) {
-  const res = document.getElementById('search-results');
-  if (!q || q.length < 2) { res.classList.remove('active'); return; }
-  fetch('./search-index.json').then(r => r.json()).then(idx => {
-    const ql = q.toLowerCase();
-    const matches = idx.filter(item =>
-      item.title.toLowerCase().includes(ql) ||
-      (item.preview || '').toLowerCase().includes(ql) ||
-      (item.tags || []).some(t => t.toLowerCase().includes(ql))
-    ).slice(0, 8);
-    if (matches.length === 0) {
-      res.innerHTML = '<div class="no-results">No matches found</div>';
-    } else {
-      res.innerHTML = matches.map(m =>
-        `<a href="${m.url}"><div class="match-title">${m.title}</div><div class="match-preview">${(m.preview || '').substring(0, 100)}</div></a>`
-      ).join('');
-    }
-    res.classList.add('active');
-  });
+</nav><div class="container"><a href="../" class="back-link">&larr; Home</a><div class="content-page"><h1>All Subjects</h1><div class="subject-grid"><a href="ai-mini-pcs.html" style="text-decoration:none"><div class="subject-card"><h3>AI Mini PCs — Hardware Reviews</h3><p>AMD Ryzen AI mini PC reviews: Strix Halo (256 GB/s, soldered LPDDR5X up to 128GB) vs Strix Point (89 GB/s, upgradeable D...</p><div><a href="../tags/hardware.html" class="tag">hardware</a> <a href="../tags/ai.html" class="tag">AI</a> <a href="../tags/amd.html" class="tag">AMD</a></div></div></a><a href="local-llm-models.html" style="text-decoration:none"><div class="subject-card"><h3>Local LLM Models — VRAM Tier Guide</h3><p>Text LLMs on AI mini PCs at 32GB, 64GB, 96GB, 128GB unified memory. Llama 4 Scout (109B MoE, 18 t/s), DeepSeek R1, Qwen ...</p><div><a href="../tags/ai.html" class="tag">AI</a> <a href="../tags/llm.html" class="tag">LLM</a> <a href="../tags/local-ai.html" class="tag">local-ai</a></div></div></a><a href="image-video-gen-models.html" style="text-decoration:none"><div class="subject-card"><h3>Image & Video Generation — Local AI</h3><p>FLUX.1-dev (Midjourney-quality), Wan 2.2-14B (Sora-quality video), LTX-Video 2.3 (30-60s clips), SD 3.5, HunyuanVideo, C...</p><div><a href="../tags/ai.html" class="tag">AI</a> <a href="../tags/image-generation.html" class="tag">image-generation</a> <a href="../tags/video-generation.html" class="tag">video-generation</a></div></div></a><a href="gpu-supply-chain.html" style="text-decoration:none"><div class="subject-card"><h3>GPU & VRAM Supply Chain</h3><p>Raw materials for GPU/VRAM: silicon, rare earths, interconnects. Public companies: ASML, TSMC, Micron, Applied Materials...</p><div><a href="../tags/hardware.html" class="tag">hardware</a> <a href="../tags/gpu.html" class="tag">GPU</a> <a href="../tags/supply-chain.html" class="tag">supply-chain</a></div></div></a><a href="hermes-agent-setup.html" style="text-decoration:none"><div class="subject-card"><h3>Hermes Agent Setup & Configuration</h3><p>Telegram gateway, GitHub integration, skill management, model configuration, cron jobs, session management....</p><div><a href="../tags/hermes.html" class="tag">hermes</a> <a href="../tags/setup.html" class="tag">setup</a> <a href="../tags/telegram.html" class="tag">telegram</a></div></div></a><a href="memory-os.html" style="text-decoration:none"><div class="subject-card"><h3>Memory OS — Agent Memory Stack</h3><p>MIT-licensed 6-layer open-source memory stack for Hermes Agent: Workspace, Sessions, Structured Facts, Fabric, Qdrant ve...</p><div><a href="../tags/hermes.html" class="tag">hermes</a> <a href="../tags/memory.html" class="tag">memory</a> <a href="../tags/open-source.html" class="tag">open-source</a></div></div></a><a href="blog-content.html" style="text-decoration:none"><div class="subject-card"><h3>Blog Content & WordPress Publishing</h3><p>SEO/GEO-optimized blog posts: AI mini PCs, context engineering, local AI guides. WordPress publishing workflow and draft...</p><div><a href="../tags/blog.html" class="tag">blog</a> <a href="../tags/wordpress.html" class="tag">WordPress</a> <a href="../tags/seo.html" class="tag">SEO</a></div></div></a><a href="sessions-archive.html" style="text-decoration:none"><div class="subject-card"><h3>Session Archives</h3><p>Complete archive of all research sessions, daily logs, and knowledge consolidation across projects....</p><div><a href="../tags/archive.html" class="tag">archive</a> <a href="../tags/sessions.html" class="tag">sessions</a> <a href="../tags/daily-logs.html" class="tag">daily-logs</a></div></div></a></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 20, 2026 at 09:00 AM</p></footer><script>
+var SI=[];
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{SI=idx});
+function doSearch(q){
+  var r=document.getElementById('search-results');
+  if(!q||q.length<2){r.classList.remove('active');return}
+  var ql=q.toLowerCase(), qw=ql.split(/\s+/);
+  var m=SI.filter(i=>{
+    var txt=(i.title+' '+(i.preview||'')+' '+(i.content||'')+' '+(i.tags||[]).join(' ')).toLowerCase();
+    return qw.every(w=>txt.includes(w));
+  }).slice(0,10);
+  if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+  else r.innerHTML=m.map(i=>{
+    var ctx='',c=(i.content||''),idx=c.toLowerCase().indexOf(ql);
+    if(idx>=0)ctx=c.substring(Math.max(0,idx-40),idx+80);
+    return '<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(ctx||(i.preview||'').substring(0,100))+'</div></a>';
+  }).join('');
+  r.classList.add('active');
 }
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.search-wrap')) document.getElementById('search-results').classList.remove('active');
-});
-</script>
-</body>
-</html>
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
+</script></body></html>

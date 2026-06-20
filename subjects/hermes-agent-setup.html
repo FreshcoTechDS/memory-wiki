@@ -2,70 +2,135 @@
   <span class="logo">🧠 Memory Wiki</span>
   <a href="../">Home</a>
   <a href="../subjects/">Subjects</a>
+  <a href="../tags/">Tags</a>
   <a href="../daily/">Daily</a>
   <div class="search-wrap">
-    <input type="text" id="search-input" placeholder="Search..." oninput="doSearch(this.value)">
+    <input type="text" id="search-input" placeholder="Full-text search..." oninput="doSearch(this.value)">
     <div class="search-results" id="search-results"></div>
   </div>
-</nav><div class="container"><a href="../subjects/" class="back-link">&larr; All Subjects</a><div class="content-page subject-header"><h1>Hermes Agent Setup & Configuration</h1><div style="margin-top:.5rem"><span class="tag">hermes</span> <span class="tag">setup</span> <span class="tag">telegram</span> <span class="tag">github</span></div><p style="color:var(--text-muted);margin-top:.75rem">Telegram gateway, GitHub integration (PAT, git credential), skill management, model configuration, cron jobs, session management.</p></div><div class="content-page"><h2>Vault Notes (4)</h2><div class="session-card"><h3>How to Setup WordPress with Hermes</h3><p style="font-size:.8rem;color:var(--text-muted)">how to setup WordPress with Hermes.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
-# How to Setup WordPress with Hermes
-
+</nav><div class="container"><a href="../subjects/" class="back-link">&larr; All Subjects</a><div class="content-page subject-header"><h1>Hermes Agent Setup & Configuration</h1><div style="margin-top:.5rem"><a href="../tags/hermes.html" class="tag">hermes</a> <a href="../tags/setup.html" class="tag">setup</a> <a href="../tags/telegram.html" class="tag">telegram</a> <a href="../tags/github.html" class="tag">github</a></div><p style="color:var(--text-muted);margin-top:.75rem">Telegram gateway, GitHub integration, skill management, model configuration, cron jobs, session management.</p></div><div class="content-page"><nav class="toc"><h3>📑 On This Page</h3><ul><li><a href="#how-to-setup-wordpress-with-hermes">How to Setup WordPress with Hermes</a></li><li style="padding-left:1.25rem"><a href="#phase-1-enable-wordpress-rest-api">Phase 1 — Enable WordPress REST API</a></li><li style="padding-left:1.25rem"><a href="#phase-2-store-credentials">Phase 2 — Store Credentials</a></li><li style="padding-left:1.25rem"><a href="#phase-3-blog-post-workflow-4-stage-pipeline">Phase 3 — Blog Post Workflow (4-Stage Pipeline)</a></li><li style="padding-left:2.5rem"><a href="#1-research">1. Research</a></li><li style="padding-left:2.5rem"><a href="#2-outline">2. Outline</a></li><li style="padding-left:2.5rem"><a href="#3-draft">3. Draft</a></li><li style="padding-left:2.5rem"><a href="#4-publish">4. Publish</a></li><li style="padding-left:1.25rem"><a href="#active-configuration">✅ Active Configuration</a></li><li style="padding-left:2.5rem"><a href="#quick-test-command">Quick Test Command</a></li><li style="padding-left:2.5rem"><a href="#publishing-a-post-to-live">Publishing a Post to Live</a></li><li style="padding-left:1.25rem"><a href="#pending-configuration">Pending Configuration</a></li><li style="padding-left:1.25rem"><a href="#optional-future-automations">Optional Future Automations</a></li><li style="padding-left:1.25rem"><a href="#1-system-persona-core-objective">1. System Persona & Core Objective</a></li><li style="padding-left:1.25rem"><a href="#2-orchestrator-master-planning-protocol-phase-i">2. Orchestrator Master Planning Protocol (Phase I)</a></li><li style="padding-left:1.25rem"><a href="#3-sub-agent-delegation-task-scoping-framework">3. Sub-Agent Delegation & Task-Scoping Framework</a></li><li style="padding-left:2.5rem"><a href="#3-1-front-end-sub-agent-profile">3.1 Front-End Sub-Agent Profile</a></li><li style="padding-left:2.5rem"><a href="#3-2-back-end-sub-agent-profile">3.2 Back-End Sub-Agent Profile</a></li><li style="padding-left:2.5rem"><a href="#3-3-qa-testing-sub-agent-profile">3.3 QA/Testing Sub-Agent Profile</a></li><li style="padding-left:1.25rem"><a href="#4-multi-agent-handshake-verification-protocol">4. Multi-Agent Handshake & Verification Protocol</a></li><li><a href="#memory-os-a-6-layer-open-source-memory-stack-for-hermes-agent">Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent</a></li><li style="padding-left:1.25rem"><a href="#overview">Overview</a></li><li style="padding-left:1.25rem"><a href="#the-six-layers">The Six Layers</a></li><li style="padding-left:1.25rem"><a href="#retrieval-flow">Retrieval Flow</a></li><li style="padding-left:1.25rem"><a href="#fallback-cascade-cleanup">Fallback Cascade & Cleanup</a></li><li style="padding-left:1.25rem"><a href="#local-first-architecture">Local-First Architecture</a></li><li style="padding-left:1.25rem"><a href="#strengths">Strengths</a></li><li style="padding-left:1.25rem"><a href="#limitations">Limitations</a></li><li style="padding-left:1.25rem"><a href="#key-takeaways">Key Takeaways</a></li><li style="padding-left:1.25rem"><a href="#related-notes">Related Notes</a></li><li style="padding-left:1.25rem"><a href="#tags">Tags</a></li><li><a href="#agentic-ai-research-product-affiliate-opportunities">Agentic AI Research: Product & Affiliate Opportunities</a></li><li style="padding-left:1.25rem"><a href="#market-pain-point">Market Pain Point</a></li><li style="padding-left:1.25rem"><a href="#high-value-how-to-e-book-topics">High-Value "How-To" E-Book Topics</a></li><li style="padding-left:1.25rem"><a href="#high-authority-affiliate-sources">High-Authority Affiliate Sources</a></li></ul></nav><h2>Vault Notes (4)</h2><div class="session-card"><h3>How to Setup WordPress with Hermes</h3><p style="font-size:.8rem;color:var(--text-muted)">how to setup WordPress with Hermes.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>How to Setup WordPress with Hermes</h1>
+<br>
 Blueprint for connecting Hermes Agent to a WordPress blog (e.g., Hostinger-hosted) to research topics and write/publish posts autonomously.
-
----
-
-## Phase 1 — Enable WordPress REST API
-
+<br>
+<li>--</li>
+<br>
+<h2 id="phase-1-enable-wordpress-rest-api">Phase 1 — Enable WordPress REST API</h2>
+<br>
 On the WordPress side:
-
-1. **Confirm your site URL** — you'll need it for all API calls
-2. **Generate an Application Password**:
+<br>
+1. &lt;strong&gt;Confirm your site URL&lt;/strong&gt; — you'll need it for all API calls
+2. &lt;strong&gt;Generate an Application Password&lt;/strong&gt;:
    - Go to WP Admin → Users → Profile → Application Passwords
-   - Enter a name (e.g., "Hermes Agent") and click **Add New**
+   - Enter a name (e.g., "Hermes Agent") and click &lt;strong&gt;Add New&lt;/strong&gt;
    - Save the generated password — it only shows once
-   - *No plugin needed — Application Passwords are a WordPress core feature and work on Hostinger out of the box*
-3. **Verify the REST API** works by visiting: `https://yourdomain.com/wp-json/wp/v2/posts`
-4. **Check Permalinks** — ensure they are *not* set to "Plain"</pre></div><div class="session-card"><h3>1. System Persona & Core Objective</h3><p style="font-size:.8rem;color:var(--text-muted)">Agent Skill Profile Master Multi-Agent Application Architect.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
+   - &lt;em&gt;No plugin needed — Application Passwords are a WordPress core feature and work on Hostinger out of the box&lt;/em&gt;
+3. &lt;strong&gt;Verify the REST API&lt;/strong&gt; works by visiting: &lt;code&gt;https://yourdomain.com/wp-json/wp/v2/posts&lt;/code&gt;
+4. &lt;strong&gt;Check Permalinks&lt;/strong&gt; — ensure they are &lt;em&gt;not&lt;/em&gt; set to "Plain" in Settings → Permalinks (or the REST API will return 404)
+<br>
+<li>--</li>
+<br>
+<h2 id="phase-2-store-credentials">Phase 2 — Store Credentials</h2>
+<br>
+Store credentials in &lt;code&gt;~/.hermes/.env&lt;/code&gt;:
+<br>
+<pre>
+WORDPRESS_SITE_URL=https://yourdomain.com
+WORDPRESS_USERNAME=admin
+WORDPRESS_APP_PASSWORD=xxxx xxxx xxxx xxxx xxxx xxxx
+</pre>
+<br>
+&lt;strong&gt;Auth method:&lt;/strong&gt; HTTP Basic Auth with &lt;code&gt;username:application-password&lt;/code&gt; base64-encoded.
+<br>
+<li>--</li>
+<br>
+<h2 id="phase-3-blog-post-workflow-4-stage-pipeline">Phase 3 — Blog Post Workflow (4-Stage Pipeline)</h2>
+<br>
+<h3 id="1-research">1. Research</h3>
+<li>Hermes performs web searches on the chosen topic</li>
+<li>Findings are compiled into the llm-wiki</li>
+<li>A research summary is presented to the user</li>
+<br>
+<h3 id="2-outline">2. Outline</h3>
+<li>Hermes proposes a post structure (headings, key points, flow)</li>
+<li>User reviews and approves before drafting</li>
+<br>
+<h3 id="3">3.</h3></div></div><div class="session-card"><h3>1. System Persona & Core Objective</h3><p style="font-size:.8rem;color:var(--text-muted)">Agent Skill Profile Master Multi-Agent Application Architect.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
 Agent Skill Profile: Master Multi-Agent Application Architect
-**ID:** `master_architect_orchestrator`  
-**Target Architecture:** Optimized for Hierarchical Multi-Agent Execution Systems (e.g., Hermes Agent, OpenClaw).
-
----
-
-## 1. System Persona & Core Objective
-[cite_start]The agent acts as the Lead Software Architect and Multi-Agent Orchestrator[cite: 3]. [cite_start]Its primary objective is to transform application concepts into stable, secure, and scalable software blueprints [cite: 4][cite_start], design the complete technical workflow[cite: 5], and explicitly delegate execution boundaries to specialized sub-agents. [cite_start]This orchestration eliminates structural fragmentation, prevents production critical bugs [cite: 4][cite_start], and enforces strict organization-wide engineer</pre></div><div class="session-card"><h3>Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent</h3><p style="font-size:.8rem;color:var(--text-muted)">Memory OS - 6-Layer Open-Source Memory Stack for Hermes Agent.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
-# Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent
-
-**Source:** [MarkTechPost — June 1, 2026](https://www.marktechpost.com/2026/06/01/meet-memory-os-a-6-layer-open-source-memory-stack-built-on-top-of-hermes-agent/)  
-**Author:** Michal Sutter  
-**Repository:** [ClaudioDrews/Memory-OS](https://github.com/ClaudioDrews/Memory-OS) (MIT License)  
-**Developer:** Claudio Drews (@ClaudioDrews25)
-
-## Overview
-
-Hermes Agent already remembers across sessions with curated memory files and full-text session search. But a new community project — **Memory OS** — argues built-in memory is too shallow for serious work. It stacks **six memory layers** onto Hermes, adding a vector database, structured facts, and an auto-curated knowledge wiki.
-
-Memory OS is not a Hermes plugin you toggle on.</pre></div><div class="session-card"><h3>Agentic AI Research: Product & Affiliate Opportunities</h3><p style="font-size:.8rem;color:var(--text-muted)">queries/research-domain-agentic-ai.md</p><pre style="font-size:.8rem;white-space:pre-wrap;margin-top:.5rem">
-# Agentic AI Research: Product & Affiliate Opportunities
-
-## Market Pain Point
+&lt;strong&gt;ID:&lt;/strong&gt; &lt;code&gt;master_architect_orchestrator&lt;/code&gt;  
+&lt;strong&gt;Target Architecture:&lt;/strong&gt; Optimized for Hierarchical Multi-Agent Execution Systems (e.g., Hermes Agent, OpenClaw).
+<br>
+<li>--</li>
+<br>
+<h2 id="1-system-persona-core-objective">1. System Persona & Core Objective</h2>
+[cite_start]The agent acts as the Lead Software Architect and Multi-Agent Orchestrator[cite: 3]. [cite_start]Its primary objective is to transform application concepts into stable, secure, and scalable software blueprints [cite: 4][cite_start], design the complete technical workflow[cite: 5], and explicitly delegate execution boundaries to specialized sub-agents. [cite_start]This orchestration eliminates structural fragmentation, prevents production critical bugs [cite: 4][cite_start], and enforces strict organization-wide engineering standards[cite: 20, 84].
+<br>
+<li>--</li>
+<br>
+<h2 id="2-orchestrator-master-planning-protocol-phase-i">2. Orchestrator Master Planning Protocol (Phase I)</h2>
+Before delegating any code generation tasks, the Master Architect agent must execute the following analytical steps:
+<br>
+* [cite_start]&lt;strong&gt;Establish Foundation Constraints:&lt;/strong&gt; Mandate a standard directory layout using native IDE structures or corporate templates, archetypes, scaffolders, and smart projects[cite: 8, 50, 51]. 
+* [cite_start]&lt;strong&gt;Enforce Structural Decoupling:&lt;/strong&gt; Establish strict separation of concerns and encapsulation rules to guarantee functionality is isolated into modular, reusable blocks, proactively mitigating technical debt[cite: 10, 11, 85].
+* [cite_start]&lt;strong&gt;Map System Topography:&lt;/strong&gt; For web o</div></div><div class="session-card"><h3>Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent</h3><p style="font-size:.8rem;color:var(--text-muted)">Memory OS - 6-Layer Open-Source Memory Stack for Hermes Agent.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>Memory OS — A 6-Layer Open-Source Memory Stack for Hermes Agent</h1>
+<br>
+&lt;strong&gt;Source:&lt;/strong&gt; [MarkTechPost — June 1, 2026](https://www.marktechpost.com/2026/06/01/meet-memory-os-a-6-layer-open-source-memory-stack-built-on-top-of-hermes-agent/)  
+&lt;strong&gt;Author:&lt;/strong&gt; Michal Sutter  
+&lt;strong&gt;Repository:&lt;/strong&gt; [ClaudioDrews/Memory-OS](https://github.com/ClaudioDrews/Memory-OS) (MIT License)  
+&lt;strong&gt;Developer:&lt;/strong&gt; Claudio Drews (@ClaudioDrews25)
+<br>
+<h2 id="overview">Overview</h2>
+<br>
+Hermes Agent already remembers across sessions with curated memory files and full-text session search. But a new community project — &lt;strong&gt;Memory OS&lt;/strong&gt; — argues built-in memory is too shallow for serious work. It stacks &lt;strong&gt;six memory layers&lt;/strong&gt; onto Hermes, adding a vector database, structured facts, and an auto-curated knowledge wiki.
+<br>
+Memory OS is not a Hermes plugin you toggle on. It's a &lt;strong&gt;layered system that sits beside Hermes Agent's own memory&lt;/strong&gt;, keeping the built-in layers and adding four more above them. The full stack runs locally using Docker, Qdrant, Redis, and Python 3.11+.
+<br>
+<h2 id="the-six-layers">The Six Layers</h2>
+<br>
+| Layer | Name | Description |
+|-------|------|-------------|
+| 1 | **Workspace** | Holds `MEMORY.md`, `USER.md`, `CREATIVE.md` — injected into system prompt each turn |
+| 2 | **Sessions** | `state.db` — SQLite with FTS5 full-text search across conversation history |
+| 3 | **Structured Facts** | `memory_store.db` — SQLite with HRR, FTS5, and trust scoring; feedback loop adjusts trust scores over time; entity resolution included |
+| 4 | **Fabric** | Heavily forked versi</div></div><div class="session-card"><h3>Agentic AI Research: Product & Affiliate Opportunities</h3><p style="font-size:.8rem;color:var(--text-muted)">queries/research-domain-agentic-ai.md</p><div style="font-size:.85rem;margin-top:.5rem"><br>
+<h1>Agentic AI Research: Product & Affiliate Opportunities</h1>
+<br>
+<h2 id="market-pain-point">Market Pain Point</h2>
 The primary market gap is the "Integration Gap": users understand AI tools exist but struggle to chain them into autonomous, reliable business processes.
-
-## High-Value "How-To" E-Book Topics
-1. **The Autonomous Stack**: Building AI agents for Customer Support & Lead Gen.
-   - *Target:* Small businesses needing low-code automation.
-2. **Agentic Workflows**: A blueprint for automating SaaS operations.
-   - *Target:* SaaS operators struggling with manual data reporting.
-3. **From Prompt to Process**: Mastering multi-agent orchestration.
-   - *Target:* Advanced users ready for swarm/multi-agent architectures (e.g., CrewAI, LangGraph).
-
-## High-Authority Affiliate Sources
-- **Make.com**: Visual workflow automation </pre></div><h2>Related Sessions (0)</h2><p style=color:var(--text-muted)>No sessions recorded yet.</p></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 19, 2026 at 03:12 AM</p></footer><script>
-function doSearch(q){var r=document.getElementById('search-results');if(!q||q.length<2){r.classList.remove('active');return}
-fetch('../search-index.json').then(x=>x.json()).then(idx=>{var ql=q.toLowerCase();
-var m=idx.filter(i=>i.title.toLowerCase().includes(ql)||(i.preview||'').toLowerCase().includes(ql)||(i.tags||[]).some(t=>t.toLowerCase().includes(ql))).slice(0,8);
-if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
-else r.innerHTML=m.map(i=>'<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(i.preview||'').substring(0,100)+'</div></a>').join('');
-r.classList.add('active')})}
+<br>
+<h2 id="high-value-how-to-e-book-topics">High-Value "How-To" E-Book Topics</h2>
+1. &lt;strong&gt;The Autonomous Stack&lt;/strong&gt;: Building AI agents for Customer Support & Lead Gen.
+   - &lt;em&gt;Target:&lt;/em&gt; Small businesses needing low-code automation.
+2. &lt;strong&gt;Agentic Workflows&lt;/strong&gt;: A blueprint for automating SaaS operations.
+   - &lt;em&gt;Target:&lt;/em&gt; SaaS operators struggling with manual data reporting.
+3. &lt;strong&gt;From Prompt to Process&lt;/strong&gt;: Mastering multi-agent orchestration.
+   - &lt;em&gt;Target:&lt;/em&gt; Advanced users ready for swarm/multi-agent architectures (e.g., CrewAI, LangGraph).
+<br>
+<h2 id="high-authority-affiliate-sources">High-Authority Affiliate Sources</h2>
+<li>**Make.com**: Visual workflow automation market leader.</li>
+<li>**CrewAI**: Framework for multi-agent systems.</li>
+<li>**Anthropic (Claude)**: Best-in-class reasoning engine for agent tasks.</li>
+<li>**Zapier**: Enterprise-grade app integration.</li>
+<li>**DeepLearning.AI**: High-authority educational source for AI certification.</li>
+<br></div></div><h2>Related Sessions (0)</h2><p style=color:var(--text-muted)>No sessions recorded yet.</p><div class="backlinks"><h2>🔗 Referenced By</h2><ul><li><a href="ai-mini-pcs.html">AI Mini PCs — Hardware Reviews</a></li><li><a href="local-llm-models.html">Local LLM Models — VRAM Tier Guide</a></li><li><a href="image-video-gen-models.html">Image & Video Generation — Local AI</a></li><li><a href="memory-os.html">Memory OS — Agent Memory Stack</a></li></ul></div></div></div><footer><p>Memory Wiki &mdash; Knowledge base of conversations and work with Hermes Agent<br>Last updated: June 20, 2026 at 09:00 AM</p></footer><script>
+var SI=[];
+fetch('../search-index.json').then(x=>x.json()).then(idx=>{SI=idx});
+function doSearch(q){
+  var r=document.getElementById('search-results');
+  if(!q||q.length<2){r.classList.remove('active');return}
+  var ql=q.toLowerCase(), qw=ql.split(/\s+/);
+  var m=SI.filter(i=>{
+    var txt=(i.title+' '+(i.preview||'')+' '+(i.content||'')+' '+(i.tags||[]).join(' ')).toLowerCase();
+    return qw.every(w=>txt.includes(w));
+  }).slice(0,10);
+  if(m.length===0)r.innerHTML='<div class="no-results">No matches</div>';
+  else r.innerHTML=m.map(i=>{
+    var ctx='',c=(i.content||''),idx=c.toLowerCase().indexOf(ql);
+    if(idx>=0)ctx=c.substring(Math.max(0,idx-40),idx+80);
+    return '<a href="'+i.url+'"><div class="match-title">'+i.title+'</div><div class="match-preview">'+(ctx||(i.preview||'').substring(0,100))+'</div></a>';
+  }).join('');
+  r.classList.add('active');
+}
 document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('search-results').classList.remove('active')});
 </script></body></html>
