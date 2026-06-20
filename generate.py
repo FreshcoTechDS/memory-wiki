@@ -23,6 +23,8 @@ session_summaries = {
         "summary": "Draft 'Best Affordable AI Mini PCs of 2026': ASUS NUC 14, Geekom A8, Minisforum AtomMan X7 Ti (96GB), GMKtec K8 Plus, MSI Cubi. Published draft (ID 1159). GPU/VRAM supply chain: 60+ elements, key companies ASML, TSMC, Micron, Applied Materials, Lam Research, Entegris, NVDA, AMD."},
     "2026-06-02": {"title": "Memory OS Stack for Hermes Agent", "date": "2026-06-02", "source": "telegram",
         "summary": "Researched Memory OS: MIT-licensed 6-layer memory stack. Layers: Workspace, Sessions, Structured Facts, Fabric (16 tools), Qdrant vector DB (4096d), LLM Wiki. Features 4-level fallback cascade, social-closer filter, weekly decay scanner."},
+    "2026-06-18-pm": {"title": "Memory Wiki v2 Rebuild — Full-Text Search, Tags, Backlinks", "date": "2026-06-18", "source": "telegram",
+        "summary": "Rebuilt memory-wiki with 4 new features: full-text search scanning vault note bodies, clickable tag pages (43 tags with tag cloud), backlinks showing cross-references between subjects, and restored daily session archive on home page. Removed TOC from subject pages. Added subjects: Local LLM Models, Image & Video Gen, Memory OS, Blog Content. 8 subjects, 6 daily logs, 43 tag pages deployed."},
     "2026-05-20": {"title": "Local AI Hardware & Context Engineering Blog", "date": "2026-05-20", "source": "telegram",
         "summary": "Context Engineering for LLMs blog post (1,813 words, ID 1166). Minisforum AtomMan X7 Ti (96GB) best for local LLMs. Created SEO/GEO blog writing skill. Email via Himalaya CLI."},
 }
