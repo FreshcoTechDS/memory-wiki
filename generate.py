@@ -299,7 +299,7 @@ def generate():
     for sid, sess in sorted(session_summaries.items(), key=lambda x: x[1]["date"], reverse=True)[:6]:
         daily_p += f'<a href="daily/{sess["date"]}.html#{sid}" style="text-decoration:none"><div class="daily-entry"><div class="date">{sess["date"]}</div><h3>{sess["title"]}</h3><p>{sess["summary"][:120]}...</p></div></a>'
 
-    home = page_head("Memory Wiki", "") + f'<div class="hero"><h1>Memory Wiki</h1><p>Every subject we\'ve explored, every day we\'ve worked together \u2014 searchable and organized.</p></div><div class="section-title">Subjects <a href="subjects/" style="font-size:.8rem;font-weight:400;margin-left:.5rem">View all</a></div><div class="subject-grid">{cards}</div>' + page_foot("")
+    home = page_head("Memory Wiki", "") + f'<div class="hero"><h1>Memory Wiki</h1><p>Every subject we\'ve explored, every day we\'ve worked together \u2014 searchable and organized.</p></div><div class="section-title">Subjects <a href="subjects/" style="font-size:.8rem;font-weight:400;margin-left:.5rem">View all</a></div><div class="subject-grid">{cards}</div><div class="section-title">Recent Sessions <a href="daily/" style="font-size:.8rem;font-weight:400;margin-left:.5rem">View all</a></div><div class="daily-list">{daily_p}</div>' + page_foot("")
     with open(f"{OUTPUT}/index.html", "w") as f: f.write(home)
 
     # --- SUBJECT PAGES (with TOC + backlinks + clickable tags) ---
